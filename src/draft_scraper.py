@@ -2,7 +2,7 @@ import logging
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Comment
 import pandas as pd
 import time
 
@@ -75,7 +75,6 @@ def normalize_pos(pos):
 
 
 def scrape_player_page(player_url):
-    """Scrape dominant hand, NBA relatives count, seasons, and last-season college stats."""
     logger.debug(f"Scraping player page: {player_url}")
     soup = get_soup(player_url)
     if soup is None:
@@ -97,15 +96,35 @@ def scrape_player_page(player_url):
                 relatives = len(p.find_all('a'))
             break
 
-    # College per-game stats
-    col_table = soup.find('table', id='per_game-college')
+    # Search in visible content
+    col_table = soup.find('table', id='per_game-college') or soup.find('table', id='all_college_stats')
+
+    # If not found, search in comments
+    if not col_table:
+        comments = soup.find_all(string=lambda text: isinstance(text, Comment))
+        for comment in comments:
+            comment_soup = BeautifulSoup(comment, 'html.parser')
+            col_table = (
+                comment_soup.find('table', id='per_game-college') or
+                comment_soup.find('table', id='all_college_stats')
+            )
+            if col_table:
+                break
+
     if col_table:
-        rows = [r for r in col_table.find('tbody').find_all('tr') if 'class' not in r.attrs]
-        seasons = len(rows)
+        rows = col_table.find('tbody').find_all('tr')
+        rows = [r for r in rows if not r.get('class') or 'thead' not in r.get('class')]
+        if not rows:
+            logger.warning(f"Empty college stats table on: {player_url}")
+            return shoots, relatives, 0, {}
+
         last = rows[-1]
+        seasons = len(rows)
+
         def get_stat(stat):
             cell = last.find('td', {'data-stat': stat})
-            return cell.text if cell else None
+            return cell.text.strip() if cell else None
+
         last_stats = {
             'G': get_stat('g'),
             'MP': get_stat('mp_per_g'),
@@ -127,34 +146,54 @@ def scrape_player_page(player_url):
             'PF': get_stat('pf_per_g'),
             'PTS': get_stat('pts_per_g'),
         }
+
+        # Fallback if per-game is missing
+        if not last_stats['MP'] and get_stat('mp'):
+            last_stats.update({
+                'MP': get_stat('mp'),
+                'FG': get_stat('fg'),
+                'FGA': get_stat('fga'),
+                '3P': get_stat('fg3'),
+                '3PA': get_stat('fg3a'),
+                'FT': get_stat('ft'),
+                'FTA': get_stat('fta'),
+                'ORB': get_stat('orb'),
+                'TRB': get_stat('trb'),
+                'AST': get_stat('ast'),
+                'STL': get_stat('stl'),
+                'BLK': get_stat('blk'),
+                'TOV': get_stat('tov'),
+                'PF': get_stat('pf'),
+                'PTS': get_stat('pts'),
+            })
     else:
-        seasons = 0
-        last_stats = {}
-        logger.warning(f"No per_game-college table found on player page: {player_url}")
+        logger.warning(f"No college stats table found on player page: {player_url}")
+        return shoots, relatives, 0, {}
 
     return shoots, relatives, seasons, last_stats
 
 
-def scrape_draft_year(year: int):
-    """Scrape draft prospects for a given year; skip on 429 errors."""
+
+
+def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool:
+    """Scrape draft prospects for a given year; append to CSV immediately."""
     logger.info(f"Scraping draft year {year}")
 
     url = f"{BASE_URL}/draft/NBA_{year}.html"
     soup = get_soup(url)
     if soup is None:
         logger.warning(f"Skipping draft year {year} due to 429 error")
-        return []
+        return header_written
 
     table = soup.find('table', id='stats')
     if not table:
         logger.error(f"No draft table found for {year}")
-        return []
+        return header_written
 
     def get_cell(row, stat: str):
         cell = row.find('td', {'data-stat': stat})
         return cell.text.strip() if cell else None
 
-    data = []
     for row in table.find('tbody').find_all('tr'):
         if row.get('class') and 'thead' in row.get('class'):
             continue
@@ -168,10 +207,18 @@ def scrape_draft_year(year: int):
         height  = get_cell(row, 'height')
         weight  = get_cell(row, 'weight')
 
-        rel_url = row.find('td', {'data-stat': 'player'}).find('a')['href']
+        player_td = row.find('td', {'data-stat': 'player'})
+        a_tag = player_td.find('a') if player_td else None
+        if not a_tag:
+            logger.info(f"Skipping {name or 'Unnamed'} – no player link")
+            continue
+
+        rel_url = a_tag['href']
         full_url = BASE_URL + rel_url
         shoots, relatives, seasons, stats = scrape_player_page(full_url)
-        if shoots is None and relatives == 0 and seasons == 0 and not stats:
+
+        if not stats:
+            logger.info(f"Skipping {name} – no college stats")
             continue
 
         record = {
@@ -187,26 +234,27 @@ def scrape_draft_year(year: int):
             'NBA Relatives': relatives,
             'Seasons Played (College)': seasons,
             'POS': normalize_pos(pos) if pos else None,
+            'MPG': stats.get('MP'),
+            'PPG': stats.get('PTS'),
+            'RPG': stats.get('TRB'),
+            'APG': stats.get('AST'),
         }
         record.update(stats)
-        record['MPG'] = stats.get('MP')
-        record['PPG'] = stats.get('PTS')
-        record['RPG'] = stats.get('TRB')
-        record['APG'] = stats.get('AST')
 
-        data.append(record)
+        df = pd.DataFrame([record])
+        df.to_csv(output_file, mode='a', header=not header_written, index=False)
+        header_written = True
 
-    logger.info(f"Year {year}: scraped {len(data)} players")
-    return data
+    logger.info(f"Finished writing data for {year}")
+    return header_written
 
 
 def main():
-    all_data = []
+    output_file = 'draft_prospects_2010_2022.csv'
+    header_written = False
+
     for yr in range(2010, 2023):
-        all_data.extend(scrape_draft_year(yr))
-    df = pd.DataFrame(all_data)
-    df.to_csv('draft_prospects_2010_2022.csv', index=False)
-    logger.info("Saved data to draft_prospects_2010_2022.csv")
+        header_written = scrape_draft_year(yr, output_file, header_written)
 
 
 if __name__ == "__main__":

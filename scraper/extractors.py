@@ -1,6 +1,10 @@
 import re
+from bs4 import BeautifulSoup
 
 def extract_height_weight(soup):
+    """
+    Look for "(###cm, ##kg)" text and return height (cm) and weight (kg).
+    """
     text = soup.get_text()
     match = re.search(r'\((\d{3})cm,\s*(\d{2,3})kg\)', text)
     if match:
@@ -8,31 +12,37 @@ def extract_height_weight(soup):
     return 0, 0
 
 def extract_sr_cbb_link(soup):
+    """
+    Find "More College Stats on SR/CBB" link and return base URL (no query params).
+    """
     anchor = soup.find('a', string=lambda text: text and 'More College Stats on SR/CBB' in text)
     if anchor and 'href' in anchor.attrs:
         return anchor['href'].split('?')[0]
     return None
 
 def get_stat(row, stat):
+    """
+    Given a <tr> row and a data-stat name, return float value or 0.0.
+    """
     cell = row.find('td', {'data-stat': stat})
     return float(cell.text.strip()) if cell and cell.text.strip() else 0.0
 
 def get_advanced_stats(soup):
+    """
+    Parse the last row of the "players_advanced" table and return a dict of advanced stats.
+    """
     table = soup.find('table', id='players_advanced')
     if not table:
         return {}
-
     rows = table.find('tbody').find_all('tr')
+    # filter out header rows
     rows = [r for r in rows if not r.get('class') or 'thead' not in r.get('class')]
     if not rows:
         return {}
-
     last_row = rows[-1]
-
     def adv_stat(stat):
         cell = last_row.find('td', {'data-stat': stat})
         return float(cell.text.strip()) if cell and cell.text.strip() else 0.0
-
     return {
         'PER': adv_stat('per'),
         'TS%': adv_stat('ts_pct'),
@@ -57,21 +67,20 @@ def get_advanced_stats(soup):
     }
 
 def get_per40_stats(soup):
+    """
+    Parse the last row of the "players_per_min" table and return per-40-minute stats.
+    """
     table = soup.find('table', id='players_per_min')
     if not table:
         return {}
-
     rows = table.find('tbody').find_all('tr')
     rows = [r for r in rows if not r.get('class') or 'thead' not in r.get('class')]
     if not rows:
         return {}
-
     last_row = rows[-1]
-
     def per40(stat):
         cell = last_row.find('td', {'data-stat': stat})
         return float(cell.text.strip()) if cell and cell.text.strip() else 0.0
-
     return {
         'FG/40': per40('fg_per_min'),
         'FGA/40': per40('fga_per_min'),
@@ -87,25 +96,24 @@ def get_per40_stats(soup):
         'BLK/40': per40('blk_per_min'),
         'TOV/40': per40('tov_per_min'),
         'PF/40': per40('pf_per_min'),
-        'PTS/40': per40('pts_per_min'),
+        'PTS/40': per40('pts_per_min')
     }
 
 def get_per100_stats(soup):
+    """
+    Parse the last row of the "players_per_poss" table and return per-100-possession stats.
+    """
     table = soup.find('table', id='players_per_poss')
     if not table:
         return {}
-
     rows = table.find('tbody').find_all('tr')
     rows = [r for r in rows if not r.get('class') or 'thead' not in r.get('class')]
     if not rows:
         return {}
-
     last_row = rows[-1]
-
     def per100(stat):
         cell = last_row.find('td', {'data-stat': stat})
         return float(cell.text.strip()) if cell and cell.text.strip() else 0.0
-
     return {
         'FG/100': per100('fg_per_poss'),
         'FGA/100': per100('fga_per_poss'),
@@ -123,5 +131,5 @@ def get_per100_stats(soup):
         'PF/100': per100('pf_per_poss'),
         'PTS/100': per100('pts_per_poss'),
         'ORtg': per100('off_rtg'),
-        'DRtg': per100('def_rtg'),
+        'DRtg': per100('def_rtg')
     }

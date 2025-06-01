@@ -7,7 +7,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-REQUEST_DELAY = 1.5
+REQUEST_DELAY = 1.5  # seconds between requests to avoid rate limiting
 
 session = requests.Session()
 session.headers.update({
@@ -21,6 +21,7 @@ session.headers.update({
     'Connection': 'keep-alive'
 })
 
+# Retry setup: retry up to 3 times on 429/500/502/503/504
 retries = Retry(
     total=3,
     backoff_factor=1,
@@ -31,22 +32,27 @@ session.mount('https://', HTTPAdapter(max_retries=retries))
 session.mount('http://', HTTPAdapter(max_retries=retries))
 
 def polite_sleep():
-    logger.debug(f"{REQUEST_DELAY:.1f}s sleep (20 req/min limit)")
+    """Pause briefly between requests."""
+    logger.debug(f"{REQUEST_DELAY:.1f}s sleep")
     time.sleep(REQUEST_DELAY)
 
 def get_soup(url):
+    """
+    Fetch a URL, parse HTML (including tables inside comments), 
+    and return a BeautifulSoup object. Returns None on HTTP 429.
+    """
     logger.debug(f"Fetching URL: {url}")
     try:
         resp = session.get(url, timeout=10)
         resp.raise_for_status()
     except requests.exceptions.HTTPError as e:
-        status = e.response.status_code if e.response else None
-        if status == 429:
+        if e.response and e.response.status_code == 429:
             logger.warning(f"429 Too Many Requests: {url}")
             return None
         else:
             raise
     soup = BeautifulSoup(resp.text, 'html.parser')
+    # Some tables are wrapped in HTML comments; extract them
     for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
         if 'table' in comment:
             soup.append(BeautifulSoup(comment, 'html.parser'))

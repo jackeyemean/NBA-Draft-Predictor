@@ -2,7 +2,7 @@ import logging
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Comment
 import pandas as pd
 import time
 import re
@@ -58,6 +58,10 @@ def get_soup(url):
             raise
     logger.debug(f"Received response {resp.status_code} for URL: {url}")
     soup = BeautifulSoup(resp.text, 'html.parser')
+    # Search within comments for hidden tables
+    for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
+        if 'table' in comment:
+            soup.append(BeautifulSoup(comment, 'html.parser'))
     polite_sleep()
     return soup
 
@@ -67,6 +71,43 @@ def extract_height_weight(soup):
     if match:
         return int(match.group(1)), int(match.group(2))
     return 0, 0
+
+def get_advanced_stats(soup):
+    adv_table = soup.find('table', id='players_advanced')
+    if not adv_table:
+        return {}
+    rows = adv_table.find('tbody').find_all('tr')
+    rows = [r for r in rows if not r.get('class') or 'thead' not in r.get('class')]
+    if not rows:
+        return {}
+    last_row = rows[-1]
+
+    def adv_stat(stat):
+        cell = last_row.find('td', {'data-stat': stat})
+        return float(cell.text.strip()) if cell and cell.text.strip() else 0.0
+
+    return {
+        'PER': adv_stat('per'),
+        'TS%': adv_stat('ts_pct'),
+        '3PAr': adv_stat('fg3a_per_fga_pct'),
+        'FTr': adv_stat('fta_per_fga_pct'),
+        'PProd': adv_stat('prod'),
+        'ORB%': adv_stat('orb_pct'),
+        'DRB%': adv_stat('drb_pct'),
+        'TRB%': adv_stat('trb_pct'),
+        'AST%': adv_stat('ast_pct'),
+        'STL%': adv_stat('stl_pct'),
+        'BLK%': adv_stat('blk_pct'),
+        'TOV%': adv_stat('tov_pct'),
+        'USG%': adv_stat('usg_pct'),
+        'OWS': adv_stat('ows'),
+        'DWS': adv_stat('dws'),
+        'WS': adv_stat('ws'),
+        'WS/40': adv_stat('ws_per_40'),
+        'OBPM': adv_stat('obpm'),
+        'DBPM': adv_stat('dbpm'),
+        'BPM': adv_stat('bpm')
+    }
 
 def scrape_cbbref_stats_and_meta(cbb_url):
     soup = get_soup(cbb_url)
@@ -95,6 +136,7 @@ def scrape_cbbref_stats_and_meta(cbb_url):
 
     last_stats = {
         'G': get_stat(last_pg, 'games'),
+        'GS%': round(get_stat(last_pg, 'games_started') / get_stat(last_pg, 'games') * 100, 2) if get_stat(last_pg, 'games') > 0 else 0.0,
         'MP': get_stat(last_pg, 'mp_per_g'),
         'FG': get_stat(last_pg, 'fg_per_g'),
         'FGA': get_stat(last_pg, 'fga_per_g'),
@@ -105,6 +147,7 @@ def scrape_cbbref_stats_and_meta(cbb_url):
         'FT': get_stat(last_pg, 'ft_per_g'),
         'FTA': get_stat(last_pg, 'fta_per_g'),
         'FT%': get_stat(last_pg, 'ft_pct'),
+        'DRB': get_stat(last_pg, 'drb_per_g'),
         'ORB': get_stat(last_pg, 'orb_per_g'),
         'TRB': get_stat(last_pg, 'trb_per_g'),
         'AST': get_stat(last_pg, 'ast_per_g'),
@@ -114,6 +157,9 @@ def scrape_cbbref_stats_and_meta(cbb_url):
         'PF': get_stat(last_pg, 'pf_per_g'),
         'PTS': get_stat(last_pg, 'pts_per_g'),
     }
+
+    advanced = get_advanced_stats(soup)
+    last_stats.update(advanced)
 
     return height, weight, pos, len(rows), last_stats
 
@@ -225,10 +271,10 @@ def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool
     return header_written
 
 def main():
-    output_file = 'draft_prospects_2010_2022.csv'
+    output_file = 'draft_prospects_2011.csv'
     header_written = False
 
-    for yr in range(2010, 2023):
+    for yr in range(2011, 2012):
         header_written = scrape_draft_year(yr, output_file, header_written)
 
 if __name__ == "__main__":

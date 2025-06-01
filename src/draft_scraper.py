@@ -5,6 +5,7 @@ from urllib3.util.retry import Retry
 from bs4 import BeautifulSoup, Comment
 import pandas as pd
 import time
+import re
 
 # Configure logging
 logging.basicConfig(
@@ -13,7 +14,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-BASE_URL = 'https://www.basketball-reference.com'
+BBREF_BASE = 'https://www.basketball-reference.com'
+CBBREF_BASE = 'https://www.sports-reference.com/cbb'
 
 # Set up a Session with retries and a custom User-Agent, plus realistic browser headers
 session = requests.Session()
@@ -28,25 +30,21 @@ session.headers.update({
     'Connection': 'keep-alive'
 })
 retries = Retry(
-    total=3,               # fail fast
-    backoff_factor=1,      # exponential backoff: 1s, 2s, 4s
+    total=3,
+    backoff_factor=1,
     status_forcelist=[429, 500, 502, 503, 504],
     allowed_methods=["GET"]
 )
 session.mount('https://', HTTPAdapter(max_retries=retries))
 session.mount('http://', HTTPAdapter(max_retries=retries))
 
-# Fixed rate limit: exactly 20 requests/minute => 3s per request
 REQUEST_DELAY = 3.0
 
 def polite_sleep():
-    """Sleep fixed interval to respect 20 req/min rate limit."""
     logger.debug(f"Sleeping for {REQUEST_DELAY:.1f}s to respect rate limit")
     time.sleep(REQUEST_DELAY)
 
-
 def get_soup(url):
-    """Fetch page with retries and return BeautifulSoup."""
     logger.debug(f"Fetching URL: {url}")
     try:
         resp = session.get(url, timeout=10)
@@ -63,31 +61,71 @@ def get_soup(url):
     polite_sleep()
     return soup
 
+def extract_height_weight(soup):
+    text = soup.get_text()
+    match = re.search(r'(\d+-\d+),\s*(\d+)lb', text)
+    if match:
+        return match.group(1), match.group(2)
+    return None, None
 
-def normalize_pos(pos):
-    if 'G' in pos:
-        return 'G'
-    if 'F' in pos:
-        return 'F'
-    if 'C' in pos:
-        return 'C'
-    return pos
+def scrape_cbbref_stats_and_meta(name):
+    formatted_name = name.lower().replace('.', '').replace("'", '').replace(' ', '-')
+    url = f"{CBBREF_BASE}/players/{formatted_name}-1.html"
+    soup = get_soup(url)
+    if soup is None:
+        return None, None, None, None, {}
 
+    height, weight = extract_height_weight(soup)
 
-def scrape_player_page(player_url):
-    logger.debug(f"Scraping player page: {player_url}")
+    per_game = soup.find('table', id='players_per_game')
+    totals = soup.find('table', id='players_totals')
+    if not per_game or not totals:
+        return height, weight, None, None, {}
+
+    rows = per_game.find('tbody').find_all('tr')
+    rows = [r for r in rows if not r.get('class') or 'thead' not in r.get('class')]
+    last_pg = rows[-1]
+
+    def get_stat(row, stat):
+        cell = row.find('td', {'data-stat': stat})
+        return cell.text.strip() if cell else None
+
+    pos = get_stat(last_pg, 'pos')
+    last_stats = {
+        'G': get_stat(last_pg, 'games'),
+        'MP': get_stat(last_pg, 'mp_per_g'),
+        'FG': get_stat(last_pg, 'fg_per_g'),
+        'FGA': get_stat(last_pg, 'fga_per_g'),
+        'FG%': get_stat(last_pg, 'fg_pct'),
+        '3P': get_stat(last_pg, 'fg3_per_g'),
+        '3PA': get_stat(last_pg, 'fg3a_per_g'),
+        '3P%': get_stat(last_pg, 'fg3_pct'),
+        'FT': get_stat(last_pg, 'ft_per_g'),
+        'FTA': get_stat(last_pg, 'fta_per_g'),
+        'FT%': get_stat(last_pg, 'ft_pct'),
+        'ORB': get_stat(last_pg, 'orb_per_g'),
+        'TRB': get_stat(last_pg, 'trb_per_g'),
+        'AST': get_stat(last_pg, 'ast_per_g'),
+        'STL': get_stat(last_pg, 'stl_per_g'),
+        'BLK': get_stat(last_pg, 'blk_per_g'),
+        'TOV': get_stat(last_pg, 'tov_per_g'),
+        'PF': get_stat(last_pg, 'pf_per_g'),
+        'PTS': get_stat(last_pg, 'pts_per_g'),
+    }
+
+    return height, weight, pos, len(rows), last_stats
+
+def scrape_bbref_meta(player_url):
     soup = get_soup(player_url)
     if soup is None:
-        return None, 0, 0, {}
+        return None, 0
 
-    # Dominant hand
     shoots = None
     for strong in soup.find_all('strong'):
         if 'Shoots' in strong.text:
             shoots = strong.next_sibling.strip()
             break
 
-    # NBA relatives count
     relatives = 0
     for strong in soup.find_all('strong'):
         if 'Relatives' in strong.text:
@@ -96,90 +134,11 @@ def scrape_player_page(player_url):
                 relatives = len(p.find_all('a'))
             break
 
-    # Search in visible content
-    col_table = soup.find('table', id='per_game-college') or soup.find('table', id='all_college_stats')
-
-    # If not found, search in comments
-    if not col_table:
-        comments = soup.find_all(string=lambda text: isinstance(text, Comment))
-        for comment in comments:
-            comment_soup = BeautifulSoup(comment, 'html.parser')
-            col_table = (
-                comment_soup.find('table', id='per_game-college') or
-                comment_soup.find('table', id='all_college_stats')
-            )
-            if col_table:
-                break
-
-    if col_table:
-        rows = col_table.find('tbody').find_all('tr')
-        rows = [r for r in rows if not r.get('class') or 'thead' not in r.get('class')]
-        if not rows:
-            logger.warning(f"Empty college stats table on: {player_url}")
-            return shoots, relatives, 0, {}
-
-        last = rows[-1]
-        seasons = len(rows)
-
-        def get_stat(stat):
-            cell = last.find('td', {'data-stat': stat})
-            return cell.text.strip() if cell else None
-
-        last_stats = {
-            'G': get_stat('g'),
-            'MP': get_stat('mp_per_g'),
-            'FG': get_stat('fg_per_g'),
-            'FGA': get_stat('fga_per_g'),
-            'FG%': get_stat('fg_pct'),
-            '3P': get_stat('fg3_per_g'),
-            '3PA': get_stat('fg3a_per_g'),
-            '3P%': get_stat('fg3_pct'),
-            'FT': get_stat('ft_per_g'),
-            'FTA': get_stat('fta_per_g'),
-            'FT%': get_stat('ft_pct'),
-            'ORB': get_stat('orb_per_g'),
-            'TRB': get_stat('trb_per_g'),
-            'AST': get_stat('ast_per_g'),
-            'STL': get_stat('stl_per_g'),
-            'BLK': get_stat('blk_per_g'),
-            'TOV': get_stat('tov_per_g'),
-            'PF': get_stat('pf_per_g'),
-            'PTS': get_stat('pts_per_g'),
-        }
-
-        # Fallback if per-game is missing
-        if not last_stats['MP'] and get_stat('mp'):
-            last_stats.update({
-                'MP': get_stat('mp'),
-                'FG': get_stat('fg'),
-                'FGA': get_stat('fga'),
-                '3P': get_stat('fg3'),
-                '3PA': get_stat('fg3a'),
-                'FT': get_stat('ft'),
-                'FTA': get_stat('fta'),
-                'ORB': get_stat('orb'),
-                'TRB': get_stat('trb'),
-                'AST': get_stat('ast'),
-                'STL': get_stat('stl'),
-                'BLK': get_stat('blk'),
-                'TOV': get_stat('tov'),
-                'PF': get_stat('pf'),
-                'PTS': get_stat('pts'),
-            })
-    else:
-        logger.warning(f"No college stats table found on player page: {player_url}")
-        return shoots, relatives, 0, {}
-
-    return shoots, relatives, seasons, last_stats
-
-
-
+    return shoots, relatives
 
 def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool:
-    """Scrape draft prospects for a given year; append to CSV immediately."""
     logger.info(f"Scraping draft year {year}")
-
-    url = f"{BASE_URL}/draft/NBA_{year}.html"
+    url = f"{BBREF_BASE}/draft/NBA_{year}.html"
     soup = get_soup(url)
     if soup is None:
         logger.warning(f"Skipping draft year {year} due to 429 error")
@@ -198,24 +157,21 @@ def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool
         if row.get('class') and 'thead' in row.get('class'):
             continue
 
-        pick    = get_cell(row, 'pick_overall')
-        team    = get_cell(row, 'team_id')
-        name    = get_cell(row, 'player')
+        pick = get_cell(row, 'pick_overall')
+        team = get_cell(row, 'team_id')
+        name = get_cell(row, 'player')
         college = get_cell(row, 'college_name')
-        age     = get_cell(row, 'age')
-        pos     = get_cell(row, 'pos')
-        height  = get_cell(row, 'height')
-        weight  = get_cell(row, 'weight')
+        age = get_cell(row, 'age')
 
         player_td = row.find('td', {'data-stat': 'player'})
         a_tag = player_td.find('a') if player_td else None
         if not a_tag:
-            logger.info(f"Skipping {name or 'Unnamed'} – no player link")
             continue
 
-        rel_url = a_tag['href']
-        full_url = BASE_URL + rel_url
-        shoots, relatives, seasons, stats = scrape_player_page(full_url)
+        bbref_url = BBREF_BASE + a_tag['href']
+
+        shoots, relatives = scrape_bbref_meta(bbref_url)
+        height, weight, pos, seasons, stats = scrape_cbbref_stats_and_meta(name)
 
         if not stats:
             logger.info(f"Skipping {name} – no college stats")
@@ -233,7 +189,7 @@ def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool
             'Dominant Hand': shoots,
             'NBA Relatives': relatives,
             'Seasons Played (College)': seasons,
-            'POS': normalize_pos(pos) if pos else None,
+            'POS': pos,
             'MPG': stats.get('MP'),
             'PPG': stats.get('PTS'),
             'RPG': stats.get('TRB'),
@@ -248,14 +204,12 @@ def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool
     logger.info(f"Finished writing data for {year}")
     return header_written
 
-
 def main():
     output_file = 'draft_prospects_2010_2022.csv'
     header_written = False
 
     for yr in range(2010, 2023):
         header_written = scrape_draft_year(yr, output_file, header_written)
-
 
 if __name__ == "__main__":
     main()

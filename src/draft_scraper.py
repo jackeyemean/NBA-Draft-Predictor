@@ -15,7 +15,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 BBREF_BASE = 'https://www.basketball-reference.com'
-CBBREF_BASE = 'https://www.sports-reference.com/cbb'
 
 # Set up a Session with retries and a custom User-Agent, plus realistic browser headers
 session = requests.Session()
@@ -68,10 +67,8 @@ def extract_height_weight(soup):
         return match.group(1), match.group(2)
     return None, None
 
-def scrape_cbbref_stats_and_meta(name):
-    formatted_name = name.lower().replace('.', '').replace("'", '').replace(' ', '-')
-    url = f"{CBBREF_BASE}/players/{formatted_name}-1.html"
-    soup = get_soup(url)
+def scrape_cbbref_stats_and_meta(cbb_url):
+    soup = get_soup(cbb_url)
     if soup is None:
         return None, None, None, None, {}
 
@@ -115,10 +112,16 @@ def scrape_cbbref_stats_and_meta(name):
 
     return height, weight, pos, len(rows), last_stats
 
+def extract_sr_cbb_link(soup):
+    anchor = soup.find('a', string=lambda text: text and 'More College Stats on SR/CBB' in text)
+    if anchor and 'href' in anchor.attrs:
+        return anchor['href'].split('?')[0]
+    return None
+
 def scrape_bbref_meta(player_url):
     soup = get_soup(player_url)
     if soup is None:
-        return None, 0
+        return None, 0, None
 
     shoots = None
     for strong in soup.find_all('strong'):
@@ -134,7 +137,8 @@ def scrape_bbref_meta(player_url):
                 relatives = len(p.find_all('a'))
             break
 
-    return shoots, relatives
+    cbb_url = extract_sr_cbb_link(soup)
+    return shoots, relatives, cbb_url
 
 def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool:
     logger.info(f"Scraping draft year {year}")
@@ -170,8 +174,12 @@ def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool
 
         bbref_url = BBREF_BASE + a_tag['href']
 
-        shoots, relatives = scrape_bbref_meta(bbref_url)
-        height, weight, pos, seasons, stats = scrape_cbbref_stats_and_meta(name)
+        shoots, relatives, cbb_url = scrape_bbref_meta(bbref_url)
+        if not cbb_url:
+            logger.info(f"Skipping {name} – no college stats link")
+            continue
+
+        height, weight, pos, seasons, stats = scrape_cbbref_stats_and_meta(cbb_url)
 
         if not stats:
             logger.info(f"Skipping {name} – no college stats")

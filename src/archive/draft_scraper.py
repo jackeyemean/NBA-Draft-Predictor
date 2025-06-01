@@ -9,18 +9,15 @@ import time
 import re
 from datetime import datetime
 
-# === Logging Configuration ===
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s [%(levelname)s] %(message)s'
 )
 logger = logging.getLogger(__name__)
 
-# === Constants ===
 BBREF_BASE = 'https://www.basketball-reference.com'
 REQUEST_DELAY = 1.5  # Delay between requests to respect rate limits
 
-# === Setup HTTP Session with Retries and Headers ===
 session = requests.Session()
 session.headers.update({
     'User-Agent': (
@@ -41,12 +38,10 @@ retries = Retry(
 session.mount('https://', HTTPAdapter(max_retries=retries))
 session.mount('http://', HTTPAdapter(max_retries=retries))
 
-# === Respectful Delay for Rate Limits ===
 def polite_sleep():
     logger.debug(f"{REQUEST_DELAY:.1f}s sleep (20 req/min limit for bbref and sports ref)")
     time.sleep(REQUEST_DELAY)
 
-# === Request URL and Return Parsed BeautifulSoup (includes commented-out tables) ===
 def get_soup(url):
     logger.debug(f"Fetching URL: {url}")
     try:
@@ -62,7 +57,6 @@ def get_soup(url):
     logger.debug(f"Received response {resp.status_code} for URL: {url}")
     soup = BeautifulSoup(resp.text, 'html.parser')
 
-    # Append commented-out HTML (e.g., hidden tables) to the soup
     for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
         if 'table' in comment:
             soup.append(BeautifulSoup(comment, 'html.parser'))
@@ -70,7 +64,6 @@ def get_soup(url):
     polite_sleep()
     return soup
 
-# === Extract Player Height and Weight from Page Text ===
 def extract_height_weight(soup):
     text = soup.get_text()
     match = re.search(r'\((\d{3})cm,\s*(\d{2,3})kg\)', text)
@@ -78,25 +71,22 @@ def extract_height_weight(soup):
         return int(match.group(1)), int(match.group(2))
     return 0, 0  # Return zeros if height/weight not found
 
-# === Extract Final-Season Advanced College Stats from SR/CBB Page ===
 def get_advanced_stats(soup):
     adv_table = soup.find('table', id='players_advanced')
     if not adv_table:
         return {}
 
-    # Filter valid rows (ignore header repeats)
     rows = adv_table.find('tbody').find_all('tr')
     rows = [r for r in rows if not r.get('class') or 'thead' not in r.get('class')]
     if not rows:
         return {}
 
-    last_row = rows[-1]  # Use last season row
+    last_row = rows[-1]  # final college season row
 
     def adv_stat(stat):
         cell = last_row.find('td', {'data-stat': stat})
         return float(cell.text.strip()) if cell and cell.text.strip() else 0.0
 
-    # Return a dictionary of desired advanced stats
     return {
         'PER': adv_stat('per'),
         'TS%': adv_stat('ts_pct'),
@@ -120,7 +110,6 @@ def get_advanced_stats(soup):
         'BPM': adv_stat('bpm')
     }
 
-# === Extract Final-Season Per-40-Minute Stats ===
 def get_per40_stats(soup):
     table = soup.find('table', id='players_per_min')
     if not table:
@@ -155,7 +144,6 @@ def get_per40_stats(soup):
         'PTS/40': per40('pts_per_min'),
     }
 
-# === Extract Final-Season Per-100-Possession Stats ===
 def get_per100_stats(soup):
     table = soup.find('table', id='players_per_poss')
     if not table:
@@ -192,7 +180,6 @@ def get_per100_stats(soup):
         'DRtg': per100('def_rtg'),
     }
 
-# === Scrape Height, Weight, Position, and Stats from SR/CBB Page ===
 def scrape_cbbref_stats_and_meta(cbb_url):
     soup = get_soup(cbb_url)
     if soup is None:
@@ -288,7 +275,7 @@ def scrape_bbref_meta(player_url):
 
     # Get SR/CBB link
     cbb_url = extract_sr_cbb_link(soup)
-    return shoots, relatives, cbb_url, birth_date
+    return relatives, cbb_url, birth_date
 
 # === Scrape Entire Draft Class and Write to CSV ===
 def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool:
@@ -326,7 +313,7 @@ def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool
         bbref_url = BBREF_BASE + a_tag['href']
 
         # Scrape metadata
-        shoots, relatives, cbb_url, birth_date = scrape_bbref_meta(bbref_url)
+        relatives, cbb_url, birth_date = scrape_bbref_meta(bbref_url)
         if not cbb_url:
             logger.info(f"Skipping {name} – no college stats link")
             continue
@@ -357,7 +344,6 @@ def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool
             'College': college or '',
             'Height': height,
             'Weight': weight,
-            'Dominant Hand': shoots or '',
             'NBA Relatives': relatives,
             'Seasons Played (College)': seasons,
             'POS': pos or ''

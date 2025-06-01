@@ -37,10 +37,10 @@ retries = Retry(
 session.mount('https://', HTTPAdapter(max_retries=retries))
 session.mount('http://', HTTPAdapter(max_retries=retries))
 
-REQUEST_DELAY = 3.0
+REQUEST_DELAY = 1.5
 
 def polite_sleep():
-    logger.debug(f"Sleeping for {REQUEST_DELAY:.1f}s to respect rate limit")
+    logger.debug(f"{REQUEST_DELAY:.1f}s sleep (20 req/min limit for bbref and sports ref)")
     time.sleep(REQUEST_DELAY)
 
 def get_soup(url):
@@ -174,11 +174,13 @@ def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool
 
         bbref_url = BBREF_BASE + a_tag['href']
 
+        # From basketball reference
         shoots, relatives, cbb_url = scrape_bbref_meta(bbref_url)
         if not cbb_url:
             logger.info(f"Skipping {name} – no college stats link")
             continue
-
+        
+        # From sports reference
         height, weight, pos, seasons, stats = scrape_cbbref_stats_and_meta(cbb_url)
 
         if not stats:
@@ -197,11 +199,7 @@ def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool
             'Dominant Hand': shoots,
             'NBA Relatives': relatives,
             'Seasons Played (College)': seasons,
-            'POS': pos,
-            'MPG': stats.get('MP'),
-            'PPG': stats.get('PTS'),
-            'RPG': stats.get('TRB'),
-            'APG': stats.get('AST'),
+            'POS': pos
         }
         record.update(stats)
 

@@ -2,10 +2,11 @@ import logging
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-from bs4 import BeautifulSoup, Comment
+from bs4 import BeautifulSoup
 import pandas as pd
 import time
 import re
+from datetime import datetime
 
 # Configure logging
 logging.basicConfig(
@@ -62,32 +63,36 @@ def get_soup(url):
 
 def extract_height_weight(soup):
     text = soup.get_text()
-    match = re.search(r'(\d+-\d+),\s*(\d+)lb', text)
+    match = re.search(r'\((\d{3})cm,\s*(\d{2,3})kg\)', text)
     if match:
-        return match.group(1), match.group(2)
-    return None, None
+        return int(match.group(1)), int(match.group(2))
+    return 0, 0
 
 def scrape_cbbref_stats_and_meta(cbb_url):
     soup = get_soup(cbb_url)
     if soup is None:
-        return None, None, None, None, {}
+        return 0, 0, None, 0, {}
 
     height, weight = extract_height_weight(soup)
 
     per_game = soup.find('table', id='players_per_game')
     totals = soup.find('table', id='players_totals')
     if not per_game or not totals:
-        return height, weight, None, None, {}
+        return height, weight, None, 0, {}
 
     rows = per_game.find('tbody').find_all('tr')
     rows = [r for r in rows if not r.get('class') or 'thead' not in r.get('class')]
+    if not rows:
+        return height, weight, None, 0, {}
     last_pg = rows[-1]
 
     def get_stat(row, stat):
         cell = row.find('td', {'data-stat': stat})
-        return cell.text.strip() if cell else None
+        return float(cell.text.strip()) if cell and cell.text.strip() else 0.0
 
-    pos = get_stat(last_pg, 'pos')
+    pos_cell = last_pg.find('td', {'data-stat': 'pos'})
+    pos = pos_cell.text.strip() if pos_cell else None
+
     last_stats = {
         'G': get_stat(last_pg, 'games'),
         'MP': get_stat(last_pg, 'mp_per_g'),
@@ -121,7 +126,7 @@ def extract_sr_cbb_link(soup):
 def scrape_bbref_meta(player_url):
     soup = get_soup(player_url)
     if soup is None:
-        return None, 0, None
+        return None, 0, None, None
 
     shoots = None
     for strong in soup.find_all('strong'):
@@ -137,8 +142,11 @@ def scrape_bbref_meta(player_url):
                 relatives = len(p.find_all('a'))
             break
 
+    birth_tag = soup.find('span', id='necro-birth')
+    birth_date = birth_tag.get('data-birth') if birth_tag and birth_tag.has_attr('data-birth') else None
+
     cbb_url = extract_sr_cbb_link(soup)
-    return shoots, relatives, cbb_url
+    return shoots, relatives, cbb_url, birth_date
 
 def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool:
     logger.info(f"Scraping draft year {year}")
@@ -165,7 +173,6 @@ def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool
         team = get_cell(row, 'team_id')
         name = get_cell(row, 'player')
         college = get_cell(row, 'college_name')
-        age = get_cell(row, 'age')
 
         player_td = row.find('td', {'data-stat': 'player'})
         a_tag = player_td.find('a') if player_td else None
@@ -174,13 +181,20 @@ def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool
 
         bbref_url = BBREF_BASE + a_tag['href']
 
-        # From basketball reference
-        shoots, relatives, cbb_url = scrape_bbref_meta(bbref_url)
+        shoots, relatives, cbb_url, birth_date = scrape_bbref_meta(bbref_url)
         if not cbb_url:
             logger.info(f"Skipping {name} – no college stats link")
             continue
-        
-        # From sports reference
+
+        age = 0.0
+        if birth_date:
+            try:
+                birth_dt = datetime.strptime(birth_date, "%Y-%m-%d")
+                draft_dt = datetime(year, 6, 25)
+                age = round((draft_dt - birth_dt).days / 365.25, 2)
+            except Exception as e:
+                logger.warning(f"Failed to parse age for {name}: {e}")
+
         height, weight, pos, seasons, stats = scrape_cbbref_stats_and_meta(cbb_url)
 
         if not stats:
@@ -189,17 +203,17 @@ def scrape_draft_year(year: int, output_file: str, header_written: bool) -> bool
 
         record = {
             'Draft Year': year,
-            'Pick Number': pick,
-            'NBA Team': team,
-            'Name': name,
+            'Pick Number': int(pick) if pick and pick.isdigit() else 0,
+            'NBA Team': team or '',
+            'Name': name or '',
             'Age': age,
-            'College': college,
+            'College': college or '',
             'Height': height,
             'Weight': weight,
-            'Dominant Hand': shoots,
+            'Dominant Hand': shoots or '',
             'NBA Relatives': relatives,
             'Seasons Played (College)': seasons,
-            'POS': pos
+            'POS': pos or ''
         }
         record.update(stats)
 

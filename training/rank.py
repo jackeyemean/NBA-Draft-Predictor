@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load predictions
-df = pd.read_csv("data/test_data_with_predictions.csv")
+df = pd.read_csv("data/drafts_2014_predictions.csv")
 
 # Check required columns
 if "Predicted NBA Career Score" not in df.columns:

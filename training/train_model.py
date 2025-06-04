@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 
 # Load dataset
-df = pd.read_csv("data/drafts_2011_2020_cleaned.csv")
+df = pd.read_csv("data/drafts_2014_removed.csv")
 
 # Prepare features and target
 X = df.drop(columns=["NBA Career Score", "Name"])
@@ -27,5 +27,5 @@ print(f"Mean Squared Error: {mse:.2f}")
 print(f"R² Score: {r2:.2f}")
 
 # Save model
-joblib.dump(model, "models/random_forest.pkl")
-print("Model saved to models/random_forest.pkl")
+joblib.dump(model, "models/no_2014.pkl")
+print("Model saved to models/no_2014.pkl")

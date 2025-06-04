@@ -2,10 +2,10 @@ import pandas as pd
 import joblib
 
 # Load model
-model = joblib.load("models/random_forest.pkl")
+model = joblib.load("models/no_2014.pkl")
 
 # Load test data
-df = pd.read_csv("data/test_data_cleaned.csv")  # replace with your actual file
+df = pd.read_csv("data/drafts_2014_cleaned.csv")  # replace with your actual file
 
 # Drop non-feature columns
 non_features = ["Name", "NBA Career Score"]
@@ -18,5 +18,5 @@ predictions = model.predict(X)
 df.insert(0, "Predicted NBA Career Score", predictions)
 
 # Save result
-df.to_csv("data/test_data_with_predictions.csv", index=False)
-print("Predictions saved to data/test_data_with_predictions.csv")
+df.to_csv("data/drafts_2014_predictions.csv", index=False)
+print("Predictions saved to data/drafts_2014_predictions.csv")

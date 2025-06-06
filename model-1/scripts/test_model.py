@@ -3,9 +3,7 @@ import joblib
 
 # config
 TEST_YEARS = [2020]
-# MODEL_PATH_TEMPLATE = "model-1/model-1.pkl"
-MODEL_PATH_TEMPLATE = "model-1/holdout-testing-models/removed-2020.pkl"
-# RAW_DATA_PATH = "model-1/data/prediction-data-2021-2024.csv"
+MODEL_PATH_TEMPLATE = "model-1/holdout-models/holdout-2020.pkl"
 RAW_DATA_PATH = "model-1/data/training-data-2011-to-2020.csv"
 
 # load raw data

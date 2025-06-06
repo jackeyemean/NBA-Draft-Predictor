@@ -1,0 +1,48 @@
+=== Predicted NBA Career Scores for Draft Year 2015 ===
+
+ 1. D'Angelo Russell               | Predicted Score: 3.45
+ 2. Stanley Johnson                | Predicted Score: 3.19
+ 3. Karl-Anthony Towns             | Predicted Score: 2.96
+ 4. Justise Winslow                | Predicted Score: 2.90
+ 5. Kevon Looney                   | Predicted Score: 2.81
+ 6. Kelly Oubre Jr.                | Predicted Score: 2.66
+ 7. Jahlil Okafor                  | Predicted Score: 2.58
+ 8. Rashad Vaughn                  | Predicted Score: 2.56
+ 9. Tyus Jones                     | Predicted Score: 2.48
+10. Cameron Payne                  | Predicted Score: 2.37
+11. Rondae Hollis-Jefferson        | Predicted Score: 2.37
+12. Devin Booker                   | Predicted Score: 2.31
+13. Justin Anderson                | Predicted Score: 2.28
+14. Frank Kaminsky                 | Predicted Score: 2.23
+15. Trey Lyles                     | Predicted Score: 2.23
+16. Delon Wright                   | Predicted Score: 2.22
+17. Sam Dekker                     | Predicted Score: 2.22
+18. Dakari Johnson                 | Predicted Score: 2.16
+19. Myles Turner                   | Predicted Score: 2.10
+20. Bobby Portis                   | Predicted Score: 2.01
+21. Darrun Hilliard                | Predicted Score: 2.00
+22. Jerian Grant                   | Predicted Score: 1.99
+23. Andrew Harrison                | Predicted Score: 1.94
+24. Sir'Dominic Pointer            | Predicted Score: 1.90
+25. Montrezl Harrell               | Predicted Score: 1.90
+26. Chris McCullough               | Predicted Score: 1.88
+27. Terry Rozier                   | Predicted Score: 1.87
+28. Norman Powell                  | Predicted Score: 1.80
+29. Aaron White                    | Predicted Score: 1.76
+30. J.P. Tokoto                    | Predicted Score: 1.75
+31. Josh Richardson                | Predicted Score: 1.71
+32. Willie Cauley-Stein            | Predicted Score: 1.66
+33. R.J. Hunter                    | Predicted Score: 1.65
+34. Branden Dawson                 | Predicted Score: 1.61
+35. Tyler Harvey                   | Predicted Score: 1.58
+36. Larry Nance Jr.                | Predicted Score: 1.56
+37. Richaun Holmes                 | Predicted Score: 1.50
+38. Anthony Brown                  | Predicted Score: 1.49
+39. Cady Lalanne                   | Predicted Score: 1.39
+40. Jordan Mickey                  | Predicted Score: 1.37
+41. Jarell Martin                  | Predicted Score: 1.35
+42. Olivier Hanlan                 | Predicted Score: 1.21
+43. Rakeem Christmas               | Predicted Score: 1.20
+44. Joe Young                      | Predicted Score: 1.19
+45. Pat Connaughton                | Predicted Score: 1.06
+46. Marcus Thornton                | Predicted Score: 0.94

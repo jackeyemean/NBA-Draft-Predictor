@@ -1,0 +1,54 @@
+=== Predicted NBA Career Scores for Draft Year 2019 ===
+
+ 1. Ja Morant                      | Predicted Score: 2.82
+ 2. Grant Williams                 | Predicted Score: 2.77
+ 3. RJ Barrett                     | Predicted Score: 2.73
+ 4. Zion Williamson                | Predicted Score: 2.69
+ 5. Tyler Herro                    | Predicted Score: 2.65
+ 6. Bol Bol                        | Predicted Score: 2.65
+ 7. Coby White                     | Predicted Score: 2.55
+ 8. Kevin Porter Jr.               | Predicted Score: 2.50
+ 9. Jarrett Culver                 | Predicted Score: 2.49
+10. P.J. Washington                | Predicted Score: 2.47
+11. KZ Okpala                      | Predicted Score: 2.42
+12. De'Andre Hunter                | Predicted Score: 2.37
+13. Romeo Langford                 | Predicted Score: 2.37
+14. Chuma Okeke                    | Predicted Score: 2.35
+15. Talen Horton-Tucker            | Predicted Score: 2.35
+16. Ignas Brazdeikis               | Predicted Score: 2.23
+17. Rui Hachimura                  | Predicted Score: 2.16
+18. Darius Garland                 | Predicted Score: 2.14
+19. Keldon Johnson                 | Predicted Score: 2.12
+20. Jaxson Hayes                   | Predicted Score: 2.08
+21. Cameron Johnson                | Predicted Score: 2.06
+22. Ty Jerome                      | Predicted Score: 2.04
+23. Cam Reddish                    | Predicted Score: 2.00
+24. Jaylen Nowell                  | Predicted Score: 1.98
+25. Nickeil Alexander-Walker       | Predicted Score: 1.97
+26. Nic Claxton                    | Predicted Score: 1.96
+27. Nassir Little                  | Predicted Score: 1.95
+28. Dylan Windler                  | Predicted Score: 1.94
+29. Jaylen Hands                   | Predicted Score: 1.93
+30. Brandon Clarke                 | Predicted Score: 1.84
+31. Jordan Poole                   | Predicted Score: 1.84
+32. Bruno Fernando                 | Predicted Score: 1.79
+33. Kyle Guy                       | Predicted Score: 1.78
+34. Mfiondu Kabengele              | Predicted Score: 1.75
+35. Miye Oni                       | Predicted Score: 1.73
+36. Tremont Waters                 | Predicted Score: 1.73
+37. Carsen Edwards                 | Predicted Score: 1.71
+38. Daniel Gafford                 | Predicted Score: 1.71
+39. Eric Paschall                  | Predicted Score: 1.69
+40. Admiral Schofield              | Predicted Score: 1.57
+41. Quinndary Weatherspoon         | Predicted Score: 1.54
+42. Cody Martin                    | Predicted Score: 1.53
+43. Jalen McDaniels                | Predicted Score: 1.50
+44. Terance Mann                   | Predicted Score: 1.50
+45. Jarrell Brantley               | Predicted Score: 1.49
+46. Matisse Thybulle               | Predicted Score: 1.48
+47. Jordan Bone                    | Predicted Score: 1.40
+48. Justin James                   | Predicted Score: 1.36
+49. Justin Wright-Foreman          | Predicted Score: 1.33
+50. Isaiah Roby                    | Predicted Score: 1.32
+51. Marial Shayok                  | Predicted Score: 0.98
+52. Dewan Hernandez                | Predicted Score: 0.95

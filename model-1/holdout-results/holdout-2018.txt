@@ -1,0 +1,52 @@
+=== Predicted NBA Career Scores for Draft Year 2018 ===
+
+ 1. Zhaire Smith                   | Predicted Score: 2.98
+ 2. Josh Okogie                    | Predicted Score: 2.91
+ 3. Kevin Huerter                  | Predicted Score: 2.80
+ 4. Trae Young                     | Predicted Score: 2.71
+ 5. Collin Sexton                  | Predicted Score: 2.71
+ 6. Deandre Ayton                  | Predicted Score: 2.66
+ 7. Shai Gilgeous-Alexander        | Predicted Score: 2.64
+ 8. Marvin Bagley III              | Predicted Score: 2.60
+ 9. Miles Bridges                  | Predicted Score: 2.53
+10. Lonnie Walker IV               | Predicted Score: 2.52
+11. Jaren Jackson Jr.              | Predicted Score: 2.48
+12. Jacob Evans                    | Predicted Score: 2.46
+13. Gary Trent Jr.                 | Predicted Score: 2.42
+14. Troy Brown Jr.                 | Predicted Score: 2.33
+15. Mo Bamba                       | Predicted Score: 2.29
+16. Tony Carr                      | Predicted Score: 2.24
+17. Michael Porter Jr.             | Predicted Score: 2.21
+18. Robert Williams                | Predicted Score: 2.17
+19. Hamidou Diallo                 | Predicted Score: 2.16
+20. Moritz Wagner                  | Predicted Score: 2.16
+21. Donte DiVincenzo               | Predicted Score: 2.04
+22. De'Anthony Melton              | Predicted Score: 2.04
+23. Omari Spellman                 | Predicted Score: 1.97
+24. Wendell Carter Jr.             | Predicted Score: 1.96
+25. Jevon Carter                   | Predicted Score: 1.91
+26. Shake Milton                   | Predicted Score: 1.91
+27. Kevin Knox                     | Predicted Score: 1.86
+28. Svi Mykhailiuk                 | Predicted Score: 1.85
+29. Landry Shamet                  | Predicted Score: 1.83
+30. Melvin Frazier                 | Predicted Score: 1.82
+31. Mikal Bridges                  | Predicted Score: 1.81
+32. Chandler Hutchison             | Predicted Score: 1.78
+33. Vince Edwards                  | Predicted Score: 1.74
+34. Khyri Thomas                   | Predicted Score: 1.72
+35. Jarred Vanderbilt              | Predicted Score: 1.63
+36. Jerome Robinson                | Predicted Score: 1.61
+37. Ray Spalding                   | Predicted Score: 1.58
+38. Devon Hall                     | Predicted Score: 1.58
+39. Jalen Brunson                  | Predicted Score: 1.48
+40. Kevin Hervey                   | Predicted Score: 1.42
+41. Chimezie Metu                  | Predicted Score: 1.38
+42. Aaron Holiday                  | Predicted Score: 1.35
+43. Thomas Welsh                   | Predicted Score: 1.32
+44. Kostas Antetokounmpo           | Predicted Score: 1.18
+45. Justin Jackson                 | Predicted Score: 1.18
+46. Bruce Brown                    | Predicted Score: 1.15
+47. Devonte' Graham                | Predicted Score: 1.07
+48. Grayson Allen                  | Predicted Score: 1.00
+49. Keita Bates-Diop               | Predicted Score: 0.89
+50. George King                    | Predicted Score: 0.86

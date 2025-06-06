@@ -1,0 +1,48 @@
+=== Predicted NBA Career Scores for Draft Year 2013 ===
+
+ 1. Otto Porter Jr.                | Predicted Score: 3.10
+ 2. Ben McLemore                   | Predicted Score: 2.73
+ 3. Trey Burke                     | Predicted Score: 2.64
+ 4. Nerlens Noel                   | Predicted Score: 2.60
+ 5. Kentavious Caldwell-Pope       | Predicted Score: 2.58
+ 6. Victor Oladipo                 | Predicted Score: 2.52
+ 7. CJ McCollum                    | Predicted Score: 2.40
+ 8. Reggie Bullock                 | Predicted Score: 2.39
+ 9. Pierre Jackson                 | Predicted Score: 2.32
+10. Nate Wolters                   | Predicted Score: 2.29
+11. Shane Larkin                   | Predicted Score: 2.26
+12. Cody Zeller                    | Predicted Score: 2.24
+13. Grant Jerrett                  | Predicted Score: 2.20
+14. Erick Green                    | Predicted Score: 2.14
+15. Anthony Bennett                | Predicted Score: 2.12
+16. Steven Adams                   | Predicted Score: 2.10
+17. Michael Carter-Williams        | Predicted Score: 2.06
+18. Archie Goodwin                 | Predicted Score: 2.01
+19. Kelly Olynyk                   | Predicted Score: 1.94
+20. Solomon Hill                   | Predicted Score: 1.91
+21. Alex Len                       | Predicted Score: 1.91
+22. Erik Murphy                    | Predicted Score: 1.90
+23. Deshaun Thomas                 | Predicted Score: 1.84
+24. Allen Crabbe                   | Predicted Score: 1.84
+25. Ryan Kelly                     | Predicted Score: 1.77
+26. Ray McCallum                   | Predicted Score: 1.67
+27. Jamaal Franklin                | Predicted Score: 1.65
+28. Mike Muscala                   | Predicted Score: 1.64
+29. Alex Oriakhi                   | Predicted Score: 1.63
+30. Glen Rice Jr.                  | Predicted Score: 1.56
+31. Jeff Withey                    | Predicted Score: 1.53
+32. Peyton Siva                    | Predicted Score: 1.52
+33. Gorgui Dieng                   | Predicted Score: 1.49
+34. Mason Plumlee                  | Predicted Score: 1.45
+35. Tim Hardaway Jr.               | Predicted Score: 1.44
+36. Tony Snell                     | Predicted Score: 1.44
+37. Arsalan Kazemi                 | Predicted Score: 1.44
+38. Carrick Felix                  | Predicted Score: 1.38
+39. James Ennis III                | Predicted Score: 1.36
+40. Andre Roberson                 | Predicted Score: 1.31
+41. Lorenzo Brown                  | Predicted Score: 1.31
+42. Romero Osby                    | Predicted Score: 1.26
+43. Colton Iverson                 | Predicted Score: 1.22
+44. Shabazz Muhammad               | Predicted Score: 1.20
+45. Tony Mitchell                  | Predicted Score: 1.14
+46. Isaiah Canaan                  | Predicted Score: 0.98

@@ -1,0 +1,53 @@
+=== Predicted NBA Career Scores for Draft Year 2012 ===
+
+ 1. Tony Wroten                    | Predicted Score: 3.02
+ 2. Bradley Beal                   | Predicted Score: 2.83
+ 3. Michael Kidd-Gilchrist         | Predicted Score: 2.74
+ 4. Jeremy Lamb                    | Predicted Score: 2.71
+ 5. Will Barton                    | Predicted Score: 2.48
+ 6. Dion Waiters                   | Predicted Score: 2.37
+ 7. Anthony Davis                  | Predicted Score: 2.33
+ 8. Marquis Teague                 | Predicted Score: 2.32
+ 9. Harrison Barnes                | Predicted Score: 2.29
+10. Quincy Miller                  | Predicted Score: 2.27
+11. John Jenkins                   | Predicted Score: 2.27
+12. Jae Crowder                    | Predicted Score: 2.27
+13. Terrence Jones                 | Predicted Score: 2.15
+14. Austin Rivers                  | Predicted Score: 2.12
+15. Jared Sullinger                | Predicted Score: 2.11
+16. Damian Lillard                 | Predicted Score: 2.06
+17. Maurice Harkless               | Predicted Score: 2.02
+18. Doron Lamb                     | Predicted Score: 2.00
+19. Robbie Hummel                  | Predicted Score: 1.98
+20. Marcus Denmon                  | Predicted Score: 1.97
+21. Meyers Leonard                 | Predicted Score: 1.96
+22. Royce White                    | Predicted Score: 1.91
+23. Draymond Green                 | Predicted Score: 1.88
+24. Jared Cunningham               | Predicted Score: 1.73
+25. Thomas Robinson                | Predicted Score: 1.59
+26. Darius Miller                  | Predicted Score: 1.57
+27. Tyshawn Taylor                 | Predicted Score: 1.56
+28. Quincy Acy                     | Predicted Score: 1.54
+29. Terrence Ross                  | Predicted Score: 1.47
+30. Andre Drummond                 | Predicted Score: 1.44
+31. Darius Johnson-Odom            | Predicted Score: 1.41
+32. Khris Middleton                | Predicted Score: 1.36
+33. Tyler Zeller                   | Predicted Score: 1.35
+34. Jeff Taylor                    | Predicted Score: 1.35
+35. Kendall Marshall               | Predicted Score: 1.34
+36. Perry Jones                    | Predicted Score: 1.30
+37. Kim English                    | Predicted Score: 1.24
+38. Orlando Johnson                | Predicted Score: 1.23
+39. Arnett Moultrie                | Predicted Score: 1.18
+40. Kyle O'Quinn                   | Predicted Score: 1.17
+41. Kris Joseph                    | Predicted Score: 1.10
+42. Mike Scott                     | Predicted Score: 1.05
+43. John Henson                    | Predicted Score: 1.00
+44. Kevin Murphy                   | Predicted Score: 0.98
+45. Andrew Nicholson               | Predicted Score: 0.86
+46. Fab Melo                       | Predicted Score: 0.76
+47. Miles Plumlee                  | Predicted Score: 0.68
+48. Justin Hamilton                | Predicted Score: 0.66
+49. Bernard James                  | Predicted Score: 0.63
+50. Festus Ezeli                   | Predicted Score: 0.45
+51. Robert Sacre                   | Predicted Score: 0.35

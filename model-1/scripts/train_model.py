@@ -19,23 +19,14 @@ missing_cols = [col for col in FEATURES if col not in df.columns]
 if missing_cols:
     raise KeyError(f"Missing required columns: {missing_cols}")
 
-# target and features
+# target
 y = df["NBA Career Score"]
+# feature matrix
 X = df[FEATURES]
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # train model
 model = RandomForestRegressor(n_estimators=100, random_state=42)
-model.fit(X_train, y_train)
-
-# print performance
-y_pred = model.predict(X_test)
-mse = mean_squared_error(y_test, y_pred)
-r2 = r2_score(y_test, y_pred)
-
-print(f"Mean Squared Error: {mse:.2f}")
-print(f"R² Score: {r2:.2f}")
+model.fit(X, y)
 
 # save model
-joblib.dump(model, "model-1/holdout-testing-models/removed-2020.pkl")
+joblib.dump(model, "model-1/holdout-models/holdout-2020.pkl")

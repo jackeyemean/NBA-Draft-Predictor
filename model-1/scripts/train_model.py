@@ -4,9 +4,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 
-df = pd.read_csv("data/drafts.csv")
+df = pd.read_csv("model-1/data/training-data-2011-to-2020.csv")
 
-IGNORE_YEARS = [2014]
+IGNORE_YEARS = [2020]
 if "Draft Year" in df.columns:
     df = df[~df["Draft Year"].isin(IGNORE_YEARS)]
 
@@ -38,5 +38,4 @@ print(f"Mean Squared Error: {mse:.2f}")
 print(f"R² Score: {r2:.2f}")
 
 # save model
-joblib.dump(model, "models/model_excluding_years.pkl")
-print("Model saved to models/model_excluding_years.pkl")
+joblib.dump(model, "model-1/holdout-testing-models/removed-2020.pkl")

@@ -1,0 +1,45 @@
+=== Predicted NBA Career Scores for Draft Year 2022 ===
+
+ 1. Jabari Smith Jr.               | Predicted Score: 3.24
+ 2. Blake Wesley                   | Predicted Score: 3.19
+ 3. Paolo Banchero                 | Predicted Score: 3.01
+ 4. Bennedict Mathurin             | Predicted Score: 2.98
+ 5. Chet Holmgren                  | Predicted Score: 2.95
+ 6. Ryan Rollins                   | Predicted Score: 2.69
+ 7. Patrick Baldwin Jr.            | Predicted Score: 2.62
+ 8. Jabari Walker                  | Predicted Score: 2.61
+ 9. Jaylin Williams                | Predicted Score: 2.58
+10. JD Davison                     | Predicted Score: 2.50
+11. Jeremy Sochan                  | Predicted Score: 2.50
+12. Bryce McGowens                 | Predicted Score: 2.46
+13. Keegan Murray                  | Predicted Score: 2.39
+14. AJ Griffin                     | Predicted Score: 2.37
+15. Johnny Davis                   | Predicted Score: 2.37
+16. Caleb Houstan                  | Predicted Score: 2.31
+17. Walker Kessler                 | Predicted Score: 2.31
+18. Josh Minott                    | Predicted Score: 2.27
+19. Kendall Brown                  | Predicted Score: 2.27
+20. Malaki Branham                 | Predicted Score: 2.27
+21. Jalen Duren                    | Predicted Score: 2.24
+22. Kennedy Chandler               | Predicted Score: 2.24
+23. Max Christie                   | Predicted Score: 2.23
+24. David Roddy                    | Predicted Score: 2.18
+25. Jake LaRavia                   | Predicted Score: 2.17
+26. Dalen Terry                    | Predicted Score: 2.15
+27. Peyton Watson                  | Predicted Score: 2.10
+28. Tari Eason                     | Predicted Score: 2.10
+29. Mark Williams                  | Predicted Score: 2.06
+30. Trevor Keels                   | Predicted Score: 2.02
+31. Wendell Moore Jr.              | Predicted Score: 2.01
+32. Christian Braun                | Predicted Score: 1.92
+33. Christian Koloko               | Predicted Score: 1.91
+34. Vince Williams Jr.             | Predicted Score: 1.83
+35. Jaden Ivey                     | Predicted Score: 1.80
+36. Jalen Williams                 | Predicted Score: 1.79
+37. TyTy Washington Jr.            | Predicted Score: 1.72
+38. E.J. Liddell                   | Predicted Score: 1.64
+39. Andrew Nembhard                | Predicted Score: 1.64
+40. Ochai Agbaji                   | Predicted Score: 1.32
+41. Moussa DiabatÃ©                | Predicted Score: 1.28
+42. Isaiah Mobley                  | Predicted Score: 1.26
+43. Tyrese Martin                  | Predicted Score: 1.09

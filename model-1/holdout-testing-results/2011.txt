@@ -1,0 +1,49 @@
+=== Predicted NBA Career Scores for Draft Year 2011 ===
+
+ 1. Kyrie Irving                   | Predicted Score: 3.15
+ 2. Kawhi Leonard                  | Predicted Score: 2.80
+ 3. Derrick Williams               | Predicted Score: 2.79
+ 4. Alec Burks                     | Predicted Score: 2.77
+ 5. Tobias Harris                  | Predicted Score: 2.64
+ 6. Reggie Jackson                 | Predicted Score: 2.55
+ 7. Cory Joseph                    | Predicted Score: 2.53
+ 8. Josh Selby                     | Predicted Score: 2.52
+ 9. Tristan Thompson               | Predicted Score: 2.48
+10. Brandon Knight                 | Predicted Score: 2.46
+11. Marcus Morris                  | Predicted Score: 2.40
+12. Nikola VuÄeviÄ                 | Predicted Score: 2.37
+13. Charles Jenkins                | Predicted Score: 2.36
+14. Travis Leslie                  | Predicted Score: 2.12
+15. Jon Leuer                      | Predicted Score: 2.05
+16. MarShon Brooks                 | Predicted Score: 1.99
+17. Justin Harper                  | Predicted Score: 1.98
+18. Jimmy Butler                   | Predicted Score: 1.97
+19. Jon Diebler                    | Predicted Score: 1.95
+20. Klay Thompson                  | Predicted Score: 1.94
+21. Markieff Morris                | Predicted Score: 1.92
+22. Jordan Hamilton                | Predicted Score: 1.87
+23. E'Twaun Moore                  | Predicted Score: 1.85
+24. Iman Shumpert                  | Predicted Score: 1.83
+25. Jimmer Fredette                | Predicted Score: 1.82
+26. Kemba Walker                   | Predicted Score: 1.82
+27. Kenneth Faried                 | Predicted Score: 1.77
+28. JaJuan Johnson                 | Predicted Score: 1.60
+29. Norris Cole                    | Predicted Score: 1.58
+30. Darius Morris                  | Predicted Score: 1.57
+31. Josh Harrellson                | Predicted Score: 1.54
+32. Isaiah Thomas                  | Predicted Score: 1.54
+33. Nolan Smith                    | Predicted Score: 1.51
+34. Chris Singleton                | Predicted Score: 1.50
+35. Jordan Williams                | Predicted Score: 1.47
+36. Malcolm Lee                    | Predicted Score: 1.44
+37. Trey Thompkins                 | Predicted Score: 1.31
+38. Kyle Singler                   | Predicted Score: 1.31
+39. DeAndre Liggins                | Predicted Score: 1.31
+40. Tyler Honeycutt                | Predicted Score: 1.25
+41. Shelvin Mack                   | Predicted Score: 1.24
+42. Chandler Parsons               | Predicted Score: 1.24
+43. Andrew Goudelock               | Predicted Score: 1.15
+44. Ater Majok                     | Predicted Score: 1.12
+45. Keith Benson                   | Predicted Score: 1.00
+46. Lavoy Allen                    | Predicted Score: 0.81
+47. Vernon Macklin                 | Predicted Score: 0.68

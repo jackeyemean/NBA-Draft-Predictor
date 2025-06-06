@@ -12,7 +12,7 @@ def main():
     data_dir = "data"
     os.makedirs(data_dir, exist_ok=True)
 
-    # build filename like "drafts_2011_2020.csv"
+    # build filename in format: "drafts_2011_2020.csv"
     filename = f"drafts_{start_year}_{end_year}.csv"
     output_file = os.path.join(data_dir, filename)
     header_written = False

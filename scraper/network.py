@@ -32,7 +32,6 @@ session.mount('https://', HTTPAdapter(max_retries=retries))
 session.mount('http://', HTTPAdapter(max_retries=retries))
 
 def polite_sleep():
-    """Pause briefly between requests."""
     logger.debug(f"{REQUEST_DELAY:.1f}s sleep")
     time.sleep(REQUEST_DELAY)
 

@@ -7,10 +7,10 @@ from extractors import (
     extract_height_weight, extract_sr_cbb_link, get_stat,
     get_advanced_stats, get_per40_stats, get_per100_stats
 )
-from feature_engineering import engineer_features_full
 
 logger = logging.getLogger(__name__)
 BBREF_BASE = 'https://www.basketball-reference.com'
+
 
 def get_draft_picks(year):
     """
@@ -59,6 +59,7 @@ def get_draft_picks(year):
         })
     return picks
 
+
 def get_player_meta(bbref_url):
     """
     Fetch a player's BBRef page and return:
@@ -91,11 +92,12 @@ def get_player_meta(bbref_url):
     cbb_url = extract_sr_cbb_link(soup)
     return relatives, cbb_url, birth_date
 
+
 def get_college_stats(cbb_url, nba_team, college):
     """
     Given a SR/CBB URL, fetch college stats and meta:
     - height (cm), weight (kg), position, seasons played
-    - a DataFrame with engineered features for the last season
+    - a DataFrame with raw stats (no feature engineering)
     """
     soup = get_soup(cbb_url)
     if not soup:
@@ -157,8 +159,8 @@ def get_college_stats(cbb_url, nba_team, college):
     stats.update(get_per100_stats(soup))
 
     df = pd.DataFrame([stats])
-    engineered_df = engineer_features_full(df)
-    return height, weight, pos, seasons, engineered_df
+    return height, weight, pos, seasons, df
+
 
 def calculate_age(birth_date, draft_year):
     """
@@ -174,10 +176,11 @@ def calculate_age(birth_date, draft_year):
         logger.warning(f"Failed to parse birth date {birth_date}: {e}")
         return 0.0
 
+
 def process_player(pick_info, draft_year):
     """
     Given a dict with 'pick', 'team', 'name', 'bbref_url', 'college' and draft_year,
-    fetch meta info, college stats, compute features, and return a full record dict.
+    fetch meta info, college stats (raw), and return a full record dict.
     """
     name = pick_info['name']
     team = pick_info['team']
@@ -189,11 +192,11 @@ def process_player(pick_info, draft_year):
         return None
 
     age = calculate_age(birth_date, draft_year)
-    height, weight, pos, seasons, fe_df = get_college_stats(cbb_url, team, college)
-    if fe_df.empty:
+    height, weight, pos, seasons, raw_df = get_college_stats(cbb_url, team, college)
+    if raw_df.empty:
         return None
 
-    stats = fe_df.iloc[0].to_dict()
+    stats = raw_df.iloc[0].to_dict()
     record = {
         'Draft Year': draft_year,
         'Pick Number': int(pick_info['pick']) if pick_info['pick'] and pick_info['pick'].isdigit() else 0,
@@ -209,6 +212,7 @@ def process_player(pick_info, draft_year):
     }
     record.update(stats)
     return record
+
 
 def write_record(record, output_file, header_written):
     """

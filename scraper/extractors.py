@@ -13,7 +13,7 @@ def extract_height_weight(soup):
 
 def extract_sr_cbb_link(soup):
     """
-    Find "More College Stats on SR/CBB" link and return base URL (no query params).
+    Find "More College Stats on SR/CBB" link in bbref and return base URL.
     """
     anchor = soup.find('a', string=lambda text: text and 'More College Stats on SR/CBB' in text)
     if anchor and 'href' in anchor.attrs:

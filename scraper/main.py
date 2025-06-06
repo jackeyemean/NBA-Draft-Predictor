@@ -8,12 +8,12 @@ logging.basicConfig(
 )
 
 def main():
-    start_year, end_year = 2021, 2025
-    data_dir = "data"
+    start_year, end_year = 2008, 2024
+    data_dir = "raw-data"
     os.makedirs(data_dir, exist_ok=True)
 
-    # build filename in format: "drafts_2011_2020.csv"
-    filename = f"drafts_{start_year}_{end_year}.csv"
+    # build filename in format: "drafts_2008_2024.csv"
+    filename = f"drafts-{start_year}-to-{end_year}.csv"
     output_file = os.path.join(data_dir, filename)
     header_written = False
 

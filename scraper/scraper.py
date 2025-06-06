@@ -14,8 +14,8 @@ BBREF_BASE = 'https://www.basketball-reference.com'
 
 def get_draft_picks(year):
     """
-    Fetch the draft page for a given year and return a list of dicts:
-    each dict has 'pick', 'team', 'name', 'bbref_url', 'college'.
+    Fetch draft page, return a list of player dicts with:
+    - pick, team, name, bbref_url, college
     """
     url = f"{BBREF_BASE}/draft/NBA_{year}.html"
     soup = get_soup(url)
@@ -62,14 +62,15 @@ def get_draft_picks(year):
 
 def get_player_meta(bbref_url):
     """
-    Fetch a player's BBRef page and return:
-    - number of NBA relatives,
-    - SR/CBB college stats URL (or None),
-    - birth_date string ('YYYY-MM-DD') or None.
+    Fetch player's BBRef page and return:
+    - # of NBA relatives
+    - sports reference college stats URL
+    - birth_date ("YYYY-MM-DD")
+    - position ("PG,SG")
     """
     soup = get_soup(bbref_url)
     if not soup:
-        return 0, None, None
+        return 0, None, None, ''
 
     # count relatives if listed
     relatives = 0
@@ -88,20 +89,67 @@ def get_player_meta(bbref_url):
         else None
     )
 
-    # link to SR/CBB college stats
+    # link to sport reference college bball stats
     cbb_url = extract_sr_cbb_link(soup)
-    return relatives, cbb_url, birth_date
+
+    # parse “Position:” line
+    position = ''
+    for p_tag in soup.select('div#meta p'):
+        strong_tag = p_tag.find('strong')
+        if strong_tag and 'Position:' in strong_tag.text:
+            raw_text = p_tag.get_text()
+            after = raw_text.split('Position:')[1].strip()
+            position_text = after.split('▪')[0].strip()
+            position = position_text
+            break
+
+    # normalize to comma-separated abbreviations
+    fullname_to_abbrev = {
+        'Point Guard':      'PG',
+        'Shooting Guard':   'SG',
+        'Small Forward':    'SF',
+        'Power Forward':    'PF',
+        'Center':           'C',
+    }
+
+    def split_and_map(raw: str) -> str:
+        """
+        Given: "Shooting Guard and Power Forward",
+        return "SG,PF".
+        """
+        parts = []
+        tmp = raw.replace(' and ', '|').replace(' / ', '|').replace('-', '|')
+        for token in tmp.split('|'):
+            name = token.strip()
+            if name in fullname_to_abbrev:
+                parts.append(fullname_to_abbrev[name])
+            else:
+                upper = name.upper()
+                if upper in fullname_to_abbrev.values():
+                    parts.append(upper)
+                else:
+                    pass
+        seen = set()
+        ordered = []
+        for code in parts:
+            if code not in seen:
+                seen.add(code)
+                ordered.append(code)
+        return ','.join(ordered)
+
+    position_abbrev = split_and_map(position)
+
+    return relatives, cbb_url, birth_date, position_abbrev
 
 
 def get_college_stats(cbb_url, nba_team, college):
     """
     Given a SR/CBB URL, fetch college stats and meta:
-    - height (cm), weight (kg), position, seasons played
-    - a DataFrame with raw stats (no feature engineering)
+    - height (cm), weight (kg), seasons played
     """
     soup = get_soup(cbb_url)
     if not soup:
-        return 0, 0, '', 0, pd.DataFrame()
+        return 0, 0, 0, pd.DataFrame()
 
     # height & weight
     height, weight = extract_height_weight(soup)
@@ -109,25 +157,23 @@ def get_college_stats(cbb_url, nba_team, college):
     # per-game stats table
     per_game = soup.find('table', id='players_per_game')
     if not per_game:
-        return height, weight, '', 0, pd.DataFrame()
+        return height, weight, 0, pd.DataFrame()
 
     rows = per_game.find('tbody').find_all('tr')
     rows = [r for r in rows if not r.get('class') or 'thead' not in r.get('class')]
     if not rows:
-        return height, weight, '', 0, pd.DataFrame()
+        return height, weight, 0, pd.DataFrame()
 
     last_row = rows[-1]
-    pos_cell = last_row.find('td', {'data-stat': 'pos'})
-    pos = pos_cell.text.strip() if pos_cell else ''
     seasons = len(rows)
 
-    # basic per-game stats + height/weight/pos/NBA team/college
+    # input basic per-game stats and meta data from sports ref and draft year page
     stats = {
         'G': get_stat(last_row, 'games'),
         'GS%': round(
             get_stat(last_row, 'games_started') / get_stat(last_row, 'games') * 100, 2
         ) if get_stat(last_row, 'games') > 0 else 0.0,
-        'MP': get_stat(last_row, 'mp_per_g'),
+        'MPG': get_stat(last_row, 'mp_per_g'),
         'FG': get_stat(last_row, 'fg_per_g'),
         'FGA': get_stat(last_row, 'fga_per_g'),
         'FG%': get_stat(last_row, 'fg_pct'),
@@ -148,23 +194,22 @@ def get_college_stats(cbb_url, nba_team, college):
         'PTS': get_stat(last_row, 'pts_per_g'),
         'Height': height,
         'Weight': weight,
-        'POS': pos,
         'NBA Team': nba_team or '',
         'College': college or ''
     }
 
-    # add advanced, per-40, per-100 stats
+    # advanced, per-40, per-100 stats
     stats.update(get_advanced_stats(soup))
     stats.update(get_per40_stats(soup))
     stats.update(get_per100_stats(soup))
 
     df = pd.DataFrame([stats])
-    return height, weight, pos, seasons, df
+    return height, weight, seasons, df
 
 
 def calculate_age(birth_date, draft_year):
     """
-    Compute age (in years) at draft date (assumed June 25 of draft year).
+    Age (in years) assuming draft date is on June 25.
     """
     if not birth_date:
         return 0.0
@@ -176,47 +221,50 @@ def calculate_age(birth_date, draft_year):
         logger.warning(f"Failed to parse birth date {birth_date}: {e}")
         return 0.0
 
-
+# Called in main.py
 def process_player(pick_info, draft_year):
     """
     Given a dict with 'pick', 'team', 'name', 'bbref_url', 'college' and draft_year,
-    fetch meta info, college stats (raw), and return a full record dict.
+    fetch meta info (including Position), college stats (raw), and return a record dict.
     """
     name = pick_info['name']
     team = pick_info['team']
     college = pick_info['college']
 
-    relatives, cbb_url, birth_date = get_player_meta(pick_info['bbref_url'])
+    relatives, cbb_url, birth_date, player_position = get_player_meta(pick_info['bbref_url'])
     if not cbb_url:
         logger.info(f"Skipping {name} – no college stats link")
         return None
 
     age = calculate_age(birth_date, draft_year)
-    height, weight, pos, seasons, raw_df = get_college_stats(cbb_url, team, college)
+
+    height, weight, seasons, raw_df = get_college_stats(cbb_url, team, college)
     if raw_df.empty:
         return None
 
     stats = raw_df.iloc[0].to_dict()
+
     record = {
         'Draft Year': draft_year,
         'Pick Number': int(pick_info['pick']) if pick_info['pick'] and pick_info['pick'].isdigit() else 0,
         'NBA Team': team or '',
+        'POS': player_position or '',        
         'Name': name or '',
         'Age': age,
         'College': college or '',
         'Height': height,
         'Weight': weight,
+        'Height/Weight': round(height/weight, 3),
         'NBA Relatives': relatives,
-        'Seasons Played (College)': seasons,
-        'POS': pos or ''
+        'Seasons Played (College)': seasons
     }
     record.update(stats)
     return record
 
-
+# Called in main.py
 def write_record(record, output_file, header_written):
     """
-    Append a single player's record to CSV. 
+    Append a single player's record to CSV.
     If header_written is False, write header row first.
     Returns True (header is now written).
     """

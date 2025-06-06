@@ -1,0 +1,48 @@
+=== Predicted NBA Career Scores ===
+
+ 1. Otto Porter Jr.           | Year: 2013 | POS: SF,PF | Predicted Score: 63.03
+ 2. Victor Oladipo            | Year: 2013 | POS: SG,PG | Predicted Score: 50.18
+ 3. Anthony Bennett           | Year: 2013 | POS: PF    | Predicted Score: 49.29
+ 4. Trey Burke                | Year: 2013 | POS: PG    | Predicted Score: 49.28
+ 5. Nate Wolters              | Year: 2013 | POS: PG    | Predicted Score: 46.41
+ 6. Shane Larkin              | Year: 2013 | POS: PG    | Predicted Score: 45.89
+ 7. Nerlens Noel              | Year: 2013 | POS: C,PF  | Predicted Score: 45.18
+ 8. Alex Len                  | Year: 2013 | POS: C     | Predicted Score: 44.96
+ 9. CJ McCollum               | Year: 2013 | POS: SG,PG | Predicted Score: 42.54
+10. Cody Zeller               | Year: 2013 | POS: C     | Predicted Score: 42.14
+11. Kentavious Caldwell-Pope  | Year: 2013 | POS: SG    | Predicted Score: 38.36
+12. Steven Adams              | Year: 2013 | POS: C     | Predicted Score: 38.23
+13. Archie Goodwin            | Year: 2013 | POS: SG,PG | Predicted Score: 37.70
+14. Ben McLemore              | Year: 2013 | POS: SG,SF | Predicted Score: 36.14
+15. Mike Muscala              | Year: 2013 | POS: C,PF  | Predicted Score: 35.80
+16. Mason Plumlee             | Year: 2013 | POS: C     | Predicted Score: 35.34
+17. Grant Jerrett             | Year: 2013 | POS: PF    | Predicted Score: 34.95
+18. Pierre Jackson            | Year: 2013 | POS: PG    | Predicted Score: 34.12
+19. Michael Carter-Williams   | Year: 2013 | POS: PG,SG | Predicted Score: 33.74
+20. Kelly Olynyk              | Year: 2013 | POS: C,PF  | Predicted Score: 30.91
+21. Reggie Bullock            | Year: 2013 | POS: SF,SG | Predicted Score: 30.55
+22. Jamaal Franklin           | Year: 2013 | POS: SG    | Predicted Score: 30.00
+23. Peyton Siva               | Year: 2013 | POS: SG    | Predicted Score: 28.70
+24. Erick Green               | Year: 2013 | POS: PG    | Predicted Score: 28.53
+25. Jeff Withey               | Year: 2013 | POS: C     | Predicted Score: 28.49
+26. Andre Roberson            | Year: 2013 | POS: SG,SF | Predicted Score: 28.16
+27. Gorgui Dieng              | Year: 2013 | POS: C,PF  | Predicted Score: 27.51
+28. Shabazz Muhammad          | Year: 2013 | POS: SF,SG | Predicted Score: 27.13
+29. Glen Rice Jr.             | Year: 2013 | POS: SG    | Predicted Score: 26.91
+30. Isaiah Canaan             | Year: 2013 | POS: PG,SG | Predicted Score: 26.03
+31. Ray McCallum              | Year: 2013 | POS: PG    | Predicted Score: 24.27
+32. Arsalan Kazemi            | Year: 2013 | POS: PF    | Predicted Score: 23.34
+33. Lorenzo Brown             | Year: 2013 | POS: PG    | Predicted Score: 23.15
+34. Deshaun Thomas            | Year: 2013 | POS: SF,PF | Predicted Score: 21.64
+35. Erik Murphy               | Year: 2013 | POS: C     | Predicted Score: 19.80
+36. Romero Osby               | Year: 2013 | POS: SF    | Predicted Score: 19.16
+37. Tim Hardaway Jr.          | Year: 2013 | POS: SG,SF | Predicted Score: 17.20
+38. Carrick Felix             | Year: 2013 | POS: SG    | Predicted Score: 15.82
+39. Tony Mitchell             | Year: 2013 | POS: PF    | Predicted Score: 15.53
+40. Allen Crabbe              | Year: 2013 | POS: SG,SF | Predicted Score: 15.36
+41. James Ennis III           | Year: 2013 | POS: SF,SG | Predicted Score: 14.55
+42. Colton Iverson            | Year: 2013 | POS: C     | Predicted Score: 14.54
+43. Tony Snell                | Year: 2013 | POS: SG,SF | Predicted Score: 14.06
+44. Solomon Hill              | Year: 2013 | POS: SF,PF | Predicted Score: 13.57
+45. Alex Oriakhi              | Year: 2013 | POS: PF    | Predicted Score: 10.88
+46. Ryan Kelly                | Year: 2013 | POS: PF    | Predicted Score: 10.18

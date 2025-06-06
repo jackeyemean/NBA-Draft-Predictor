@@ -1,0 +1,54 @@
+=== Predicted NBA Career Scores ===
+
+ 1. Ja Morant                 | Year: 2019 | POS: PG    | Predicted Score: 70.06
+ 2. RJ Barrett                | Year: 2019 | POS: SG,SF | Predicted Score: 65.62
+ 3. Zion Williamson           | Year: 2019 | POS: PF    | Predicted Score: 63.64
+ 4. Romeo Langford            | Year: 2019 | POS: SG    | Predicted Score: 60.87
+ 5. Tyler Herro               | Year: 2019 | POS: SG    | Predicted Score: 54.50
+ 6. Jarrett Culver            | Year: 2019 | POS: SG,SF | Predicted Score: 51.24
+ 7. Jordan Poole              | Year: 2019 | POS: SG,PG | Predicted Score: 50.95
+ 8. Jaylen Nowell             | Year: 2019 | POS: SG    | Predicted Score: 50.46
+ 9. Coby White                | Year: 2019 | POS: PG,SG | Predicted Score: 49.85
+10. Darius Garland            | Year: 2019 | POS: PG,SG | Predicted Score: 48.80
+11. Bol Bol                   | Year: 2019 | POS: PF    | Predicted Score: 44.40
+12. Jaxson Hayes              | Year: 2019 | POS: C     | Predicted Score: 44.17
+13. KZ Okpala                 | Year: 2019 | POS: PF    | Predicted Score: 43.03
+14. Brandon Clarke            | Year: 2019 | POS: PF    | Predicted Score: 41.23
+15. Nic Claxton               | Year: 2019 | POS: C     | Predicted Score: 41.01
+16. Dylan Windler             | Year: 2019 | POS: SF    | Predicted Score: 40.49
+17. Grant Williams            | Year: 2019 | POS: PF    | Predicted Score: 39.73
+18. De'Andre Hunter           | Year: 2019 | POS: SF    | Predicted Score: 38.49
+19. Keldon Johnson            | Year: 2019 | POS: SF    | Predicted Score: 38.41
+20. Justin Wright-Foreman     | Year: 2019 | POS: PG    | Predicted Score: 38.24
+21. Kyle Guy                  | Year: 2019 | POS: SG,PG | Predicted Score: 36.07
+22. Bruno Fernando            | Year: 2019 | POS: C     | Predicted Score: 35.78
+23. Quinndary Weatherspoon    | Year: 2019 | POS: SG    | Predicted Score: 33.88
+24. Kevin Porter Jr.          | Year: 2019 | POS: SF    | Predicted Score: 33.55
+25. Tremont Waters            | Year: 2019 | POS: PG    | Predicted Score: 32.42
+26. Chuma Okeke               | Year: 2019 | POS: PF,SF | Predicted Score: 31.92
+27. Carsen Edwards            | Year: 2019 | POS: SG    | Predicted Score: 31.85
+28. Cam Reddish               | Year: 2019 | POS: SF    | Predicted Score: 31.75
+29. Talen Horton-Tucker       | Year: 2019 | POS: SG,PG | Predicted Score: 31.58
+30. Rui Hachimura             | Year: 2019 | POS: PF    | Predicted Score: 31.30
+31. Jordan Bone               | Year: 2019 | POS: PG    | Predicted Score: 31.30
+32. Matisse Thybulle          | Year: 2019 | POS: SG,SF | Predicted Score: 30.11
+33. Ty Jerome                 | Year: 2019 | POS: SG    | Predicted Score: 29.90
+34. Nickeil Alexander-Walker  | Year: 2019 | POS: SG    | Predicted Score: 29.71
+35. P.J. Washington           | Year: 2019 | POS: PF,C  | Predicted Score: 29.06
+36. Cameron Johnson           | Year: 2019 | POS: PF    | Predicted Score: 28.88
+37. Nassir Little             | Year: 2019 | POS: SF,PF | Predicted Score: 28.42
+38. Jaylen Hands              | Year: 2019 | POS: PG,SG | Predicted Score: 27.70
+39. Ignas Brazdeikis          | Year: 2019 | POS: SF    | Predicted Score: 26.34
+40. Mfiondu Kabengele         | Year: 2019 | POS: PF,C  | Predicted Score: 26.11
+41. Daniel Gafford            | Year: 2019 | POS: C,PF  | Predicted Score: 24.67
+42. Jalen McDaniels           | Year: 2019 | POS: SF    | Predicted Score: 24.61
+43. Admiral Schofield         | Year: 2019 | POS: PF,SF | Predicted Score: 24.26
+44. Jarrell Brantley          | Year: 2019 | POS: PF    | Predicted Score: 20.91
+45. Terance Mann              | Year: 2019 | POS: SG,SF | Predicted Score: 20.70
+46. Marial Shayok             | Year: 2019 | POS: SG    | Predicted Score: 19.14
+47. Miye Oni                  | Year: 2019 | POS: SG,SF | Predicted Score: 18.22
+48. Eric Paschall             | Year: 2019 | POS: PF    | Predicted Score: 17.65
+49. Justin James              | Year: 2019 | POS: SF    | Predicted Score: 15.14
+50. Cody Martin               | Year: 2019 | POS: SF    | Predicted Score: 13.39
+51. Isaiah Roby               | Year: 2019 | POS: PF    | Predicted Score: 12.04
+52. Dewan Hernandez           | Year: 2019 | POS: C     | Predicted Score: 2.94

@@ -1,0 +1,49 @@
+=== Predicted NBA Career Scores ===
+
+ 1. Alec Burks                | Year: 2011 | POS: SG,SF | Predicted Score: 67.82
+ 2. Brandon Knight            | Year: 2011 | POS: PG,SG | Predicted Score: 63.50
+ 3. Kyrie Irving              | Year: 2011 | POS: PG,SG | Predicted Score: 52.54
+ 4. Cory Joseph               | Year: 2011 | POS: PG,SG | Predicted Score: 51.92
+ 5. Kawhi Leonard             | Year: 2011 | POS: SF    | Predicted Score: 47.77
+ 6. Derrick Williams          | Year: 2011 | POS: PF,SF | Predicted Score: 47.56
+ 7. Tristan Thompson          | Year: 2011 | POS: C,PF  | Predicted Score: 46.23
+ 8. Iman Shumpert             | Year: 2011 | POS: PG    | Predicted Score: 40.88
+ 9. Reggie Jackson            | Year: 2011 | POS: PG,SG | Predicted Score: 40.60
+10. Josh Selby                | Year: 2011 | POS: PG    | Predicted Score: 40.34
+11. Charles Jenkins           | Year: 2011 | POS: PG,SG | Predicted Score: 40.33
+12. Tobias Harris             | Year: 2011 | POS: PF,SF | Predicted Score: 39.67
+13. Jimmer Fredette           | Year: 2011 | POS: SG,PG | Predicted Score: 36.66
+14. Kemba Walker              | Year: 2011 | POS: PG    | Predicted Score: 36.24
+15. Marcus Morris             | Year: 2011 | POS: PF,SF | Predicted Score: 35.75
+16. Jon Diebler               | Year: 2011 | POS: SG    | Predicted Score: 35.50
+17. Kenneth Faried            | Year: 2011 | POS: PF,C  | Predicted Score: 35.45
+18. Klay Thompson             | Year: 2011 | POS: SG,SF | Predicted Score: 33.57
+19. Jordan Hamilton           | Year: 2011 | POS: SF    | Predicted Score: 31.30
+20. Nikola VuÄeviÄ          | Year: 2011 | POS: C     | Predicted Score: 28.12
+21. Justin Harper             | Year: 2011 | POS: PF    | Predicted Score: 27.62
+22. Andrew Goudelock          | Year: 2011 | POS: SG,PG | Predicted Score: 26.26
+23. Markieff Morris           | Year: 2011 | POS: PF    | Predicted Score: 25.80
+24. Shelvin Mack              | Year: 2011 | POS: PG,SG | Predicted Score: 23.36
+25. Jordan Williams           | Year: 2011 | POS: C     | Predicted Score: 23.20
+26. Nolan Smith               | Year: 2011 | POS: PG    | Predicted Score: 23.13
+27. Travis Leslie             | Year: 2011 | POS: SG    | Predicted Score: 22.93
+28. Norris Cole               | Year: 2011 | POS: PG    | Predicted Score: 22.88
+29. Jimmy Butler              | Year: 2011 | POS: PF    | Predicted Score: 22.86
+30. JaJuan Johnson            | Year: 2011 | POS: PF    | Predicted Score: 21.99
+31. DeAndre Liggins           | Year: 2011 | POS: SG,SF | Predicted Score: 20.56
+32. Ater Majok                | Year: 2011 | POS: PF,C  | Predicted Score: 20.18
+33. E'Twaun Moore             | Year: 2011 | POS: SG,PG | Predicted Score: 19.75
+34. Keith Benson              | Year: 2011 | POS: C     | Predicted Score: 19.64
+35. Josh Harrellson           | Year: 2011 | POS: C,PF  | Predicted Score: 18.72
+36. Chandler Parsons          | Year: 2011 | POS: SF,PF | Predicted Score: 18.32
+37. Darius Morris             | Year: 2011 | POS: PG    | Predicted Score: 18.20
+38. Malcolm Lee               | Year: 2011 | POS: SG    | Predicted Score: 17.74
+39. Trey Thompkins            | Year: 2011 | POS: C     | Predicted Score: 17.35
+40. Tyler Honeycutt           | Year: 2011 | POS: SF    | Predicted Score: 16.84
+41. Kyle Singler              | Year: 2011 | POS: SF    | Predicted Score: 14.76
+42. MarShon Brooks            | Year: 2011 | POS: SG    | Predicted Score: 13.58
+43. Lavoy Allen               | Year: 2011 | POS: PF,C  | Predicted Score: 13.30
+44. Chris Singleton           | Year: 2011 | POS: SF,PF | Predicted Score: 11.54
+45. Jon Leuer                 | Year: 2011 | POS: PF,C  | Predicted Score: 11.03
+46. Isaiah Thomas             | Year: 2011 | POS: PG,SG | Predicted Score: 10.63
+47. Vernon Macklin            | Year: 2011 | POS: C     | Predicted Score: 5.86

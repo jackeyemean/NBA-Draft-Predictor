@@ -1,0 +1,46 @@
+=== Predicted NBA Career Scores ===
+
+ 1. Ben Simmons               | Year: 2016 | POS: PG    | Predicted Score: 73.05
+ 2. Domantas Sabonis          | Year: 2016 | POS: C,PF  | Predicted Score: 67.79
+ 3. Henry Ellenson            | Year: 2016 | POS: PF,C  | Predicted Score: 58.71
+ 4. Chinanu Onuaku            | Year: 2016 | POS: C     | Predicted Score: 57.68
+ 5. Kay Felder                | Year: 2016 | POS: PG    | Predicted Score: 55.01
+ 6. Jamal Murray              | Year: 2016 | POS: PG,SG | Predicted Score: 54.13
+ 7. Wade Baldwin              | Year: 2016 | POS: PG    | Predicted Score: 52.55
+ 8. Brandon Ingram            | Year: 2016 | POS: SF,PF | Predicted Score: 46.74
+ 9. Stephen Zimmerman         | Year: 2016 | POS: C     | Predicted Score: 45.70
+10. Malik Beasley             | Year: 2016 | POS: SG    | Predicted Score: 44.84
+11. Daniel Hamilton           | Year: 2016 | POS: SG    | Predicted Score: 44.26
+12. Jaylen Brown              | Year: 2016 | POS: SF,SG | Predicted Score: 43.31
+13. Jakob Poeltl              | Year: 2016 | POS: C     | Predicted Score: 41.93
+14. Dejounte Murray           | Year: 2016 | POS: PG,SG | Predicted Score: 41.78
+15. Tyler Ulis                | Year: 2016 | POS: PG    | Predicted Score: 39.75
+16. Brice Johnson             | Year: 2016 | POS: PF    | Predicted Score: 39.66
+17. Caris LeVert              | Year: 2016 | POS: SG,SF | Predicted Score: 38.89
+18. Deyonta Davis             | Year: 2016 | POS: C     | Predicted Score: 37.23
+19. Diamond Stone             | Year: 2016 | POS: C     | Predicted Score: 35.98
+20. DeAndre' Bembry           | Year: 2016 | POS: SF,SG | Predicted Score: 35.49
+21. Patrick McCaw             | Year: 2016 | POS: SG,SF | Predicted Score: 32.26
+22. Marquese Chriss           | Year: 2016 | POS: PF    | Predicted Score: 31.11
+23. Pascal Siakam             | Year: 2016 | POS: PF    | Predicted Score: 30.57
+24. Denzel Valentine          | Year: 2016 | POS: SG,SF | Predicted Score: 29.59
+25. Malachi Richardson        | Year: 2016 | POS: SG    | Predicted Score: 27.36
+26. Buddy Hield               | Year: 2016 | POS: SG,SF | Predicted Score: 26.54
+27. Ben Bentil                | Year: 2016 | POS: PF    | Predicted Score: 25.10
+28. Demetrius Jackson         | Year: 2016 | POS: PG    | Predicted Score: 24.92
+29. Michael Gbinije           | Year: 2016 | POS: SG    | Predicted Score: 23.05
+30. Isaiah Whitehead          | Year: 2016 | POS: PG    | Predicted Score: 22.50
+31. Isaiah Cousins            | Year: 2016 | POS: PG,SG | Predicted Score: 22.35
+32. Damian Jones              | Year: 2016 | POS: C     | Predicted Score: 21.41
+33. Georges Niang             | Year: 2016 | POS: PF    | Predicted Score: 20.96
+34. Skal LabissiÃ¨re          | Year: 2016 | POS: PF,C  | Predicted Score: 20.29
+35. Kris Dunn                 | Year: 2016 | POS: PG    | Predicted Score: 19.81
+36. Joel Bolomboy             | Year: 2016 | POS: PF    | Predicted Score: 19.13
+37. A.J. Hammons              | Year: 2016 | POS: C     | Predicted Score: 18.69
+38. Marcus Paige              | Year: 2016 | POS: PG    | Predicted Score: 17.15
+39. Malcolm Brogdon           | Year: 2016 | POS: PG,SG | Predicted Score: 15.73
+40. Tyrone Wallace            | Year: 2016 | POS: SG,PG | Predicted Score: 12.38
+41. Cheick Diallo             | Year: 2016 | POS: C,PF  | Predicted Score: 11.37
+42. Jake Layman               | Year: 2016 | POS: SF    | Predicted Score: 11.25
+43. Taurean Prince            | Year: 2016 | POS: PF,SF | Predicted Score: 6.86
+44. Abdel Nader               | Year: 2016 | POS: SF    | Predicted Score: 5.00

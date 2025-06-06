@@ -1,11 +1,8 @@
-| Tier | Label              | Numeric Scale (Dramatic Log) |
-| ---- | ------------------ | ---------------------------- |
-| 0    | Scrub              |   1                          |
-| 1    | Bench              |   3                          |
-| 2    | Role Player        |   10                         |
-| 2.5  | Average NBA Player |   20                         |
-| 3    | Starter            |   40                         |
-| 3.5  | Solid Starter      |   60                         |
-| 4    | All-Star           |   80                         |
-| 4.5  | Superstar          |   90                         |
-| 5    | All-Time Great     |   100                        |
+Scrub               1
+Bench               20
+Role                40
+Starter             60
+Strong Starter      80
+All-Star            90
+Superstar           95
+All-Time Great      100

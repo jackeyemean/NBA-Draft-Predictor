@@ -28,6 +28,7 @@ TEAM_DESIRABILITY = {
     "MIN": 2,
     "LAL": 2,
     "NYK": 2,
+    "HOU": 2,
 
     # Not Ideal
     "BKN": 1,
@@ -42,7 +43,7 @@ TEAM_DESIRABILITY = {
     "SAC": 0,
     "CHI": 0,
     "WAS": 0,
-    "CHA": 0,
+    "CHO": 0,
 }
 
 COLLEGE_STRENGTH = {

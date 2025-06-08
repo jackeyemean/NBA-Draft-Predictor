@@ -2,16 +2,38 @@ import pandas as pd
 import joblib
 
 # config
+TEST_POSITIONS = ["PG"]
 TEST_YEARS = [2021, 2022, 2023, 2024]
-MODEL_PATH_TEMPLATE = "model-3/model-3.pkl"
-RAW_DATA_PATH = "model-3/data/drafts-2021-to-2024.csv"
+MODEL_PATH = "model-3/model-3.pkl"
+RAW_DATA_PATH = "model-3/data/2021-to-2024.csv"
 
-# load raw data
+# load data
 df_all = pd.read_csv(RAW_DATA_PATH)
 if "Draft Year" not in df_all.columns:
     raise KeyError("Column 'Draft Year' not found in raw data.")
+if "POS" not in df_all.columns:
+    raise KeyError("Column 'POS' not found in raw data.")
 
-# feature columns
+# filter by draft year
+df_test = df_all[df_all["Draft Year"].isin(TEST_YEARS)].copy()
+if df_test.empty:
+    raise ValueError(f"No data for Draft Years = {TEST_YEARS}.")
+
+# filter by position
+def keep_position(pos_string):
+    player_positions = [p.strip() for p in pos_string.split(",")]
+    return any(p in player_positions for p in TEST_POSITIONS)
+
+df_test = df_test[df_test["POS"].apply(keep_position)].copy()
+if df_test.empty:
+    raise ValueError(f"No rows for positions {TEST_POSITIONS} in Draft Years {TEST_YEARS}.")
+
+# load model
+try:
+    model = joblib.load(MODEL_PATH)
+except FileNotFoundError:
+    raise FileNotFoundError(f"Could not find model file at {MODEL_PATH}")
+
 FEATURES = [
     "Pick Number", "Age",
     "Height", "Weight", "Height/Weight", "NBA Relatives", "Seasons Played (College)",
@@ -25,44 +47,32 @@ FEATURES = [
     "FG/100", "FGA/100", "3P/100", "3PA/100", "FT/100", "FTA/100",
     "ORB/100", "DRB/100", "TRB/100", "AST/100", "STL/100", "BLK/100", "TOV/100", "PF/100", "PTS/100",
     "ORtg", "DRtg",
-    "College Strength"
+    "College Strength", "Team Desirability"
 ]
 
-for year in TEST_YEARS:
-    model_path = MODEL_PATH_TEMPLATE.format(year=year)
-    try:
-        model = joblib.load(model_path)
-    except FileNotFoundError:
-        print(f"Model file not found for year {year}: {model_path}")
-        continue
+# verify columns exist
+missing_cols = [col for col in FEATURES if col not in df_test.columns]
+if missing_cols:
+    raise KeyError(f"Missing required columns in test data: {missing_cols}")
 
-    # only run tests on players drafted in TEST_YEAR
-    df_test = df_all[df_all["Draft Year"] == year].copy()
-    if df_test.empty:
-        print(f"No rows found for Draft Year = {year}. Skipping.")
-        continue
+# prepare feature matrix for prediction
+X_test = df_test[FEATURES]
 
-    # check for missing feature columns
-    missing_cols = [col for col in FEATURES if col not in df_test.columns]
-    if missing_cols:
-        raise KeyError(f"Missing required columns in test data for year {year}: {missing_cols}")
+# run predictions
+predictions = model.predict(X_test)
+df_test = df_test.reset_index(drop=True)
+df_test["Predicted NBA Career Score"] = predictions
 
-    # prepare feature matrix for prediction
-    X_test = df_test[FEATURES]
+# sort all players by descending predicted score
+df_ranked = df_test.sort_values(
+    by="Predicted NBA Career Score", ascending=False
+).reset_index(drop=True)
 
-    # run predictions
-    predictions = model.predict(X_test)
-    df_test = df_test.reset_index(drop=True)
-    df_test["Predicted NBA Career Score"] = predictions
-
-    # sort to view descending predicted scores
-    df_ranked = df_test.sort_values(
-        by="Predicted NBA Career Score", ascending=False
-    ).reset_index(drop=True)
-
-    # print results
-    print(f"\n=== Predicted NBA Career Scores for Draft Year {year} ===\n")
-    for idx, row in df_ranked.iterrows():
-        name = row.get("Name", "Unknown")
-        score = row["Predicted NBA Career Score"]
-        print(f"{idx+1:2d}. {name:30} | Predicted Score: {score:.2f}")
+# print results
+print(f"\n=== Predicted NBA Career Scores ===\n")
+for idx, row in df_ranked.iterrows():
+    name = row.get("Name", "Unknown")
+    year = row["Draft Year"]
+    pos = row["POS"]
+    score = row["Predicted NBA Career Score"]
+    print(f"{idx+1:2d}. {name:25} | Year: {year} | POS: {pos:5} | Predicted Score: {score:.2f}")

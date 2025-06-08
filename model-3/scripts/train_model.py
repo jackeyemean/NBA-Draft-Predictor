@@ -1,15 +1,29 @@
 import pandas as pd
 import joblib
-from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error, r2_score
 
-df = pd.read_csv("model-3/data/2011-to-2020-labelled.csv")
+# config
+TRAIN_POSITIONS = ["PG"]
 
-IGNORE_YEARS = [2021, 2022, 2023, 2024]
-if "Draft Year" in df.columns:
+IGNORE_YEARS = []
+
+# load data
+df = pd.read_csv("model-3/data/2011-to-2020.csv")
+
+# drop rows from IGNORE_YEARS
+if "Draft Year" in df.columns and IGNORE_YEARS: 
     df = df[~df["Draft Year"].isin(IGNORE_YEARS)]
 
+# keep rows where POS includes at least one of TRAIN_POSITIONS
+def keep_position(pos_string):
+    player_positions = [p.strip() for p in pos_string.split(",")]
+    return any(p in player_positions for p in TRAIN_POSITIONS)
+
+df = df[df["POS"].apply(keep_position)].copy()
+if df.empty:
+    raise ValueError(f"No data remains after filtering for positions {TRAIN_POSITIONS} and ignoring years {IGNORE_YEARS}.")
+
+# data used
 FEATURES = [
     "Pick Number", "Age",
     "Height", "Weight", "Height/Weight", "NBA Relatives", "Seasons Played (College)",
@@ -23,15 +37,14 @@ FEATURES = [
     "FG/100", "FGA/100", "3P/100", "3PA/100", "FT/100", "FTA/100",
     "ORB/100", "DRB/100", "TRB/100", "AST/100", "STL/100", "BLK/100", "TOV/100", "PF/100", "PTS/100",
     "ORtg", "DRtg",
-    "College Strength"
+    "College Strength", "Team Desirability"
 ]
 missing_cols = [col for col in FEATURES if col not in df.columns]
 if missing_cols:
-    raise KeyError(f"Missing required columns: {missing_cols}")
+    raise KeyError(f"Missing required columns after filtering: {missing_cols}")
 
 # target
 y = df["NBA Career Score"]
-
 # feature matrix
 X = df[FEATURES]
 
@@ -40,4 +53,7 @@ model = RandomForestRegressor(n_estimators=100, random_state=42)
 model.fit(X, y)
 
 # save model
-joblib.dump(model, "model-3/model-3.pkl")
+positions_tag = "-".join(TRAIN_POSITIONS)
+output_path = f"model-3/model-3.pkl"
+joblib.dump(model, output_path)
+print(f"Model saved to {output_path}")

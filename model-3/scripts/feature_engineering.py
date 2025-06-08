@@ -1,33 +1,49 @@
 import os
 import pandas as pd
 
-# ─────── show full output ───────
-pd.set_option('display.max_rows', None)
-pd.set_option('display.width', 0)
-pd.set_option('display.max_colwidth', None)
-
 RAW_DATA_PATH = "raw-data/drafts-2008-to-2024.csv"
 OUT_DIR = "model-3/data"
 
-# For future: 
-# college win %, college success, drafted team win %, team dev score
+TEAM_DESIRABILITY = {
+    # Great reputation
+    "SAS": 4,
+    "GSW": 4,
+    "BOS": 4,
+    "TOR": 4,
+    "MIA": 4,
+    "OKC": 4,
 
-# list of columns to keep from raw data CSVs
-KEEP_COLUMNS = [
-    "Pick Number", "Age", "College",
-    "Height", "Weight", "Height/Weight", "NBA Relatives", "Seasons Played (College)",
-    "G", "GS%", "MPG", "FG", "FGA", "FG%", "3P", "3PA", "3P%",
-    "FT", "FTA", "FT%", "DRB", "ORB", "TRB", "AST", "STL", "BLK", "TOV", "PF", "PTS",
-    "PER", "TS%", "3PAr", "FTr", "PProd",
-    "ORB%", "DRB%", "TRB%", "AST%", "STL%", "BLK%", "TOV%", "USG%",
-    "OWS", "DWS", "WS", "WS/40", "OBPM", "DBPM", "BPM",
-    "FG/40", "FGA/40", "3P/40", "3PA/40", "FT/40", "FTA/40",
-    "ORB/40", "DRB/40", "TRB/40", "AST/40", "STL/40", "BLK/40", "TOV/40", "PF/40", "PTS/40",
-    "FG/100", "FGA/100", "3P/100", "3PA/100", "FT/100", "FTA/100",
-    "ORB/100", "DRB/100", "TRB/100", "AST/100", "STL/100", "BLK/100", "TOV/100", "PF/100", "PTS/100",
-    "ORtg", "DRtg",
-    "College Strength"
-]
+    # Good
+    "MIL": 3,
+    "DEN": 3,
+    "MEM": 3,
+    "IND": 3,
+    "ATL": 3,
+    "CLE": 3,
+    "ORL": 3,
+    "DAL": 3,
+
+    # Average
+    "LAC": 2,
+    "MIN": 2,
+    "LAL": 2,
+    "NYK": 2,
+
+    # Not Ideal
+    "BKN": 1,
+    "DET": 1,
+    "PHI": 1,
+    "UTA": 1,
+    "POR": 1,
+
+    # Poverty franchises
+    "PHX": 0,
+    "NOP": 0,
+    "SAC": 0,
+    "CHI": 0,
+    "WAS": 0,
+    "CHA": 0,
+}
 
 COLLEGE_STRENGTH = {
     # Tier 2: Elite blue-bloods
@@ -61,14 +77,19 @@ COLLEGE_STRENGTH = {
     "Purdue":        1,
 }
 
-def ensure_out_dir():
+def main():
     os.makedirs(OUT_DIR, exist_ok=True)
+    df = pd.read_csv(RAW_DATA_PATH)
 
-def load_data():
-    return pd.read_csv(RAW_DATA_PATH)
+    # map draft team abbreviation to desirability score
+    df["Team Desirability"] = (
+        df["NBA Team"]
+        .map(TEAM_DESIRABILITY)
+        .fillna(0)
+        .astype(int)
+    )
 
-def engineer_features(df):
-    # map college strength
+    # map college to strength score
     df["College Strength"] = (
         df["College"]
         .map(COLLEGE_STRENGTH)
@@ -76,26 +97,13 @@ def engineer_features(df):
         .astype(int)
     )
 
-    return df
-
-def split_and_save(df):
+    # split into two eras
     df_2011_2020 = df[df["Draft Year"].between(2011, 2020)]
     df_2021_2024 = df[df["Draft Year"].between(2021, 2024)]
 
-    path1 = os.path.join(OUT_DIR, "drafts-2011-to-2020-features.csv")
-    path2 = os.path.join(OUT_DIR, "drafts-2021-to-2024-features.csv")
-
-    df_2011_2020[KEEP_COLUMNS].to_csv(path1, index=False)
-    df_2021_2024[KEEP_COLUMNS].to_csv(path2, index=False)
-
-    print(f"Saved {len(df_2011_2020)} rows to {path1}")
-    print(f"Saved {len(df_2021_2024)} rows to {path2}")
-
-def main():
-    ensure_out_dir()
-    df = load_data()
-    df = engineer_features(df)
-    split_and_save(df)
+    # save
+    df_2011_2020.to_csv(os.path.join(OUT_DIR, "2011-to-2020.csv"), index=False)
+    df_2021_2024.to_csv(os.path.join(OUT_DIR, "2021-to-2024.csv"), index=False)
 
 if __name__ == "__main__":
     main()

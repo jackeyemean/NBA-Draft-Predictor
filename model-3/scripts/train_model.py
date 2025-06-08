@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 
-df = pd.read_csv("model-3/data/drafts-2011-to-2020-features.csv")
+df = pd.read_csv("model-3/data/2011-to-2020-labelled.csv")
 
 IGNORE_YEARS = [2021, 2022, 2023, 2024]
 if "Draft Year" in df.columns:

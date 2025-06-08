@@ -4,7 +4,7 @@ import joblib
 # config
 TEST_YEARS = [2021, 2022, 2023, 2024]
 MODEL_PATH_TEMPLATE = "model-3/model-3.pkl"
-RAW_DATA_PATH = "model-3/data/drafts-2021-to-2024-features.csv"
+RAW_DATA_PATH = "model-3/data/drafts-2021-to-2024.csv"
 
 # load raw data
 df_all = pd.read_csv(RAW_DATA_PATH)

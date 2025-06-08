@@ -1,4 +1,4 @@
-=== Predicted NBA Career Scores ===
+=== Predicted NBA Career Scores (removed 2008 data during training)===
 
  1. Eric Gordon               | Year: 2008 | POS: SG,SF | Predicted Score: 70.20
  2. Kevin Love                | Year: 2008 | POS: PF,C  | Predicted Score: 66.79

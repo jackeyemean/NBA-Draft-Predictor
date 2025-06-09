@@ -47,35 +47,63 @@ TEAM_DESIRABILITY = {
 }
 
 COLLEGE_STRENGTH = {
-    # Tier 2: Elite blue-bloods
-    "Duke":          2,
-    "Kentucky":      2,
-    "Kansas":        2,
-    "UNC":           2,
-    "UCLA":          2,
+    # Tier 4: Elite Blue Bloods (Top-tier success + NBA pipelines)
+    "Duke": 4,
+    "Kentucky": 4,
+    "Kansas": 4,
+    "UNC": 4,
 
-    # Tier 1: Modern power programs
-    "Arizona":       1,
-    "UConn":         1,
-    "Villanova":     1,
+    # Tier 3: NBA Factories / Near-blue bloods (many recent pros or contending teams)
+    "UCLA": 3,
+    "Arizona": 3,
+    "UConn": 3,
+    "Villanova": 3,
+    "Gonzaga": 3,
+    "Michigan State": 3,
+    "Texas": 3,
+    "Alabama": 3,
+    "Houston": 3,
+    "Baylor": 3,
+
+    # Tier 2: Strong Power Programs
+    "Florida": 2,
+    "Virginia": 2,
+    "Tennessee": 2,
+    "Arkansas": 2,
+    "Oregon": 2,
+    "Auburn": 2,
+    "Michigan": 2,
+    "Indiana": 2,
+    "USC": 2,
+    "Ohio State": 2,
+    "Purdue": 2,
+    "Creighton": 2,
+    "Marquette": 2,
+    "Illinois": 2,
+    "Miami (FL)": 2,
+    "LSU": 2,
+    "Iowa": 2,
+
+    # Tier 1: Solid/NBA-adjacent teams, but not as consistent
     "Florida State": 1,
-    "Texas":         1,
-    "Michigan State":1,
-    "Louisville":    1,
-    "Michigan":      1,
-    "Indiana":       1,
-    "Gonzaga":       1,
-    "USC":           1,
-    "Virginia":      1,
-    "Oklahoma":      1,
-    "Ohio State":    1,
-    "Georgia":       1,
-    "Colorado":      1,
-    "Florida":       1,
-    "Baylor":        1,
-    "Tennessee":     1,
-    "Wisconsin":     1,
-    "Purdue":        1,
+    "Oklahoma": 1,
+    "Georgia": 1,
+    "Wisconsin": 1,
+    "Colorado": 1,
+    "Texas Tech": 1,
+    "Seton Hall": 1,
+    "Syracuse": 1,
+    "Providence": 1,
+    "NC State": 1,
+    "Maryland": 1,
+    "Saint Mary's": 1,
+    "Dayton": 1,
+    "Memphis": 1,
+    "Wake Forest": 1,
+    "Missouri": 1,
+    "Arizona State": 1,
+
+    # Tier 0: Other (default fallback for anything not listed)
 }
 
 def main():

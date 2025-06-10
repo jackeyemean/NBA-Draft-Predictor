@@ -1,5 +1,7 @@
 import re
 from bs4 import BeautifulSoup
+from network import get_soup
+
 
 def extract_height_weight(soup):
     """

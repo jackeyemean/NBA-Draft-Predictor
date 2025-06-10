@@ -11,6 +11,41 @@ from extractors import (
 logger = logging.getLogger(__name__)
 BBREF_BASE = 'https://www.basketball-reference.com'
 
+TEAM_PLAYER_DEVELOPMENT = {
+    # Great reputation
+    'SAS': 4, 'GSW': 4, 'BOS': 4, 'TOR': 4, 'MIA': 4, 'OKC': 4,
+    # Good
+    'MIL': 3, 'DEN': 3, 'MEM': 3, 'IND': 3, 'ATL': 3, 'CLE': 3, 'ORL': 3,
+    # Average
+    'MIN': 2, 'LAL': 2, 'NYK': 2, 'HOU': 2, 'DAL': 3,
+    # Not Ideal
+    'BKN': 1, 'DET': 1, 'PHI': 1, 'UTA': 1, 'POR': 1, 'LAC': 1, 
+    # Poverty franchises
+    'PHX': 0, 'NOP': 0, 'NOH': 0, 'SAC': 0, 'CHI': 0, 'WAS': 0, 'CHO': 0, 'CHA': 0
+}
+
+COLLEGE_STRENGTH = {
+    # Elite “Blue Bloods”
+    'Duke': 4, 'Kentucky': 4, 'Kansas': 4, 'UNC': 4,
+    # NBA Factories / Near-Blue-Bloods
+    'UCLA': 3, 'Arizona': 3, 'UConn': 3, 'Villanova': 3,
+    'Gonzaga': 3, 'Michigan State': 3, 'Texas': 3,
+    'Alabama': 3, 'Houston': 3, 'Baylor': 3,
+    'Louisville': 3,
+    # Respected Power Programs
+    'Florida': 2, 'Virginia': 2, 'Tennessee': 2, 'Arkansas': 2,
+    'Oregon': 2, 'Auburn': 2, 'Michigan': 2, 'Indiana': 2,
+    'USC': 2, 'Ohio State': 2, 'Purdue': 2, 'Creighton': 2,
+    'Marquette': 2, 'Illinois': 2, 'Miami (FL)': 2, 'LSU': 2,
+    'Iowa': 2, 'Oklahoma': 2, 'San Diego State': 2, 'VCU': 2,
+    # Decent / Recognizable but Less Typical
+    'Florida State': 1, 'Georgia': 1, 'Wisconsin': 1,
+    'Colorado': 1, 'Texas Tech': 1, 'Seton Hall': 1, 'Syracuse': 1,
+    'Providence': 1, 'NC State': 1, 'Maryland': 1, "Saint Mary's": 1,
+    'Dayton': 1, 'Memphis': 1, 'Wake Forest': 1, 'Missouri': 1,
+    'Arizona State': 1, 'Xavier': 1
+    # Everything else will default to 0
+}
 
 def get_draft_picks(year):
     """
@@ -139,7 +174,57 @@ def get_player_meta(bbref_url):
 
     position_abbrev = split_and_map(position)
 
-    return relatives, cbb_url, birth_date, position_abbrev
+    # ===== Getting nba career stats and main nba team ========
+    table = soup.find('table', id='per_game_stats')
+    if not table or not table.find('tfoot'):
+        return {}, ''
+
+    tfoot = table.find('tfoot')
+    rows = tfoot.find_all('tr')
+
+    # Career aggregate row is the first <tr> in <tfoot>
+    career_row = rows[0]
+    career_stats = {}
+    for cell in career_row.find_all('td'):
+        stat = cell['data-stat']
+        text = cell.text.strip()
+        career_stats[stat] = float(text) if text else 0.0
+
+    # === compute MAIN NBA TEAM over first four seasons, excluding any 2TM rows ===
+    tbody = table.find('tbody')
+    all_rows = tbody.find_all('tr')
+
+    # 1) collect the earliest four distinct seasons (by csk)
+    seasons = []
+    for r in all_rows:
+        th = r.find('th', {'data-stat': 'year_id'})
+        if not th or not th.get('csk'): 
+            continue
+        yr = int(th['csk'])
+        if yr not in seasons:
+            seasons.append(yr)
+    seasons = sorted(seasons)[:4]
+
+    # 2) sum up games for each team in those seasons (skip any '2TM' rows)
+    team_games = {}
+    for r in all_rows:
+        th = r.find('th', {'data-stat': 'year_id'})
+        if not th or not th.get('csk'):
+            continue
+        yr = int(th['csk'])
+        if yr not in seasons:
+            continue
+        team_td = r.find('td', {'data-stat': 'team_name_abbr'})
+        team = team_td.text.strip() if team_td else ''
+        if team == '2TM' or not team:
+            continue
+        games_td = r.find('td', {'data-stat': 'games'})
+        games = float(games_td.text.strip()) if games_td and games_td.text.strip() else 0.0
+        team_games[team] = team_games.get(team, 0) + games
+
+    main_team = max(team_games, key=team_games.get) if team_games else ''
+
+    return relatives, cbb_url, birth_date, position_abbrev, career_stats, main_team
 
 
 def get_college_stats(cbb_url, nba_team, college):
@@ -231,7 +316,9 @@ def process_player(pick_info, draft_year):
     team = pick_info['team']
     college = pick_info['college']
 
-    relatives, cbb_url, birth_date, player_position = get_player_meta(pick_info['bbref_url'])
+    relatives, cbb_url, birth_date, player_position, career_stats, main_team = get_player_meta(pick_info['bbref_url'])
+
+
     if not cbb_url:
         logger.info(f"Skipping {name} – no college stats link")
         return None
@@ -259,6 +346,21 @@ def process_player(pick_info, draft_year):
         'Seasons Played (College)': seasons
     }
     record.update(stats)
+
+    record['MAIN NBA TEAM'] = main_team
+    for stat, val in career_stats.items():
+        record[f'NBA_{stat}'] = val
+
+    # — add NBA Team Development & College Strength —
+    record['NBA Team Development'] = TEAM_PLAYER_DEVELOPMENT.get(
+        record.get('MAIN NBA TEAM', ''),
+        0
+    )
+    record['College Strength'] = COLLEGE_STRENGTH.get(
+        record.get('College', ''),
+        0
+    )
+    
     return record
 
 # Called in main.py

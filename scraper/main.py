@@ -8,7 +8,7 @@ logging.basicConfig(
 )
 
 def main():
-    start_year, end_year = 2008, 2024
+    start_year, end_year = 2018, 2024
     data_dir = "raw-data"
     os.makedirs(data_dir, exist_ok=True)
 

@@ -313,7 +313,7 @@ def get_college_stats(cbb_url, nba_team, college):
                         match = re.search(r'(\d+)-(\d+)', raw)
                         if match:
                             wins, losses = int(match.group(1)), int(match.group(2))
-                            college_perf['COLLEGE_Win %'] = wins / (wins + losses) if (wins + losses) > 0 else 0.0
+                            college_perf['COLLEGE_Win %'] = round(wins / (wins + losses), 3) if (wins + losses) > 0 else 0.0
 
                     elif label == 'PS/G':
                         num = re.search(r'-?\d+\.?\d+', val)

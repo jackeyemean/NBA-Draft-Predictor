@@ -2,6 +2,89 @@ import re
 from bs4 import BeautifulSoup
 from network import get_soup
 
+BBREF_BASE = 'https://www.basketball-reference.com'
+
+def get_team_summary(team_abbr: str, season_year: int) -> dict:
+    """
+    Scrape the team page for {team_abbr}/{season_year} and return key
+    performance metrics in a flat dict, e.g.:
+
+      {
+        'Team Win %': 0.305,
+        'Team PTS/G': 111.5,
+        'Team Opp PTS/G': 114.9,
+        'Team SRS': -3.26,
+        'Team Pace': 98.0,
+        'Team Off Rtg': 112.6,
+        'Team Def Rtg': 116.1,
+        'Team Net Rtg': -3.5,
+        'Team Exp Win %': 0.390
+      }
+    """
+    url = f"{BBREF_BASE}/teams/{team_abbr}/{season_year}.html"
+    soup = get_soup(url)
+    if not soup:
+        return {}
+    summary = soup.find('div', {'data-template': 'Partials/Teams/Summary'})
+    if not summary:
+        return {}
+
+    data = {}
+    for strong in summary.find_all('strong'):
+        label = strong.text.strip().rstrip(':')
+        raw = strong.next_sibling
+        if not raw or not raw.strip():
+            continue
+        # drop any trailing “(14th of 30)” etc.
+        val = raw.strip().split('(')[0].strip()
+
+        if label == 'Record':
+            # compute actual win % by extracting "W-L" via regex
+            match = re.search(r'(\d+)-(\d+)', raw)
+            if match:
+                wins, losses = int(match.group(1)), int(match.group(2))
+                data['Team Win %'] = round(wins / (wins + losses), 3) if (wins + losses) > 0 else 0.0
+            else:
+                data['Team Win %'] = 0.0
+
+        elif label == 'PTS/G':
+            num = re.search(r'-?\d+\.?\d+', val)
+            data['Team PTS/G'] = float(num.group()) if num else 0.0
+
+        elif label == 'Opp PTS/G':
+            num = re.search(r'-?\d+\.?\d+', val)
+            data['Team Opp PTS/G'] = float(num.group()) if num else 0.0
+
+        elif label == 'SRS':
+            num = re.search(r'-?\d+\.?\d+', val)
+            data['Team SRS'] = float(num.group()) if num else 0.0
+
+        elif label == 'Pace':
+            num = re.search(r'-?\d+\.?\d+', val)
+            data['Team Pace'] = float(num.group()) if num else 0.0
+
+        elif label == 'Off Rtg':
+            num = re.search(r'-?\d+\.?\d+', val)
+            data['Team Off Rtg'] = float(num.group()) if num else 0.0
+
+        elif label == 'Def Rtg':
+            num = re.search(r'-?\d+\.?\d+', val)
+            data['Team Def Rtg'] = float(num.group()) if num else 0.0
+
+        elif label == 'Net Rtg':
+            num = re.search(r'-?\d+\.?\d+', val)
+            data['Team Net Rtg'] = float(num.group()) if num else 0.0
+
+        elif label == 'Expected W-L':
+            # compute expected win % by extracting "W-L" via regex
+            match = re.search(r'(\d+)-(\d+)', raw)
+            if match:
+                exp_wins, exp_losses = int(match.group(1)), int(match.group(2))
+                data['Team Exp Win %'] = round(exp_wins / (exp_wins + exp_losses), 3) if (exp_wins + exp_losses) > 0 else 0.0
+            else:
+                data['Team Exp Win %'] = 0.0
+
+    return data
 
 def extract_height_weight(soup):
     """

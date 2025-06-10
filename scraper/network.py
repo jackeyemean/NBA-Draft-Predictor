@@ -7,7 +7,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-REQUEST_DELAY = 1.5  # seconds between requests to avoid rate limiting
+REQUEST_DELAY = 2  # seconds between requests to avoid rate limiting
 
 session = requests.Session()
 session.headers.update({

@@ -1,15 +1,18 @@
 import logging
 from datetime import datetime
 import pandas as pd
+import re
 
 from network import get_soup
 from extractors import (
     extract_height_weight, extract_sr_cbb_link, get_stat,
-    get_advanced_stats, get_per40_stats, get_per100_stats
+    get_advanced_stats, get_per40_stats, get_per100_stats, get_team_summary
 )
 
 logger = logging.getLogger(__name__)
+
 BBREF_BASE = 'https://www.basketball-reference.com'
+CBB_BASE = 'https://www.sports-reference.com'
 
 TEAM_PLAYER_DEVELOPMENT = {
     # Great reputation
@@ -229,8 +232,9 @@ def get_player_meta(bbref_url):
 
 def get_college_stats(cbb_url, nba_team, college):
     """
-    Given a SR/CBB URL, fetch college stats and meta:
+    Given a SR/CBB URL, fetch college stats, meta, and team performance:
     - height (cm), weight (kg), seasons played
+    - college team season summary metrics prefixed with COLLEGE_
     """
     soup = get_soup(cbb_url)
     if not soup:
@@ -252,7 +256,7 @@ def get_college_stats(cbb_url, nba_team, college):
     last_row = rows[-1]
     seasons = len(rows)
 
-    # input basic per-game stats and meta data from sports ref and draft year page
+    # build basic stats dict
     stats = {
         'G': get_stat(last_row, 'games'),
         'GS%': round(
@@ -283,12 +287,68 @@ def get_college_stats(cbb_url, nba_team, college):
         'College': college or ''
     }
 
+    # extract college team summary link
+    team_cell = last_row.find('td', {'data-stat': 'team_name_abbr'})
+    team_link = None
+    if team_cell:
+        a = team_cell.find('a')
+        if a and a.get('href'):
+            team_link = f"{CBB_BASE}{a['href']}"
+
+    # scrape college team season summary
+    college_perf = {}
+    if team_link:
+        c_soup = get_soup(team_link)
+        if c_soup:
+            summary = c_soup.find('div', {'data-template': 'Partials/Teams/Summary'})
+            if summary:
+                for strong in summary.find_all('strong'):
+                    label = strong.text.strip().rstrip(':')
+                    raw = strong.next_sibling
+                    if not raw or not raw.strip():
+                        continue
+                    val = raw.strip().split('(')[0].strip()
+
+                    if label == 'Record':
+                        match = re.search(r'(\d+)-(\d+)', raw)
+                        if match:
+                            wins, losses = int(match.group(1)), int(match.group(2))
+                            college_perf['COLLEGE_Win %'] = wins / (wins + losses) if (wins + losses) > 0 else 0.0
+
+                    elif label == 'PS/G':
+                        num = re.search(r'-?\d+\.?\d+', val)
+                        college_perf['COLLEGE_PS/G'] = float(num.group()) if num else 0.0
+
+                    elif label == 'PA/G':
+                        num = re.search(r'-?\d+\.?\d+', val)
+                        college_perf['COLLEGE_PA/G'] = float(num.group()) if num else 0.0
+
+                    elif label == 'SRS':
+                        num = re.search(r'-?\d+\.?\d+', val)
+                        college_perf['COLLEGE_SRS'] = float(num.group()) if num else 0.0
+
+                    elif label == 'SOS':
+                        num = re.search(r'-?\d+\.?\d+', val)
+                        college_perf['COLLEGE_SOS'] = float(num.group()) if num else 0.0
+
+                    elif label == 'ORtg':
+                        num = re.search(r'-?\d+\.?\d+', val)
+                        college_perf['COLLEGE_Off Rtg'] = float(num.group()) if num else 0.0
+
+                    elif label == 'DRtg':
+                        num = re.search(r'-?\d+\.?\d+', val)
+                        college_perf['COLLEGE_Def Rtg'] = float(num.group()) if num else 0.0
+
     # advanced, per-40, per-100 stats
     stats.update(get_advanced_stats(soup))
     stats.update(get_per40_stats(soup))
     stats.update(get_per100_stats(soup))
 
+    # merge college performance
+    stats.update(college_perf)
+
     df = pd.DataFrame([stats])
+
     return height, weight, seasons, df
 
 
@@ -360,6 +420,13 @@ def process_player(pick_info, draft_year):
         record.get('College', ''),
         0
     )
+
+    # — pre-draft team performance for MAIN NBA TEAM —
+    team = record.get('MAIN NBA TEAM', '')
+    year = record.get('Draft Year')
+    perf = get_team_summary(team, year)
+    # merge those metrics right into the record
+    record.update(perf)
     
     return record
 

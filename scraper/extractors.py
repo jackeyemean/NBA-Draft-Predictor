@@ -21,6 +21,11 @@ def get_team_summary(team_abbr: str, season_year: int) -> dict:
         'Team Exp Win %': 0.390
       }
     """
+    if team_abbr == "BRK" and season_year < 2013:
+        team_abbr = "NJN"
+    if team_abbr == "NOP" and season_year < 2014:
+        team_abbr = "NOH"
+
     url = f"{BBREF_BASE}/teams/{team_abbr}/{season_year}.html"
     soup = get_soup(url)
     if not soup:

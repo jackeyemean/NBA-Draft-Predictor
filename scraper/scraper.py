@@ -22,7 +22,7 @@ TEAM_PLAYER_DEVELOPMENT = {
     # Average
     'MIN': 2, 'LAL': 2, 'NYK': 2, 'HOU': 2, 'DAL': 3,
     # Not Ideal
-    'BKN': 1, 'DET': 1, 'PHI': 1, 'UTA': 1, 'POR': 1, 'LAC': 1, 
+    'BKN': 1, 'NJN': 1, 'DET': 1, 'PHI': 1, 'UTA': 1, 'POR': 1, 'LAC': 1, 
     # Poverty franchises
     'PHX': 0, 'NOP': 0, 'NOH': 0, 'SAC': 0, 'CHI': 0, 'WAS': 0, 'CHO': 0, 'CHA': 0
 }
@@ -182,16 +182,43 @@ def get_player_meta(bbref_url):
     if not table or not table.find('tfoot'):
         return {}, ''
 
-    tfoot = table.find('tfoot')
-    rows = tfoot.find_all('tr')
+    tfoot = table and table.find('tfoot')
+    if not tfoot:
+        return {}, ''
 
-    # Career aggregate row is the first <tr> in <tfoot>
-    career_row = rows[0]
-    career_stats = {}
-    for cell in career_row.find_all('td'):
+    # — locate the one <tr> whose first <th> starts with a number + " Yr" —
+    career_tr = None
+    for tr in tfoot.find_all('tr'):
+        th = tr.find('th', {'data-stat': 'year_id'})
+        if not th:
+            continue
+        text = th.get_text(strip=True)
+        if re.match(r'\d+\s*Yr', text):
+            career_tr = tr
+            year_text = text
+            break
+
+    if career_tr is None:
+        # no career row found
+        return {}, ''
+
+    # — extract the number of seasons —
+    nba_seasons = int(re.match(r'\d+', year_text).group())
+
+    # — pull every stat from "games" up to "pts_per_g" —
+    career_stats = {'seasons': nba_seasons}
+    for cell in career_tr.find_all('td'):
         stat = cell['data-stat']
-        text = cell.text.strip()
-        career_stats[stat] = float(text) if text else 0.0
+        if stat in ('pos', 'awards'):
+            continue
+        txt = cell.get_text(strip=True)
+        career_stats[stat] = float(txt) if txt else 0.0
+
+    # — compute NBA games‐started % across career —
+    games = career_stats.get('games', 0)
+    gs   = career_stats.get('games_started', 0)
+    career_stats['GS%'] = round((gs / games * 100), 3) if games > 0 else 0.0
+
 
     # === compute MAIN NBA TEAM over first four seasons, excluding any 2TM rows ===
     tbody = table.find('tbody')
@@ -208,7 +235,7 @@ def get_player_meta(bbref_url):
             seasons.append(yr)
     seasons = sorted(seasons)[:4]
 
-    # 2) sum up games for each team in those seasons (skip any '2TM' rows)
+    # 2) sum up games for each team in those seasons (skip any '2TM' or '3TM' rows)
     team_games = {}
     for r in all_rows:
         th = r.find('th', {'data-stat': 'year_id'})
@@ -219,7 +246,7 @@ def get_player_meta(bbref_url):
             continue
         team_td = r.find('td', {'data-stat': 'team_name_abbr'})
         team = team_td.text.strip() if team_td else ''
-        if team == '2TM' or not team:
+        if team == '2TM' or team == '3TM' or not team:
             continue
         games_td = r.find('td', {'data-stat': 'games'})
         games = float(games_td.text.strip()) if games_td and games_td.text.strip() else 0.0
@@ -260,7 +287,7 @@ def get_college_stats(cbb_url, nba_team, college):
     stats = {
         'G': get_stat(last_row, 'games'),
         'GS%': round(
-            get_stat(last_row, 'games_started') / get_stat(last_row, 'games') * 100, 2
+            get_stat(last_row, 'games_started') / get_stat(last_row, 'games'), 3
         ) if get_stat(last_row, 'games') > 0 else 0.0,
         'MPG': get_stat(last_row, 'mp_per_g'),
         'FG': get_stat(last_row, 'fg_per_g'),
@@ -377,7 +404,6 @@ def process_player(pick_info, draft_year):
     college = pick_info['college']
 
     relatives, cbb_url, birth_date, player_position, career_stats, main_team = get_player_meta(pick_info['bbref_url'])
-
 
     if not cbb_url:
         logger.info(f"Skipping {name} – no college stats link")

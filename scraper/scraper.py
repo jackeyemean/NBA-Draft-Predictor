@@ -6,7 +6,7 @@ import re
 from network import get_soup
 from extractors import (
     extract_height_weight, extract_sr_cbb_link, get_stat,
-    get_advanced_stats, get_per40_stats, get_per100_stats, get_team_summary
+    get_advanced_stats, get_per40_stats, get_per100_stats, get_team_summary, get_college_season_summary, get_nba_career_stats
 )
 
 logger = logging.getLogger(__name__)
@@ -108,7 +108,7 @@ def get_player_meta(bbref_url):
     """
     soup = get_soup(bbref_url)
     if not soup:
-        return 0, None, None, ''
+        return None, None, None, None, None, None
 
     # count relatives if listed
     relatives = 0
@@ -179,82 +179,107 @@ def get_player_meta(bbref_url):
 
     # ===== Getting nba career stats and main nba team ========
     table = soup.find('table', id='per_game_stats')
+
+    # No NBA games played
     if not table or not table.find('tfoot'):
-        return {}, ''
+        return (
+            relatives,
+            cbb_url,
+            birth_date,
+            '', # no pos abbreviation for nba
+            {
+                'seasons':        0,
+                'games':          0,
+                'games_started':  0,
+                'mp_per_g':       0,
+                'fg_per_g':       0,
+                'fga_per_g':      0,
+                'fg_pct':         0,
+                'fg3_per_g':      0,
+                'fg3a_per_g':     0,
+                'fg3_pct':        0,
+                'fg2_per_g':      0,
+                'fg2a_per_g':     0,
+                'fg2_pct':        0,
+                'efg_pct':        0,
+                'ft_per_g':       0,
+                'fta_per_g':      0,
+                'ft_pct':         0,
+                'orb_per_g':      0,
+                'drb_per_g':      0,
+                'trb_per_g':      0,
+                'ast_per_g':      0,
+                'stl_per_g':      0,
+                'blk_per_g':      0,
+                'tov_per_g':      0,
+                'pf_per_g':       0,
+                'pts_per_g':      0,
+                'GS%':            0,
+            },
+            '' # no main nba team
+        )
 
-    tfoot = table and table.find('tfoot')
-    if not tfoot:
-        return {}, ''
+    # Played in NBA
+    else:
+        tfoot = table and table.find('tfoot')
 
-    # — locate the one <tr> whose first <th> starts with a number + " Yr" —
-    career_tr = None
-    for tr in tfoot.find_all('tr'):
-        th = tr.find('th', {'data-stat': 'year_id'})
-        if not th:
-            continue
-        text = th.get_text(strip=True)
-        if re.match(r'\d+\s*Yr', text):
-            career_tr = tr
-            year_text = text
-            break
+        # — locate the one <tr> whose first <th> starts with a number + " Yr" —
+        career_tr = None
+        for tr in tfoot.find_all('tr'):
+            th = tr.find('th', {'data-stat': 'year_id'})
+            if not th:
+                continue
+            text = th.get_text(strip=True)
+            if re.match(r'\d+\s*Yr', text):
+                career_tr = tr
+                year_text = text
+                break
 
-    if career_tr is None:
-        # no career row found
-        return {}, ''
+        # — extract the number of seasons —
+        nba_seasons = int(re.match(r'\d+', year_text).group())
+        career_stats = get_nba_career_stats(career_tr, nba_seasons) # initialize dict
 
-    # — extract the number of seasons —
-    nba_seasons = int(re.match(r'\d+', year_text).group())
-
-    # — pull every stat from "games" up to "pts_per_g" —
-    career_stats = {'seasons': nba_seasons}
-    for cell in career_tr.find_all('td'):
-        stat = cell['data-stat']
-        if stat in ('pos', 'awards'):
-            continue
-        txt = cell.get_text(strip=True)
-        career_stats[stat] = float(txt) if txt else 0.0
-
-    # — compute NBA games‐started % across career —
-    games = career_stats.get('games', 0)
-    gs   = career_stats.get('games_started', 0)
-    career_stats['GS%'] = round((gs / games * 100), 3) if games > 0 else 0.0
+        # — compute NBA games‐started % across career —
+        games = career_stats.get('NBA_G', 0)
+        gs   = career_stats.get('NBA_GS', 0)
+        career_stats['NBA_GS%'] = round((gs / games * 100), 3) if games > 0 else 0.0
 
 
-    # === compute MAIN NBA TEAM over first four seasons, excluding any 2TM rows ===
-    tbody = table.find('tbody')
-    all_rows = tbody.find_all('tr')
+        # === compute MAIN NBA TEAM over first four seasons, excluding any 2TM rows ===
+        tbody = table.find('tbody')
+        all_rows = tbody.find_all('tr')
 
-    # 1) collect the earliest four distinct seasons (by csk)
-    seasons = []
-    for r in all_rows:
-        th = r.find('th', {'data-stat': 'year_id'})
-        if not th or not th.get('csk'): 
-            continue
-        yr = int(th['csk'])
-        if yr not in seasons:
-            seasons.append(yr)
-    seasons = sorted(seasons)[:4]
+        # 1) collect the earliest four distinct seasons (by csk)
+        seasons = []
+        for r in all_rows:
+            th = r.find('th', {'data-stat': 'year_id'})
+            if not th or not th.get('csk'): 
+                continue
+            yr = int(th['csk'])
+            if yr not in seasons:
+                seasons.append(yr)
+        seasons = sorted(seasons)[:4]
 
-    # 2) sum up games for each team in those seasons (skip any '2TM' or '3TM' rows)
-    team_games = {}
-    for r in all_rows:
-        th = r.find('th', {'data-stat': 'year_id'})
-        if not th or not th.get('csk'):
-            continue
-        yr = int(th['csk'])
-        if yr not in seasons:
-            continue
-        team_td = r.find('td', {'data-stat': 'team_name_abbr'})
-        team = team_td.text.strip() if team_td else ''
-        if team == '2TM' or team == '3TM' or not team:
-            continue
-        games_td = r.find('td', {'data-stat': 'games'})
-        games = float(games_td.text.strip()) if games_td and games_td.text.strip() else 0.0
-        team_games[team] = team_games.get(team, 0) + games
+        # 2) sum up games for each team in those seasons (skip any '2TM' or '3TM' rows)
+        team_games = {}
+        for r in all_rows:
+            th = r.find('th', {'data-stat': 'year_id'})
+            if not th or not th.get('csk'):
+                continue
+            yr = int(th['csk'])
+            if yr not in seasons:
+                continue
+            team_td = r.find('td', {'data-stat': 'team_name_abbr'})
+            team = team_td.text.strip() if team_td else ''
+            if team == '2TM' or team == '3TM' or not team:
+                continue
+            games_td = r.find('td', {'data-stat': 'games'})
+            games = float(games_td.text.strip()) if games_td and games_td.text.strip() else 0.0
+            team_games[team] = team_games.get(team, 0) + games
 
-    main_team = max(team_games, key=team_games.get) if team_games else ''
+        main_team = max(team_games, key=team_games.get) if team_games else ''
 
-    return relatives, cbb_url, birth_date, position_abbrev, career_stats, main_team
+        return relatives, cbb_url, birth_date, position_abbrev, career_stats, main_team
 
 
 def get_college_stats(cbb_url, nba_team, college):
@@ -285,34 +310,40 @@ def get_college_stats(cbb_url, nba_team, college):
 
     # build basic stats dict
     stats = {
-        'G': get_stat(last_row, 'games'),
-        'GS%': round(
+        'COLLEGE_G': get_stat(last_row, 'games'),
+        'COLLEGE_GS': get_stat(last_row, 'games_started'),
+        'COLLEGE_GS%': round(
             get_stat(last_row, 'games_started') / get_stat(last_row, 'games'), 3
         ) if get_stat(last_row, 'games') > 0 else 0.0,
-        'MPG': get_stat(last_row, 'mp_per_g'),
-        'FG': get_stat(last_row, 'fg_per_g'),
-        'FGA': get_stat(last_row, 'fga_per_g'),
-        'FG%': get_stat(last_row, 'fg_pct'),
-        '3P': get_stat(last_row, 'fg3_per_g'),
-        '3PA': get_stat(last_row, 'fg3a_per_g'),
-        '3P%': get_stat(last_row, 'fg3_pct'),
-        'FT': get_stat(last_row, 'ft_per_g'),
-        'FTA': get_stat(last_row, 'fta_per_g'),
-        'FT%': get_stat(last_row, 'ft_pct'),
-        'DRB': get_stat(last_row, 'drb_per_g'),
-        'ORB': get_stat(last_row, 'orb_per_g'),
-        'TRB': get_stat(last_row, 'trb_per_g'),
-        'AST': get_stat(last_row, 'ast_per_g'),
-        'STL': get_stat(last_row, 'stl_per_g'),
-        'BLK': get_stat(last_row, 'blk_per_g'),
-        'TOV': get_stat(last_row, 'tov_per_g'),
-        'PF': get_stat(last_row, 'pf_per_g'),
-        'PTS': get_stat(last_row, 'pts_per_g'),
-        'Height': height,
-        'Weight': weight,
+        'COLLEGE_MPG': get_stat(last_row, 'mp_per_g'),
+        'COLLEGE_FG': get_stat(last_row, 'fg_per_g'),
+        'COLLEGE_FGA': get_stat(last_row, 'fga_per_g'),
+        'COLLEGE_FG%': get_stat(last_row, 'fg_pct'),
+        'COLLEGE_3P': get_stat(last_row, 'fg3_per_g'),
+        'COLLEGE_3PA': get_stat(last_row, 'fg3a_per_g'),
+        'COLLEGE_3P%': get_stat(last_row, 'fg3_pct'),
+        'COLLEGE_FT': get_stat(last_row, 'ft_per_g'),
+        'COLLEGE_FTA': get_stat(last_row, 'fta_per_g'),
+        'COLLEGE_FT%': get_stat(last_row, 'ft_pct'),
+        'COLLEGE_DRB': get_stat(last_row, 'drb_per_g'),
+        'COLLEGE_ORB': get_stat(last_row, 'orb_per_g'),
+        'COLLEGE_TRB': get_stat(last_row, 'trb_per_g'),
+        'COLLEGE_AST': get_stat(last_row, 'ast_per_g'),
+        'COLLEGE_STL': get_stat(last_row, 'stl_per_g'),
+        'COLLEGE_BLK': get_stat(last_row, 'blk_per_g'),
+        'COLLEGE_TOV': get_stat(last_row, 'tov_per_g'),
+        'COLLEGE_PF': get_stat(last_row, 'pf_per_g'),
+        'COLLEGE_PTS': get_stat(last_row, 'pts_per_g'),
+        'COLLEGE_Height': height,
+        'COLLEGE_Weight': weight,
         'NBA Team': nba_team or '',
         'College': college or ''
     }
+
+    # advanced, per-40, per-100 stats
+    stats.update(get_advanced_stats(soup))
+    stats.update(get_per40_stats(soup))
+    stats.update(get_per100_stats(soup))
 
     # extract college team summary link
     team_cell = last_row.find('td', {'data-stat': 'team_name_abbr'})
@@ -322,57 +353,7 @@ def get_college_stats(cbb_url, nba_team, college):
         if a and a.get('href'):
             team_link = f"{CBB_BASE}{a['href']}"
 
-    # scrape college team season summary
-    college_perf = {}
-    if team_link:
-        c_soup = get_soup(team_link)
-        if c_soup:
-            summary = c_soup.find('div', {'data-template': 'Partials/Teams/Summary'})
-            if summary:
-                for strong in summary.find_all('strong'):
-                    label = strong.text.strip().rstrip(':')
-                    raw = strong.next_sibling
-                    if not raw or not raw.strip():
-                        continue
-                    val = raw.strip().split('(')[0].strip()
-
-                    if label == 'Record':
-                        match = re.search(r'(\d+)-(\d+)', raw)
-                        if match:
-                            wins, losses = int(match.group(1)), int(match.group(2))
-                            college_perf['COLLEGE_Win %'] = round(wins / (wins + losses), 3) if (wins + losses) > 0 else 0.0
-
-                    elif label == 'PS/G':
-                        num = re.search(r'-?\d+\.?\d+', val)
-                        college_perf['COLLEGE_PS/G'] = float(num.group()) if num else 0.0
-
-                    elif label == 'PA/G':
-                        num = re.search(r'-?\d+\.?\d+', val)
-                        college_perf['COLLEGE_PA/G'] = float(num.group()) if num else 0.0
-
-                    elif label == 'SRS':
-                        num = re.search(r'-?\d+\.?\d+', val)
-                        college_perf['COLLEGE_SRS'] = float(num.group()) if num else 0.0
-
-                    elif label == 'SOS':
-                        num = re.search(r'-?\d+\.?\d+', val)
-                        college_perf['COLLEGE_SOS'] = float(num.group()) if num else 0.0
-
-                    elif label == 'ORtg':
-                        num = re.search(r'-?\d+\.?\d+', val)
-                        college_perf['COLLEGE_Off Rtg'] = float(num.group()) if num else 0.0
-
-                    elif label == 'DRtg':
-                        num = re.search(r'-?\d+\.?\d+', val)
-                        college_perf['COLLEGE_Def Rtg'] = float(num.group()) if num else 0.0
-
-    # advanced, per-40, per-100 stats
-    stats.update(get_advanced_stats(soup))
-    stats.update(get_per40_stats(soup))
-    stats.update(get_per100_stats(soup))
-
-    # merge college performance
-    stats.update(college_perf)
+    stats.update(get_college_season_summary(get_soup(team_link)))
 
     df = pd.DataFrame([stats])
 
@@ -433,9 +414,10 @@ def process_player(pick_info, draft_year):
     }
     record.update(stats)
 
+    # Record nba career stats
     record['MAIN NBA TEAM'] = main_team
     for stat, val in career_stats.items():
-        record[f'NBA_{stat}'] = val
+        record[f'{stat}'] = val
 
     # — add NBA Team Development & College Strength —
     record['NBA Team Development'] = TEAM_PLAYER_DEVELOPMENT.get(

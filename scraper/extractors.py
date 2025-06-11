@@ -7,89 +7,65 @@ BBREF_BASE = 'https://www.basketball-reference.com'
 def get_team_summary(team_abbr: str, season_year: int) -> dict:
     """
     Scrape the team page for {team_abbr}/{season_year} and return key
-    performance metrics in a flat dict, e.g.:
-
-      {
-        'Team Win %': 0.305,
-        'Team PTS/G': 111.5,
-        'Team Opp PTS/G': 114.9,
-        'Team SRS': -3.26,
-        'Team Pace': 98.0,
-        'Team Off Rtg': 112.6,
-        'Team Def Rtg': 116.1,
-        'Team Net Rtg': -3.5,
-        'Team Exp Win %': 0.390
-      }
+    performance metrics in a flat dict, ensuring each field is present (defaulting to 0.0).
     """
+    # Handle historical abbreviation changes
     if team_abbr == "BRK" and season_year < 2013:
         team_abbr = "NJN"
     if team_abbr == "NOP" and season_year < 2014:
         team_abbr = "NOH"
 
-    url = f"{BBREF_BASE}/teams/{team_abbr}/{season_year}.html"
+    # Player did not play for an NBA team despite getting drafted
+    if team_abbr == '':
+        return {
+            'PREV_YR_Win%': 0,
+            'PREV_YR_PTS/G': 0,
+            'PREV_YR_OPTS/G': 0,
+            'PREV_YR_SRS': 0,
+            'PREV_YR_Pace': 0,
+            'PREV_YR_ORtg': 0,
+            'PREV_YR_DRtg': 0,
+            'PREV_YR_NRtg': 0,
+            'PREV_YR_Expected_Win%': 0
+        }
+    
+    url = f"{BBREF_BASE}/teams/{team_abbr}/{season_year}.html"    
     soup = get_soup(url)
-    if not soup:
-        return {}
     summary = soup.find('div', {'data-template': 'Partials/Teams/Summary'})
-    if not summary:
-        return {}
 
-    data = {}
-    for strong in summary.find_all('strong'):
-        label = strong.text.strip().rstrip(':')
-        raw = strong.next_sibling
-        if not raw or not raw.strip():
-            continue
-        # drop any trailing “(14th of 30)” etc.
-        val = raw.strip().split('(')[0].strip()
+    def team_stat(label: str) -> float:
+        # Find the <strong> tag matching the BBRef label
+        strong = summary.find('strong', text=lambda t: t and t.strip().rstrip(':') == label)
+        if not strong:
+            return 0.0
+        raw = (strong.next_sibling or '').strip()
+        value = raw.split('(')[0].strip()
 
-        if label == 'Record':
-            # compute actual win % by extracting "W-L" via regex
-            match = re.search(r'(\d+)-(\d+)', raw)
+        # Handle win-loss records
+        if label in ('Record', 'Expected W-L'):
+            match = re.search(r'(\d+)-(\d+)', value)
             if match:
-                wins, losses = int(match.group(1)), int(match.group(2))
-                data['Team Win %'] = round(wins / (wins + losses), 3) if (wins + losses) > 0 else 0.0
-            else:
-                data['Team Win %'] = 0.0
+                w, l = map(int, match.groups())
+                total = w + l
+                return round(w / total, 3) if total > 0 else 0.0
+            return 0.0
 
-        elif label == 'PTS/G':
-            num = re.search(r'-?\d+\.?\d+', val)
-            data['Team PTS/G'] = float(num.group()) if num else 0.0
+        # Extract numeric metrics
+        match = re.search(r'-?\d+\.?\d+', value)
+        return float(match.group()) if match else 0.0
 
-        elif label == 'Opp PTS/G':
-            num = re.search(r'-?\d+\.?\d+', val)
-            data['Team Opp PTS/G'] = float(num.group()) if num else 0.0
-
-        elif label == 'SRS':
-            num = re.search(r'-?\d+\.?\d+', val)
-            data['Team SRS'] = float(num.group()) if num else 0.0
-
-        elif label == 'Pace':
-            num = re.search(r'-?\d+\.?\d+', val)
-            data['Team Pace'] = float(num.group()) if num else 0.0
-
-        elif label == 'Off Rtg':
-            num = re.search(r'-?\d+\.?\d+', val)
-            data['Team Off Rtg'] = float(num.group()) if num else 0.0
-
-        elif label == 'Def Rtg':
-            num = re.search(r'-?\d+\.?\d+', val)
-            data['Team Def Rtg'] = float(num.group()) if num else 0.0
-
-        elif label == 'Net Rtg':
-            num = re.search(r'-?\d+\.?\d+', val)
-            data['Team Net Rtg'] = float(num.group()) if num else 0.0
-
-        elif label == 'Expected W-L':
-            # compute expected win % by extracting "W-L" via regex
-            match = re.search(r'(\d+)-(\d+)', raw)
-            if match:
-                exp_wins, exp_losses = int(match.group(1)), int(match.group(2))
-                data['Team Exp Win %'] = round(exp_wins / (exp_wins + exp_losses), 3) if (exp_wins + exp_losses) > 0 else 0.0
-            else:
-                data['Team Exp Win %'] = 0.0
-
-    return data
+    # Explicit mapping like get_advanced_stats
+    return {
+        'PREV_YR_Win%': team_stat('Record'),
+        'PREV_YR_PTS/G': team_stat('PTS/G'),
+        'PREV_YR_OPTS/G': team_stat('Opp PTS/G'),
+        'PREV_YR_SRS': team_stat('SRS'),
+        'PREV_YR_Pace': team_stat('Pace'),
+        'PREV_YR_ORtg': team_stat('Off Rtg'),
+        'PREV_YR_DRtg': team_stat('Def Rtg'),
+        'PREV_YR_NRtg': team_stat('Net Rtg'),
+        'PREV_YR_Expected_Win%': team_stat('Expected W-L')
+    }
 
 def extract_height_weight(soup):
     """
@@ -134,26 +110,26 @@ def get_advanced_stats(soup):
         cell = last_row.find('td', {'data-stat': stat})
         return float(cell.text.strip()) if cell and cell.text.strip() else 0.0
     return {
-        'PER': adv_stat('per'),
-        'TS%': adv_stat('ts_pct'),
-        '3PAr': adv_stat('fg3a_per_fga_pct'),
-        'FTr': adv_stat('fta_per_fga_pct'),
-        'PProd': adv_stat('pprod'),
-        'ORB%': adv_stat('orb_pct'),
-        'DRB%': adv_stat('drb_pct'),
-        'TRB%': adv_stat('trb_pct'),
-        'AST%': adv_stat('ast_pct'),
-        'STL%': adv_stat('stl_pct'),
-        'BLK%': adv_stat('blk_pct'),
-        'TOV%': adv_stat('tov_pct'),
-        'USG%': adv_stat('usg_pct'),
-        'OWS': adv_stat('ows'),
-        'DWS': adv_stat('dws'),
-        'WS': adv_stat('ws'),
-        'WS/40': adv_stat('ws_per_40'),
-        'OBPM': adv_stat('obpm'),
-        'DBPM': adv_stat('dbpm'),
-        'BPM': adv_stat('bpm')
+        'COLLEGE_PER': adv_stat('per'),
+        'COLLEGE_TS%': adv_stat('ts_pct'),
+        'COLLEGE_3PAr': adv_stat('fg3a_per_fga_pct'),
+        'COLLEGE_FTr': adv_stat('fta_per_fga_pct'),
+        'COLLEGE_PProd': adv_stat('pprod'),
+        'COLLEGE_ORB%': adv_stat('orb_pct'),
+        'COLLEGE_DRB%': adv_stat('drb_pct'),
+        'COLLEGE_TRB%': adv_stat('trb_pct'),
+        'COLLEGE_AST%': adv_stat('ast_pct'),
+        'COLLEGE_STL%': adv_stat('stl_pct'),
+        'COLLEGE_BLK%': adv_stat('blk_pct'),
+        'COLLEGE_TOV%': adv_stat('tov_pct'),
+        'COLLEGE_USG%': adv_stat('usg_pct'),
+        'COLLEGE_OWS': adv_stat('ows'),
+        'COLLEGE_DWS': adv_stat('dws'),
+        'COLLEGE_WS': adv_stat('ws'),
+        'COLLEGE_WS/40': adv_stat('ws_per_40'),
+        'COLLEGE_OBPM': adv_stat('obpm'),
+        'COLLEGE_DBPM': adv_stat('dbpm'),
+        'COLLEGE_BPM': adv_stat('bpm')
     }
 
 def get_per40_stats(soup):
@@ -172,21 +148,21 @@ def get_per40_stats(soup):
         cell = last_row.find('td', {'data-stat': stat})
         return float(cell.text.strip()) if cell and cell.text.strip() else 0.0
     return {
-        'FG/40': per40('fg_per_min'),
-        'FGA/40': per40('fga_per_min'),
-        '3P/40': per40('fg3_per_min'),
-        '3PA/40': per40('fg3a_per_min'),
-        'FT/40': per40('ft_per_min'),
-        'FTA/40': per40('fta_per_min'),
-        'ORB/40': per40('orb_per_min'),
-        'DRB/40': per40('drb_per_min'),
-        'TRB/40': per40('trb_per_min'),
-        'AST/40': per40('ast_per_min'),
-        'STL/40': per40('stl_per_min'),
-        'BLK/40': per40('blk_per_min'),
-        'TOV/40': per40('tov_per_min'),
-        'PF/40': per40('pf_per_min'),
-        'PTS/40': per40('pts_per_min')
+        'COLLEGE_FG/40': per40('fg_per_min'),
+        'COLLEGE_FGA/40': per40('fga_per_min'),
+        'COLLEGE_3P/40': per40('fg3_per_min'),
+        'COLLEGE_3PA/40': per40('fg3a_per_min'),
+        'COLLEGE_FT/40': per40('ft_per_min'),
+        'COLLEGE_FTA/40': per40('fta_per_min'),
+        'COLLEGE_ORB/40': per40('orb_per_min'),
+        'COLLEGE_DRB/40': per40('drb_per_min'),
+        'COLLEGE_TRB/40': per40('trb_per_min'),
+        'COLLEGE_AST/40': per40('ast_per_min'),
+        'COLLEGE_STL/40': per40('stl_per_min'),
+        'COLLEGE_BLK/40': per40('blk_per_min'),
+        'COLLEGE_TOV/40': per40('tov_per_min'),
+        'COLLEGE_PF/40': per40('pf_per_min'),
+        'COLLEGE_PTS/40': per40('pts_per_min')
     }
 
 def get_per100_stats(soup):
@@ -205,21 +181,114 @@ def get_per100_stats(soup):
         cell = last_row.find('td', {'data-stat': stat})
         return float(cell.text.strip()) if cell and cell.text.strip() else 0.0
     return {
-        'FG/100': per100('fg_per_poss'),
-        'FGA/100': per100('fga_per_poss'),
-        '3P/100': per100('fg3_per_poss'),
-        '3PA/100': per100('fg3a_per_poss'),
-        'FT/100': per100('ft_per_poss'),
-        'FTA/100': per100('fta_per_poss'),
-        'ORB/100': per100('orb_per_poss'),
-        'DRB/100': per100('drb_per_poss'),
-        'TRB/100': per100('trb_per_poss'),
-        'AST/100': per100('ast_per_poss'),
-        'STL/100': per100('stl_per_poss'),
-        'BLK/100': per100('blk_per_poss'),
-        'TOV/100': per100('tov_per_poss'),
-        'PF/100': per100('pf_per_poss'),
-        'PTS/100': per100('pts_per_poss'),
-        'ORtg': per100('off_rtg'),
-        'DRtg': per100('def_rtg')
+        'COLLEGE_FG/100': per100('fg_per_poss'),
+        'COLLEGE_FGA/100': per100('fga_per_poss'),
+        'COLLEGE_3P/100': per100('fg3_per_poss'),
+        'COLLEGE_3PA/100': per100('fg3a_per_poss'),
+        'COLLEGE_FT/100': per100('ft_per_poss'),
+        'COLLEGE_FTA/100': per100('fta_per_poss'),
+        'COLLEGE_ORB/100': per100('orb_per_poss'),
+        'COLLEGE_DRB/100': per100('drb_per_poss'),
+        'COLLEGE_TRB/100': per100('trb_per_poss'),
+        'COLLEGE_AST/100': per100('ast_per_poss'),
+        'COLLEGE_STL/100': per100('stl_per_poss'),
+        'COLLEGE_BLK/100': per100('blk_per_poss'),
+        'COLLEGE_TOV/100': per100('tov_per_poss'),
+        'COLLEGE_PF/100': per100('pf_per_poss'),
+        'COLLEGE_PTS/100': per100('pts_per_poss'),
+        'COLLEGE_ORtg': per100('off_rtg'),
+        'COLLEGE_DRtg': per100('def_rtg')
+    }
+
+def get_college_season_summary(soup: BeautifulSoup) -> dict:
+    """
+    Parse the college team page summary and return a dict of season metrics
+    prefixed with 'COLLEGE_'. Returns {} if no summary found.
+    """
+    summary = soup.find('div', {'data-template': 'Partials/Teams/Summary'})
+    if not summary:
+        return {}
+
+    def col_stat(label: str) -> float:
+        # look through every <strong> … </strong> in that summary
+        strong = None
+        for tag in summary.find_all('strong'):
+            # strip() cleans whitespace and rstrip(':') drops the colon
+            if tag.get_text(strip=True).rstrip(':') == label:
+                strong = tag
+                break
+
+        if not strong:
+            return 0.0
+
+        # the numeric text is usually in strong.next_sibling,
+        # but sometimes wrapped in another tag—so handle both:
+        raw = ''
+        sib = strong.next_sibling
+        if isinstance(sib, str):
+            raw = sib.strip()
+        elif sib:
+            raw = sib.get_text(strip=True)
+
+        # drop any parenthetical notes like "(18th of 363)"
+        val = raw.split('(')[0].strip()
+
+        if label == 'Record':
+            m = re.search(r'(\d+)-(\d+)', val)
+            if m:
+                w, l = map(int, m.groups())
+                return round(w / (w + l), 3) if (w + l) > 0 else 0.0
+            return 0.0
+
+        m = re.search(r'-?\d+\.?\d+', val)
+        return float(m.group()) if m else 0.0
+
+    return {
+        'COLLEGE_TEAM_Win%':    col_stat('Record'),
+        'COLLEGE_TEAM_PTS/G':     col_stat('PS/G'),
+        'COLLEGE_TEAM_PTSA/G':     col_stat('PA/G'),
+        'COLLEGE_TEAM_SRS':      col_stat('SRS'),
+        'COLLEGE_TEAM_SOS':      col_stat('SOS'),
+        'COLLEGE_TEAM_ORtg':  col_stat('ORtg'),
+        'COLLEGE_TEAM_DRtg':  col_stat('DRtg'),
+    }
+
+def get_nba_career_stats(career_tr, nba_seasons) -> dict:
+    """
+    Parse the career <tr> row and return a dict of career per-game stats
+    from 'g' through 'pts_per_g', plus the total number of seasons under 'seasons'.
+    Missing or empty cells are treated as 0.0.
+    """
+    def stat(key: str) -> float:
+        cell = career_tr.find('td', {'data-stat': key})
+        text = cell.get_text(strip=True) if cell else ''
+        return float(text) if text else 0.0
+
+    return {
+        'NBA_seasons': nba_seasons,
+        'NBA_G':     stat('g'),
+        'NBA_GS':    stat('gs'),
+        'NBA_MP/G':  stat('mp_per_g'),
+        'NBA_FG/G':  stat('fg_per_g'),
+        'NBA_FGA/G': stat('fga_per_g'),
+        'NBA_FG%':   stat('fg_pct'),
+        'NBA_3P/G':  stat('fg3_per_g'),
+        'NBA_3PA/G': stat('fg3a_per_g'),
+        'NBA_3P%':   stat('fg3_pct'),
+        'NBA_2P/G':  stat('fg2_per_g'),
+        'NBA_2PA/G': stat('fg2a_per_g'),
+        'NBA_2P%':   stat('fg2_pct'),
+        'NBA_eFG%':  stat('efg_pct'),
+        'NBA_FT/G':  stat('ft_per_g'),
+        'NBA_FTA/G': stat('fta_per_g'),
+        'NBA_FT%':   stat('ft_pct'),
+        'NBA_ORB/G': stat('orb_per_g'),
+        'NBA_DRB/G': stat('drb_per_g'),
+        'NBA_TRB/G': stat('trb_per_g'),
+        'NBA_AST/G': stat('ast_per_g'),
+        'NBA_STL/G': stat('stl_per_g'),
+        'NBA_BLK/G': stat('blk_per_g'),
+        'NBA_TOV/G': stat('tov_per_g'),
+        'NBA_PF/G':  stat('pf_per_g'),
+        'NBA_PTS/G': stat('pts_per_g'),
     }

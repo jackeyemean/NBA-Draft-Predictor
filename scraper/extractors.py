@@ -9,11 +9,17 @@ def get_team_summary(team_abbr: str, season_year: int) -> dict:
     Scrape the team page for {team_abbr}/{season_year} and return key
     performance metrics in a flat dict, ensuring each field is present (defaulting to 0.0).
     """
-    # Handle historical abbreviation changes
+    # Handle historical abbreviation changes relevant for 2011 to 2024
+
+    # Brooklyn Nets (BRK) were New Jersey Nets (NJN) until 2013
     if team_abbr == "BRK" and season_year < 2013:
         team_abbr = "NJN"
+    # Pelicans (NOP) were the Hornets (NOH) until 2014
     if team_abbr == "NOP" and season_year < 2014:
         team_abbr = "NOH"
+    # Hornets (CHO) were the Bobcats (CHA) until 2015
+    if team_abbr == "CHO" and season_year < 2015:
+        team_abbr = "CHA"
 
     # Player did not play for an NBA team despite getting drafted
     if team_abbr == '':
@@ -266,8 +272,8 @@ def get_nba_career_stats(career_tr, nba_seasons) -> dict:
 
     return {
         'NBA_seasons': nba_seasons,
-        'NBA_G':     stat('g'),
-        'NBA_GS':    stat('gs'),
+        'NBA_G':     stat('games'),
+        'NBA_GS':    stat('games_started'),
         'NBA_MP/G':  stat('mp_per_g'),
         'NBA_FG/G':  stat('fg_per_g'),
         'NBA_FGA/G': stat('fga_per_g'),

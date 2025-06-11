@@ -432,7 +432,7 @@ def process_player(pick_info, draft_year):
     # — pre-draft team performance for MAIN NBA TEAM —
     team = record.get('MAIN NBA TEAM', '')
     year = record.get('Draft Year')
-    perf = get_team_summary(team, year)
+    perf = get_team_summary(team, year) # gets main team szn summary right before player got drafted
     # merge those metrics right into the record
     record.update(perf)
     

@@ -24,7 +24,7 @@ TEAM_PLAYER_DEVELOPMENT = {
     # Not Ideal
     'BKN': 1, 'NJN': 1, 'DET': 1, 'PHI': 1, 'UTA': 1, 'POR': 1, 'LAC': 1, 
     # Poverty franchises
-    'PHX': 0, 'NOP': 0, 'NOH': 0, 'SAC': 0, 'CHI': 0, 'WAS': 0, 'CHO': 0, 'CHA': 0
+    'PHO': 0, 'NOP': 0, 'NOH': 0, 'SAC': 0, 'CHI': 0, 'WAS': 0, 'CHO': 0, 'CHA': 0
 }
 
 COLLEGE_STRENGTH = {

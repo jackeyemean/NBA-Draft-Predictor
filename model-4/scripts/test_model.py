@@ -2,12 +2,12 @@ import pandas as pd
 import joblib
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
-TEST_POSITIONS = ["PG"]
+TEST_POSITIONS = ["C"]
 TEST_YEARS     = [2022, 2023, 2024]
-MODEL_PATH     = "model-4/pg-no-draft-context.pkl"
-RAW_DATA_PATH  = "model-4/data/featured-2022-2024.csv"
-TRAIN_PATH     = "model-4/data/training-2011-2021.csv"
-TOP_K          = 10  # number of top correlated features to display
+MODEL_PATH     = "model-4/c.pkl"
+RAW_DATA_PATH  = "model-4/data/featured-testing.csv"
+TRAIN_PATH     = "model-4/data/final-training.csv"
+TOP_K          = 0  # num of top correlated features to display
 
 # ── LOAD AND FILTER TEST DATA ─────────────────────────────────────────────────
 df_all = pd.read_csv(RAW_DATA_PATH)

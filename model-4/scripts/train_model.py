@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestRegressor
 TRAIN_POSITIONS = ["PG"]
 IGNORE_YEARS = []
 
-df = pd.read_csv("model-4/data/training-2011-2021.csv")
+df = pd.read_csv("model-4/data/final-training.csv")
 
 # drop ignored years
 if "Draft Year" in df.columns and IGNORE_YEARS:
@@ -74,6 +74,6 @@ model.fit(X, y)
 
 # save
 positions_tag = "-".join(TRAIN_POSITIONS)
-output_path = f"model-4/pg-no-draft-context.pkl"
+output_path = f"model-4/pg.pkl"
 joblib.dump(model, output_path)
 print(f"Model saved to {output_path}")

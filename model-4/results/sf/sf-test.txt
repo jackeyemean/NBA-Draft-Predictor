@@ -1,0 +1,36 @@
+=== Predicted Player Tiers ===
+
+ 1. Bennedict Mathurin        | Year: 2022 | POS: SF,SG | Predicted Score: 3.04
+ 2. Brandon Miller            | Year: 2023 | POS: SF    | Predicted Score: 2.86
+ 3. Keegan Murray             | Year: 2022 | POS: SF,PF | Predicted Score: 2.71
+ 4. AJ Griffin                | Year: 2022 | POS: SF    | Predicted Score: 2.65
+ 5. Jett Howard               | Year: 2023 | POS: SF    | Predicted Score: 2.44
+ 6. Brice Sensabaugh          | Year: 2023 | POS: SF    | Predicted Score: 2.35
+ 7. Dalton Knecht             | Year: 2024 | POS: SF    | Predicted Score: 2.35
+ 8. Cam Whitmore              | Year: 2023 | POS: SF    | Predicted Score: 2.34
+ 9. Patrick Baldwin Jr.       | Year: 2022 | POS: SF    | Predicted Score: 2.27
+10. Jaime Jaquez Jr.          | Year: 2023 | POS: SF    | Predicted Score: 2.26
+11. Peyton Watson             | Year: 2022 | POS: SF,SG | Predicted Score: 2.25
+12. Tristan Da Silva          | Year: 2024 | POS: SF    | Predicted Score: 2.23
+13. Kris Murray               | Year: 2023 | POS: SF    | Predicted Score: 2.05
+14. Ryan Dunn                 | Year: 2024 | POS: SF    | Predicted Score: 2.01
+15. Dariq Whitehead           | Year: 2023 | POS: SF    | Predicted Score: 2.00
+16. Dillon Jones              | Year: 2024 | POS: SF    | Predicted Score: 1.87
+17. Jordan Walsh              | Year: 2023 | POS: SF,PF | Predicted Score: 1.87
+18. Julian Strawther          | Year: 2023 | POS: SF,SG | Predicted Score: 1.77
+19. Julian Phillips           | Year: 2023 | POS: SF    | Predicted Score: 1.64
+20. Caleb Houstan             | Year: 2022 | POS: SF    | Predicted Score: 1.63
+21. Bobi Klintman             | Year: 2024 | POS: SF    | Predicted Score: 1.57
+22. Josh Minott               | Year: 2022 | POS: SF    | Predicted Score: 1.56
+23. Jaylen Wells              | Year: 2024 | POS: SG,SF | Predicted Score: 1.38
+24. Emoni Bates               | Year: 2023 | POS: SF    | Predicted Score: 1.33
+25. Harrison Ingram           | Year: 2024 | POS: SF    | Predicted Score: 1.30
+26. Anton Watson              | Year: 2024 | POS: SF    | Predicted Score: 1.23
+27. Jordan Miller             | Year: 2023 | POS: SF    | Predicted Score: 1.18
+28. Chris Livingston          | Year: 2023 | POS: SF    | Predicted Score: 1.16
+29. Keyontae Johnson          | Year: 2023 | POS: SF    | Predicted Score: 1.02
+30. Maxwell Lewis             | Year: 2023 | POS: SF    | Predicted Score: 1.01
+31. Jalen Slawson             | Year: 2023 | POS: SF    | Predicted Score: 1.01
+32. Kevin McCullar Jr.        | Year: 2024 | POS: SF    | Predicted Score: 0.97
+33. Jabari Walker             | Year: 2022 | POS: SF    | Predicted Score: 0.84
+34. Seth Lundy                | Year: 2023 | POS: SF    | Predicted Score: 0.72

@@ -1,0 +1,22 @@
+=== Predicted Player Tiers ===
+
+ 1. Reed Sheppard             | Year: 2024 | POS: PG,SG | Predicted Score: 4.24
+ 2. Jared McCain              | Year: 2024 | POS: SG,PG | Predicted Score: 3.85
+ 3. Stephon Castle            | Year: 2024 | POS: PG    | Predicted Score: 3.81
+ 4. Rob Dillingham            | Year: 2024 | POS: PG    | Predicted Score: 3.61
+ 5. Devin Carter              | Year: 2024 | POS: PG    | Predicted Score: 3.24
+ 6. Keyonte George            | Year: 2023 | POS: PG,SG | Predicted Score: 3.15
+ 7. Bub Carrington            | Year: 2024 | POS: PG    | Predicted Score: 3.08
+ 8. Anthony Black             | Year: 2023 | POS: PG    | Predicted Score: 3.04
+ 9. Malaki Branham            | Year: 2022 | POS: SG,PG | Predicted Score: 2.25
+10. Marcus Sasser             | Year: 2023 | POS: PG    | Predicted Score: 1.88
+11. Andrew Nembhard           | Year: 2022 | POS: SG,PG | Predicted Score: 1.76
+12. TyTy Washington Jr.       | Year: 2022 | POS: PG    | Predicted Score: 1.69
+13. JD Davison                | Year: 2022 | POS: SG,PG | Predicted Score: 1.43
+14. Amari Bailey              | Year: 2023 | POS: PG    | Predicted Score: 1.29
+15. Isaiah Collier            | Year: 2024 | POS: PG    | Predicted Score: 1.23
+16. KJ Simpson                | Year: 2024 | POS: PG    | Predicted Score: 1.13
+17. Jamal Shead               | Year: 2024 | POS: PG    | Predicted Score: 1.10
+18. Tyler Kolek               | Year: 2024 | POS: PG    | Predicted Score: 1.00
+19. Kennedy Chandler          | Year: 2022 | POS: PG    | Predicted Score: 0.80
+20. Ryan Rollins              | Year: 2022 | POS: PG    | Predicted Score: 0.69

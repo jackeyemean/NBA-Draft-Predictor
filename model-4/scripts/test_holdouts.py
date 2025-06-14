@@ -5,7 +5,7 @@ from sklearn.model_selection import LeaveOneOut, cross_val_predict
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
 MIN_YEAR     = 2011
 MAX_YEAR     = 2021
-TRAIN_PATH   = "model-4/data/training-2011-2021.csv"
+TRAIN_PATH   = "model-4/data/final-training.csv"
 RAW_DATA_PATH= TRAIN_PATH
 TOP_K        = 10  # number of top correlated features to display
 

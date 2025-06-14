@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
-INPUT_CSV  = "model-4/data/featured-2022-2024.csv"
-OUTPUT_CSV = "model-4/data/processed-testing.csv"
+INPUT_CSV  = "model-4/data/training-2011-2021.csv"
+OUTPUT_CSV = "model-4/data/final-training.csv"
 
 df = pd.read_csv(INPUT_CSV)
 
@@ -28,7 +28,7 @@ pos_dummies = pd.get_dummies(df['Main_POS'], prefix='Main_POS')
 df = pd.concat([df, pos_dummies], axis=1)
 
 # drop Main_POS column
-df.drop(columns=['POS', 'Main_POS'], inplace=True)
+df.drop(columns=['Main_POS'], inplace=True)
 
 # ── ROUND NUMERIC COLUMNS ───────────────────────────────────────────────────────
 numeric_cols = df.select_dtypes(include=[np.number]).columns

@@ -15,12 +15,12 @@ FEATURES = [
     # pick, NBA team, measurements 
     "Age", "Height", "Weight", "BMI",
     # "Relatives",
-    "Pick Number", 
+    #"Pick Number", 
     "Main_POS_C", "Main_POS_PF", "Main_POS_PG", "Main_POS_SF", "Main_POS_SG",
 
     # primary team's (first 4 seasons) season prior to getting drafted
-    "NBA Dev Score", "NBA Win%", "Rel PPG", "Rel OPPG",
-    "NBA SRS", "Rel ORtg", "Rel DRtg", "NBA Net PPG", "NBA Expected Win%",     
+    #"NBA Dev Score", "NBA Win%", "Rel PPG", "Rel OPPG",
+    #"NBA SRS", "Rel ORtg", "Rel DRtg", "NBA Net PPG", "NBA Expected Win%",     
     # "NBA PPG", "NBA OPPG", "NBA ORtg", "NBA DRtg", "NBA NRtg", "NBA Pace",  
 
     # college team context

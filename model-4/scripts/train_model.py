@@ -3,7 +3,7 @@ import joblib
 from sklearn.ensemble import RandomForestRegressor
 
 # Config
-TRAIN_POSITIONS = ["PG"]
+TRAIN_POSITIONS = ["PG", "SG", "SF", "PF", "C"]
 IGNORE_YEARS = []
 
 df = pd.read_csv("model-4/data/final-training.csv")
@@ -25,12 +25,12 @@ FEATURES = [
     # pick, NBA team, measurements 
     "Age", "Height", "Weight", "BMI",
     # "Relatives",
-    "Pick Number", 
+    #"Pick Number", 
     "Main_POS_C", "Main_POS_PF", "Main_POS_PG", "Main_POS_SF", "Main_POS_SG",
 
     # primary team's (first 4 seasons) season prior to getting drafted
-    "NBA Dev Score", "NBA Win%", "Rel PPG", "Rel OPPG",
-    "NBA SRS", "Rel ORtg", "Rel DRtg", "NBA Net PPG", "NBA Expected Win%",     
+    #"NBA Dev Score", "NBA Win%", "Rel PPG", "Rel OPPG",
+    #"NBA SRS", "Rel ORtg", "Rel DRtg", "NBA Net PPG", "NBA Expected Win%",     
     # "NBA PPG", "NBA OPPG", "NBA ORtg", "NBA DRtg", "NBA NRtg", "NBA Pace",  
 
     # college team context
@@ -74,6 +74,6 @@ model.fit(X, y)
 
 # save
 positions_tag = "-".join(TRAIN_POSITIONS)
-output_path = f"model-4/pg.pkl"
+output_path = f"model-4/all-pos-no-draft-context.pkl"
 joblib.dump(model, output_path)
 print(f"Model saved to {output_path}")

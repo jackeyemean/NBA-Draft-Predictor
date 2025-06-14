@@ -2,12 +2,12 @@ import pandas as pd
 import joblib
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
-TEST_POSITIONS = ["C"]
-TEST_YEARS     = [2022, 2023, 2024]
-MODEL_PATH     = "model-4/c.pkl"
+TEST_POSITIONS = ["PG", "SG", "SF", "PF", "C"]
+TEST_YEARS     = [2024]
+MODEL_PATH     = "model-4/all-pos-no-draft-context.pkl"
 RAW_DATA_PATH  = "model-4/data/featured-testing.csv"
 TRAIN_PATH     = "model-4/data/final-training.csv"
-TOP_K          = 0  # num of top correlated features to display
+TOP_K          = 74  # num of top correlated features to display
 
 # ── LOAD AND FILTER TEST DATA ─────────────────────────────────────────────────
 df_all = pd.read_csv(RAW_DATA_PATH)
@@ -35,12 +35,12 @@ FEATURES = [
     # pick, NBA team, measurements 
     "Age", "Height", "Weight", "BMI",
     # "Relatives",
-    "Pick Number", 
+    #"Pick Number", 
     "Main_POS_C", "Main_POS_PF", "Main_POS_PG", "Main_POS_SF", "Main_POS_SG",
 
     # primary team's (first 4 seasons) season prior to getting drafted
-    "NBA Dev Score", "NBA Win%", "Rel PPG", "Rel OPPG",
-    "NBA SRS", "Rel ORtg", "Rel DRtg", "NBA Net PPG", "NBA Expected Win%",     
+    #"NBA Dev Score", "NBA Win%", "Rel PPG", "Rel OPPG",
+    #"NBA SRS", "Rel ORtg", "Rel DRtg", "NBA Net PPG", "NBA Expected Win%",     
     # "NBA PPG", "NBA OPPG", "NBA ORtg", "NBA DRtg", "NBA NRtg", "NBA Pace",  
 
     # college team context

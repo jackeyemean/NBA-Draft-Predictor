@@ -1,0 +1,97 @@
+Top 50 features by |Pearson corr| with Player Tier:
+
+Pick Number              : 0.590
+Age                      : 0.371
+Seasons Played (College) : 0.325
+C_BPM                    : 0.236
+College Strength         : 0.195
+C_DBPM                   : 0.185
+NBA SRS                  : 0.167
+NBA Expected Win%        : 0.166
+C_OBPM                   : 0.162
+CT_SRS                   : 0.136
+Rel ORtg                 : 0.133
+C_PER                    : 0.132
+Rel DRtg                 : 0.127
+C_STL/40                 : 0.119
+C_STL%                   : 0.110
+C_ORtg                   : 0.105
+Relatives                : 0.095
+C_PTS/40                 : 0.095
+C_DRtg                   : 0.076
+BMI                      : 0.063
+C_FG%                    : 0.061
+C_AST/40                 : 0.059
+C_FTA/40                 : 0.058
+CT_ORtg                  : 0.055
+C_FGA/40                 : 0.055
+C_TOV/40                 : 0.050
+C_AST%                   : 0.050
+C_USG%                   : 0.048
+CT_Win%                  : 0.042
+Height                   : 0.040
+C_GS%                    : 0.038
+C_G                      : 0.034
+C_TRB/40                 : 0.032
+C_3PA/40                 : 0.030
+C_AST_TO                 : 0.030
+Rel NBA Pace             : 0.028
+CT_DRtg                  : 0.027
+C_BLK/40                 : 0.017
+C_BLK_MPG                : 0.017
+Weight                   : 0.017
+C_BLK%                   : 0.015
+C_3P%                    : 0.012
+C_FT%                    : 0.010
+NBA Dev Score            : 0.009
+C_MPG                    : 0.008
+C_ORB_DRB                : 0.005
+
+Top 50 features by RandomForest importance:
+
+Pick Number              : 0.408
+BMI                      : 0.027
+C_FT%                    : 0.026
+Age                      : 0.023
+C_ORB_DRB                : 0.022
+C_3PA/40                 : 0.021
+Rel NBA Pace             : 0.020
+C_TRB/40                 : 0.019
+C_FTA/40                 : 0.019
+C_MPG                    : 0.019
+CT_ORtg                  : 0.017
+C_3P%                    : 0.017
+C_FG%                    : 0.017
+CT_SRS                   : 0.017
+C_ORtg                   : 0.016
+Weight                   : 0.016
+C_AST_TO                 : 0.016
+CT_Win%                  : 0.016
+C_DBPM                   : 0.015
+Rel DRtg                 : 0.015
+Height                   : 0.014
+C_DRtg                   : 0.013
+Rel ORtg                 : 0.013
+C_PTS/40                 : 0.012
+C_PER                    : 0.012
+C_G                      : 0.011
+C_BPM                    : 0.011
+C_AST%                   : 0.011
+CT_DRtg                  : 0.010
+C_TOV/40                 : 0.010
+C_BLK%                   : 0.010
+C_OBPM                   : 0.009
+C_BLK_MPG                : 0.009
+C_FGA/40                 : 0.009
+NBA SRS                  : 0.009
+C_USG%                   : 0.008
+C_STL%                   : 0.008
+NBA Dev Score            : 0.008
+C_GS%                    : 0.008
+C_STL/40                 : 0.007
+NBA Expected Win%        : 0.007
+C_AST/40                 : 0.007
+C_BLK/40                 : 0.006
+College Strength         : 0.006
+Seasons Played (College) : 0.003
+Relatives                : 0.001

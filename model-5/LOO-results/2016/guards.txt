@@ -1,0 +1,27 @@
+--- Draft Class 2016 ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Jamal Murray                   | PG,SG |       3.33 |     4.50
+   2 | Ben Simmons                    | PG    |       3.21 |     4.50
+   3 | Kris Dunn                      | PG    |       3.06 |     2.50
+   4 | Buddy Hield                    | SG,SF |       2.99 |     4.00
+   5 | Jaylen Brown                   | SF,SG |       2.74 |     4.50
+   6 | Denzel Valentine               | SG,SF |       2.56 |     1.00
+   7 | Caris LeVert                   | SG,SF |       2.22 |     3.00
+   8 | Malachi Richardson             | SG    |       2.17 |     0.50
+   9 | Wade Baldwin                   | PG    |       1.92 |     0.50
+  10 | Dejounte Murray                | PG,SG |       1.66 |     4.50
+  11 | DeAndre' Bembry                | SF,SG |       1.66 |     1.00
+  12 | Patrick McCaw                  | SG,SF |       1.65 |     1.00
+  13 | Tyler Ulis                     | PG    |       1.60 |     0.50
+  14 | Tyrone Wallace                 | SG,PG |       1.60 |     0.50
+  15 | Malcolm Brogdon                | PG,SG |       1.43 |     4.00
+  16 | Malik Beasley                  | SG    |       1.33 |     3.00
+  17 | Isaiah Whitehead               | PG    |       1.14 |     0.00
+  18 | Daniel Hamilton                | SG    |       0.74 |     0.00
+  19 | Michael Gbinije                | SG    |       0.71 |     0.00
+  20 | Demetrius Jackson              | PG    |       0.70 |     0.50
+  21 | Kay Felder                     | PG    |       0.68 |     0.00
+  22 | Isaiah Cousins                 | PG,SG |       0.67 |     0.00
+  23 | Marcus Paige                   | PG    |       0.55 |     0.00

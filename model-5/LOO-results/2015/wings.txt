@@ -1,0 +1,30 @@
+--- Draft Class 2015 ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Stanley Johnson                | SF,PF |       3.42 |     1.00
+   2 | Karl-Anthony Towns             | C,PF  |       3.38 |     4.50
+   3 | Trey Lyles                     | PF    |       2.89 |     2.50
+   4 | Frank Kaminsky                 | C,PF  |       2.61 |     1.00
+   5 | Kelly Oubre Jr.                | SF    |       2.24 |     3.00
+   6 | Sam Dekker                     | PF    |       2.10 |     1.00
+   7 | Justin Anderson                | SF,SG |       1.93 |     1.00
+   8 | Kevon Looney                   | C,PF  |       1.88 |     3.00
+   9 | J.P. Tokoto                    | SF,PF |       1.76 |     0.00
+  10 | Chris McCullough               | PF    |       1.71 |     0.50
+  11 | Josh Richardson                | SG,SF |       1.66 |     2.50
+  12 | Marcus Thornton                | SG,SF |       1.65 |     0.00
+  13 | Larry Nance Jr.                | PF,C  |       1.56 |     3.00
+  14 | Anthony Brown                  | SF    |       1.53 |     0.50
+  15 | Rondae Hollis-Jefferson        | SF,PF |       1.50 |     2.50
+  16 | Sir'Dominic Pointer            | SG,SF |       1.19 |     0.00
+  17 | Bobby Portis                   | PF,C  |       1.11 |     3.00
+  18 | Aaron White                    | PF    |       1.07 |     0.00
+  19 | Rakeem Christmas               | PF    |       1.04 |     0.00
+  20 | Montrezl Harrell               | C,PF  |       1.03 |     4.00
+  21 | Jarell Martin                  | PF    |       1.00 |     0.50
+  22 | Jordan Mickey                  | PF    |       0.98 |     0.50
+  23 | Richaun Holmes                 | C,PF  |       0.98 |     2.50
+  24 | Branden Dawson                 | PF    |       0.92 |     0.00
+  25 | Norman Powell                  | SG,SF |       0.92 |     4.00
+  26 | Pat Connaughton                | SG,SF |       0.76 |     2.50

@@ -1,0 +1,15 @@
+--- Draft Class 2021 ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Isaiah Jackson                 | C     |       2.43 |     1.00
+   2 | Kai Jones                      | C     |       2.07 |     0.50
+   3 | Sandro Mamukelashvili          | C,PF  |       1.78 |     0.50
+   4 | Jeremiah Robinson-Earl         | PF,C  |       1.76 |     1.00
+   5 | Neemias Queta                  | C     |       1.66 |     0.50
+   6 | Day'Ron Sharpe                 | C,PF  |       1.58 |     2.50
+   7 | Jericho Sims                   | C,PF  |       1.23 |     1.00
+   8 | Luka Garza                     | C     |       1.08 |     0.50
+   9 | Charles Bassey                 | C     |       0.66 |     0.50
+  10 | Filip PetruÅ¡ev                | C     |       0.57 |     0.00
+  11 | BalÅ¡a Koprivica               | C     |       0.20 |     0.00

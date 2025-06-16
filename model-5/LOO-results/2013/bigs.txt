@@ -1,0 +1,16 @@
+--- Draft Class 2013 ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Nerlens Noel                   | C,PF  |       3.02 |     2.50
+   2 | Cody Zeller                    | C     |       2.96 |     2.50
+   3 | Alex Len                       | C     |       2.95 |     2.50
+   4 | Steven Adams                   | C     |       2.45 |     4.00
+   5 | Gorgui Dieng                   | C,PF  |       2.44 |     1.00
+   6 | Mason Plumlee                  | C     |       2.21 |     3.00
+   7 | Kelly Olynyk                   | C,PF  |       2.11 |     2.50
+   8 | Alex Oriakhi                   | C     |       1.03 |     0.00
+   9 | Erik Murphy                    | C     |       0.85 |     0.00
+  10 | Mike Muscala                   | C,PF  |       0.69 |     2.50
+  11 | Jeff Withey                    | C     |       0.55 |     0.50
+  12 | Colton Iverson                 | C     |       0.38 |     0.00

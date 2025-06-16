@@ -1,0 +1,30 @@
+--- Draft Class 2020 ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Kira Lewis Jr.                 | PG    |       3.34 |     0.50
+   2 | Isaac Okoro                    | SF,SG |       3.24 |     2.50
+   3 | Anthony Edwards                | SG    |       3.22 |     5.00
+   4 | Devin Vassell                  | SG,SF |       2.94 |     4.00
+   5 | Tyrese Haliburton              | PG,SG |       2.80 |     5.00
+   6 | Tyrell Terry                   | PG    |       2.35 |     0.00
+   7 | Malachi Flynn                  | PG    |       2.31 |     0.50
+   8 | Immanuel Quickley              | PG,SG |       2.01 |     4.00
+   9 | Cole Anthony                   | PG    |       1.91 |     3.00
+  10 | Josh Green                     | SG    |       1.78 |     2.50
+  11 | Payton Pritchard               | PG,SG |       1.69 |     3.00
+  12 | Tyrese Maxey                   | PG,SG |       1.58 |     4.50
+  13 | Desmond Bane                   | SG    |       1.38 |     4.50
+  14 | Elijah Hughes                  | SG,SF |       1.32 |     0.00
+  15 | Cassius Stanley                | SG    |       1.24 |     0.00
+  16 | Justinian Jessup               | SG    |       1.12 |     0.00
+  17 | Saben Lee                      | PG    |       1.11 |     0.50
+  18 | Jahmi'us Ramsey                | SG    |       0.91 |     0.50
+  19 | Nico Mannion                   | PG    |       0.83 |     0.00
+  20 | Tre Jones                      | PG    |       0.77 |     3.00
+  21 | Grant Riller                   | PG    |       0.70 |     0.00
+  22 | Skylar Mays                    | SG,PG |       0.67 |     1.00
+  23 | Cassius Winston                | PG    |       0.65 |     0.00
+  24 | Sam Merrill                    | SG    |       0.59 |     2.50
+  25 | Jalen Harris                   | SG    |       0.42 |     0.00
+  26 | Isaiah Joe                     | SG    |       0.25 |     2.50

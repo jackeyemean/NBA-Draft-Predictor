@@ -1,0 +1,15 @@
+--- Draft Class 2020 ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Onyeka Okongwu                 | C     |       2.93 |     3.00
+   2 | Isaiah Stewart                 | C,PF  |       2.84 |     2.50
+   3 | Jalen Smith                    | C,PF  |       2.83 |     0.50
+   4 | James Wiseman                  | C     |       2.70 |     1.00
+   5 | Precious Achiuwa               | C,PF  |       1.91 |     2.50
+   6 | Udoka Azubuike                 | C     |       1.88 |     0.50
+   7 | Vernon Carey Jr.               | C     |       1.69 |     0.50
+   8 | Daniel Oturu                   | C     |       1.18 |     0.00
+   9 | Xavier Tillman Sr.             | C,PF  |       1.10 |     2.50
+  10 | Paul Reed                      | C,PF  |       1.05 |     2.50
+  11 | Nick Richards                  | C,PF  |       0.53 |     2.50

@@ -1,0 +1,15 @@
+--- Draft Class 2011 ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Tristan Thompson               | C,PF  |       3.19 |     3.00
+   2 | Kenneth Faried                 | PF,C  |       2.46 |     3.00
+   3 | Nikola VuÄeviÄ               | C     |       1.88 |     4.50
+   4 | Trey Thompkins                 | C     |       1.57 |     0.00
+   5 | Josh Harrellson                | C,PF  |       1.00 |     0.50
+   6 | Jordan Williams                | C     |       0.85 |     0.00
+   7 | Lavoy Allen                    | PF,C  |       0.73 |     1.00
+   8 | Jon Leuer                      | PF,C  |       0.67 |     1.00
+   9 | Ater Majok                     | PF,C  |       0.62 |     0.00
+  10 | Keith Benson                   | C     |       0.61 |     0.00
+  11 | Vernon Macklin                 | C     |       0.37 |     0.00

@@ -3,13 +3,12 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import LeaveOneOut, cross_val_predict
 
 # config
-MIN_YEAR     = 2011
-MAX_YEAR     = 2021
-TRAIN_PATH   = "model-4/data/final-training.csv"
-RAW_DATA_PATH= TRAIN_PATH
-TOP_K        = 46
+MIN_YEAR      = 2011
+MAX_YEAR      = 2021
+TRAIN_PATH    = "model-5/data/TRAINING.csv"
+TOP_K         = 50
 
-TRAIN_POSITIONS = ["PG", "SG", "SF", "PF", "C"]
+TRAIN_POSITIONS = ["C"]
 
 FEATURES = [
     # ─── Player Info  ───
@@ -17,11 +16,11 @@ FEATURES = [
     "Relatives",
 
     # ─── Post Draft Context ───
-    "Pick Number",    
-    "NBA Dev Score",
-    "NBA Expected Win%",
-    "NBA SRS",
-    "Rel ORtg", "Rel DRtg", "Rel NBA Pace",
+    #"Pick Number",    
+    #"NBA Dev Score",
+    #"NBA Expected Win%",
+    #"NBA SRS",
+    #"Rel ORtg", "Rel DRtg", "Rel NBA Pace",
 
     # ─── College Team Context ───
     "College Strength",
@@ -49,9 +48,21 @@ FEATURES = [
 ]
 
 # Load and filter data
-df = pd.read_csv(RAW_DATA_PATH)
+df = pd.read_csv(TRAIN_PATH)
 df = df[df["Draft Year"].between(MIN_YEAR, MAX_YEAR)].copy()
-df = df[df["POS"].apply(lambda x: any(p in [i.strip() for i in x.split(",")] for p in TRAIN_POSITIONS))].copy()
+#df = df[df["POS"].apply(lambda x: any(p in [i.strip() for i in x.split(",")] for p in TRAIN_POSITIONS))].copy()
+
+def is_big(pos_string: str) -> bool:
+    positions = [p.strip() for p in pos_string.split(",")]
+    return (
+        "C" in positions or
+        (positions == ["PF"]) or
+        (positions == ["C", "PF"]) or
+        (positions == ["PF", "C"])
+    )
+
+df = df[df["POS"].apply(is_big)].copy()
+
 
 # Checks
 missing_cols = [c for c in FEATURES if c not in df.columns]
@@ -77,11 +88,17 @@ df_out["Original Player Tier"] = df_out["Player Tier"]
 cols = ["Name", "Draft Year", "POS", "Predicted Player Tier", "Original Player Tier"]
 df_final = df_out[cols].sort_values(by="Predicted Player Tier", ascending=False).reset_index(drop=True)
 
-print("\n=== Hold-Out Predictions (2011–2021) ===\n")
-print(f"{'Rank':>4} | {'Name':30} | {'Year':>4} | {'POS':>5} | {'Pred':>10} | {'Orig':>8}")
-print("-"*80)
-for i, row in df_final.iterrows():
-    print(f"{i+1:4d} | {row['Name']:30} | {int(row['Draft Year']):4d} | {row['POS']:5s} | {row['Predicted Player Tier']:10.2f} | {row['Original Player Tier']:8.2f}")
+# Print grouped by draft year, sorted by predicted tier
+print("\n=== Hold-Out Predictions by Draft Year (Grouped & Sorted) ===\n")
+years = sorted(df_final["Draft Year"].unique())
+
+for year in years:
+    df_year = df_final[df_final["Draft Year"] == year].sort_values(by="Predicted Player Tier", ascending=False).reset_index(drop=True)
+    print(f"\n--- Draft Class {year}, No Draft Context ---\n")
+    print(f"{'Rank':>4} | {'Name':30} | {'POS':>5} | {'Predicted':>10} | {'Actual':>8}")
+    print("-" * 65)
+    for i, row in df_year.iterrows():
+        print(f"{i+1:4d} | {row['Name']:30} | {row['POS']:5s} | {row['Predicted Player Tier']:10.2f} | {row['Original Player Tier']:8.2f}")
 
 # Correlation-based feature relevance
 df_train = pd.read_csv(TRAIN_PATH)

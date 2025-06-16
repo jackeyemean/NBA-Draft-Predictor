@@ -1,0 +1,24 @@
+--- Draft Class 2012 ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Bradley Beal                   | SG    |       3.32 |     4.50
+   2 | Damian Lillard                 | PG    |       3.27 |     5.00
+   3 | Dion Waiters                   | SG    |       3.23 |     3.00
+   4 | Jeremy Lamb                    | SG,SF |       3.15 |     2.50
+   5 | Terrence Ross                  | SG,SF |       3.11 |     2.50
+   6 | Austin Rivers                  | SG,PG |       2.69 |     2.50
+   7 | Kendall Marshall               | PG    |       2.50 |     1.00
+   8 | Marquis Teague                 | SG,PG |       2.37 |     0.50
+   9 | John Jenkins                   | SG    |       1.90 |     1.00
+  10 | Tony Wroten                    | PG,SG |       1.67 |     0.50
+  11 | Jared Cunningham               | SG    |       1.44 |     0.50
+  12 | Doron Lamb                     | SG    |       1.42 |     0.00
+  13 | Tyshawn Taylor                 | PG    |       1.29 |     0.00
+  14 | Khris Middleton                | SF,SG |       1.22 |     4.50
+  15 | Will Barton                    | SG,SF |       1.09 |     2.50
+  16 | Kim English                    | SG    |       1.05 |     0.00
+  17 | Orlando Johnson                | SG    |       0.95 |     0.50
+  18 | Darius Johnson-Odom            | SG    |       0.94 |     0.00
+  19 | Marcus Denmon                  | SG    |       0.76 |     0.00
+  20 | Kevin Murphy                   | SG    |       0.63 |     0.00

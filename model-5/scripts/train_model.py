@@ -3,10 +3,10 @@ import joblib
 from sklearn.ensemble import RandomForestRegressor
 
 # Config
-TRAIN_POSITIONS = ["PG", "SG"]
+TRAIN_POSITIONS = ["C"]
 IGNORE_YEARS = []
 
-df = pd.read_csv("model-5/data/final-training.csv")
+df = pd.read_csv("model-5/data/TRAINING.csv")
 
 # drop ignored years
 if "Draft Year" in df.columns and IGNORE_YEARS:
@@ -27,11 +27,11 @@ FEATURES = [
     "Relatives",
 
     # ─── Post Draft Context ───
-    "Pick Number",    
-    "NBA Dev Score",
-    "NBA Expected Win%",
-    "NBA SRS",
-    "Rel ORtg", "Rel DRtg", "Rel NBA Pace",
+    #"Pick Number",    
+    #"NBA Dev Score",
+    #"NBA Expected Win%",
+    #"NBA SRS",
+    #"Rel ORtg", "Rel DRtg", "Rel NBA Pace",
 
     # ─── College Team Context ───
     "College Strength",
@@ -99,6 +99,6 @@ model.fit(X, y)
 
 # save
 positions_tag = "-".join(TRAIN_POSITIONS)
-output_path = f"model-5/point-guards.pkl"
+output_path = f"model-5/BIGS-predraft.pkl"
 joblib.dump(model, output_path)
 print(f"Model saved to {output_path}")

@@ -2,10 +2,10 @@ import pandas as pd
 import joblib
 
 # config
-TEST_POSITIONS = ["PG"]
-TEST_YEARS = [2021, 2022, 2023, 2024]
-MODEL_PATH = "model-3/model-3.pkl"
-RAW_DATA_PATH = "model-3/data/2021-to-2024.csv"
+TEST_POSITIONS = ["SG", "PG"]
+TEST_YEARS = [2022, 2023, 2024]
+MODEL_PATH = "model-5/GUARDS-predraft.pkl"
+RAW_DATA_PATH = "model-5/data/TESTING.csv"
 
 # load data
 df_all = pd.read_csv(RAW_DATA_PATH)
@@ -40,11 +40,11 @@ FEATURES = [
     "Relatives",
 
     # ─── Post Draft Context ───
-    "Pick Number",    
-    "NBA Dev Score",
-    "NBA Expected Win%",
-    "NBA SRS",
-    "Rel ORtg", "Rel DRtg", "Rel NBA Pace",
+    #"Pick Number",    
+    #"NBA Dev Score",
+    #"NBA Expected Win%",
+    #"NBA SRS",
+    #"Rel ORtg", "Rel DRtg", "Rel NBA Pace",
 
     # ─── College Team Context ───
     "College Strength",

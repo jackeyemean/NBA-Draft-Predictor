@@ -1,0 +1,24 @@
+--- Draft Class 2020 ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Isaac Okoro                    | SF,SG |       3.17 |     2.50
+   2 | Devin Vassell                  | SG,SF |       2.69 |     4.00
+   3 | Zeke Nnaji                     | PF    |       2.63 |     1.00
+   4 | Patrick Williams               | PF    |       2.52 |     3.00
+   5 | Jalen Smith                    | C,PF  |       2.41 |     0.50
+   6 | Aaron Nesmith                  | SF    |       2.33 |     4.00
+   7 | Obi Toppin                     | PF    |       2.26 |     3.00
+   8 | Isaiah Stewart                 | C,PF  |       2.20 |     2.50
+   9 | Saddiq Bey                     | SF    |       1.94 |     3.00
+  10 | Xavier Tillman Sr.             | C,PF  |       1.87 |     2.50
+  11 | Elijah Hughes                  | SG,SF |       1.87 |     0.00
+  12 | Tyler Bey                      | SF    |       1.84 |     0.00
+  13 | Precious Achiuwa               | C,PF  |       1.72 |     2.50
+  14 | CJ Elleby                      | SF    |       1.70 |     0.00
+  15 | Jaden McDaniels                | PF,SF |       1.18 |     4.00
+  16 | Nick Richards                  | C,PF  |       1.10 |     2.50
+  17 | Jordan Nwora                   | SF    |       0.94 |     1.00
+  18 | Robert Woodard II              | SF    |       0.82 |     0.00
+  19 | Reggie Perry                   | PF    |       0.70 |     0.00
+  20 | Paul Reed                      | C,PF  |       0.42 |     2.50

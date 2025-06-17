@@ -8,12 +8,12 @@ MAX_YEAR      = 2021
 TRAIN_PATH    = "model-5/data/TRAINING.csv"
 TOP_K         = 50
 
-TRAIN_POSITIONS = ["C"]
+TRAIN_POSITIONS = ["PG", "SG"]
 
 FEATURES = [
     # ─── Player Info  ───
     "Age", "Height", "Weight", "BMI",
-    "Relatives",
+    #"Relatives",
 
     # ─── Post Draft Context ───
     #"Pick Number",    
@@ -26,8 +26,9 @@ FEATURES = [
     "College Strength",
     "Seasons Played (College)",
     "CT_Win%",
-    "CT_SRS",
-    "CT_ORtg", "CT_DRtg",
+    "CT_SRS", "CT_SOS",
+    # not consistent across years
+    #"CT_ORtg", "CT_DRtg",
 
     # ─── College Per Game Stats ───
     "C_G", "C_GS%", "C_MPG",
@@ -38,30 +39,47 @@ FEATURES = [
 
     # ─── College Advanced Stats ───
     "C_PER",
-    "C_AST%", "C_STL%", "C_BLK%", "C_USG%",
-    "C_ORtg", "C_DRtg",
+    "C_TS%",
+    #"C_AST%", "C_STL%", "C_BLK%", "C_TRB%", "C_USG%",  "C_TOV%",
+    #not consistent across years
+    #"C_ORtg", "C_DRtg", "C_WS/40",
     "C_OBPM", "C_DBPM", "C_BPM",
 
     # ─── College Per-40 Stats ───
     "C_FGA/40", "C_3PA/40", "C_FTA/40",
     "C_TRB/40", "C_AST/40", "C_STL/40", "C_BLK/40", "C_TOV/40", "C_PTS/40"
+
+    # ─── ARCHIVED ───
+    # # Raw NBA team stats (redundant with relative versions)
+    # "NBA Win%", "NBA Pace", "NBA PPG", "NBA OPPG", "NBA ORtg", "NBA DRtg",
+    # "Rel PPG", "Rel OPPG", "NBA Net PPG", "NBA NRtg"
+
+    # # College team stats (covered by SRS/ORtg/DRtg)
+    # "CT_PTS/G", "CT_PTSA/G",
+
+    # # College basic box score stats
+    # "C_FG", "C_FGA", "C_3P", "C_3PA",
+    # "C_FT", "C_FTA", "C_DRB", "C_ORB", "C_TRB", "C_AST", "C_STL", "C_BLK",
+    # "C_TOV", "C_PF", "C_PTS"
+
+    # # Additional advanced stats (often redundant or noisy)
+    # "C_3PAr", "C_FTr", "C_PProd",
+    # "C_ORB%", "C_DRB%",
+    # "C_OWS", "C_DWS", "C_WS",
+
+    # # Per-40 stats (less predictive / duplicated elsewhere)
+    # "C_FG/40", "C_3P/40", "C_FT/40", "C_ORB/40", "C_DRB/40", "C_PF/40"
+
+    # # Per-100 stats (fully excluded)
+    # "C_FG/100", "C_FGA/100", "C_3P/100", "C_3PA/100", "C_FT/100", "C_FTA/100",
+    # "C_ORB/100", "C_DRB/100", "C_TRB/100", "C_AST/100", "C_STL/100", "C_BLK/100",
+    # "C_TOV/100", "C_PF/100", "C_PTS/100"
 ]
 
 # Load and filter data
 df = pd.read_csv(TRAIN_PATH)
 df = df[df["Draft Year"].between(MIN_YEAR, MAX_YEAR)].copy()
-#df = df[df["POS"].apply(lambda x: any(p in [i.strip() for i in x.split(",")] for p in TRAIN_POSITIONS))].copy()
-
-def is_big(pos_string: str) -> bool:
-    positions = [p.strip() for p in pos_string.split(",")]
-    return (
-        "C" in positions or
-        (positions == ["PF"]) or
-        (positions == ["C", "PF"]) or
-        (positions == ["PF", "C"])
-    )
-
-df = df[df["POS"].apply(is_big)].copy()
+df = df[df["POS"].apply(lambda x: any(p in [i.strip() for i in x.split(",")] for p in TRAIN_POSITIONS))].copy()
 
 
 # Checks

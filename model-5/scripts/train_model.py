@@ -3,7 +3,7 @@ import joblib
 from sklearn.ensemble import RandomForestRegressor
 
 # Config
-TRAIN_POSITIONS = ["C"]
+TRAIN_POSITIONS = ["PG", "SG"]
 IGNORE_YEARS = []
 
 df = pd.read_csv("model-5/data/TRAINING.csv")
@@ -49,9 +49,9 @@ FEATURES = [
 
     # ─── College Advanced Stats ───
     "C_PER",
-    "C_AST%", "C_STL%", "C_BLK%", "C_USG%",
+    "C_AST%", "C_STL%", "C_BLK%", "C_TRB%", "C_USG%",
     "C_ORtg", "C_DRtg",    
-    "C_OBPM", "C_DBPM", "C_BPM",
+    "C_OBPM", "C_DBPM", "C_BPM", "C_WS/40",
 
     # ─── College Per-40 Stats ───
     "C_FGA/40", "C_3PA/40", "C_FTA/40",
@@ -72,8 +72,8 @@ FEATURES = [
 
     # # Additional advanced stats (often redundant or noisy)
     # "C_TS%", "C_3PAr", "C_FTr", "C_PProd",
-    # "C_ORB%", "C_DRB%", "C_TRB%",
-    # "C_OWS", "C_DWS", "C_WS", "C_WS/40", "C_TOV%"
+    # "C_ORB%", "C_DRB%", 
+    # "C_OWS", "C_DWS", "C_WS",  "C_TOV%"
 
     # # Per-40 stats (less predictive / duplicated elsewhere)
     # "C_FG/40", "C_3P/40", "C_FT/40", "C_ORB/40", "C_DRB/40", "C_PF/40"
@@ -99,6 +99,6 @@ model.fit(X, y)
 
 # save
 positions_tag = "-".join(TRAIN_POSITIONS)
-output_path = f"model-5/BIGS-predraft.pkl"
+output_path = f"model-5/guards.pkl"
 joblib.dump(model, output_path)
 print(f"Model saved to {output_path}")

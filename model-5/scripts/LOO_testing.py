@@ -8,12 +8,11 @@ MAX_YEAR      = 2021
 TRAIN_PATH    = "model-5/data/TRAINING.csv"
 TOP_K         = 50
 
-TRAIN_POSITIONS = ["PG", "SG"]
+TRAIN_POSITIONS = ["C"]
 
 FEATURES = [
     # ─── Player Info  ───
-    "Age", "Height", "Weight", "BMI",
-    #"Relatives",
+    "Age", "Height", "Weight", "BMI", "Relatives",
 
     # ─── Post Draft Context ───
     #"Pick Number",    
@@ -25,10 +24,9 @@ FEATURES = [
     # ─── College Team Context ───
     "College Strength",
     "Seasons Played (College)",
-    "CT_Win%",
+    #"CT_Win%",
     "CT_SRS", "CT_SOS",
-    # not consistent across years
-    #"CT_ORtg", "CT_DRtg",
+    "CT_ORtg", "CT_DRtg",
 
     # ─── College Per Game Stats ───
     "C_G", "C_GS%", "C_MPG",
@@ -40,9 +38,9 @@ FEATURES = [
     # ─── College Advanced Stats ───
     "C_PER",
     "C_TS%",
-    #"C_AST%", "C_STL%", "C_BLK%", "C_TRB%", "C_USG%",  "C_TOV%",
-    #not consistent across years
-    #"C_ORtg", "C_DRtg", "C_WS/40",
+    "C_AST%", "C_STL%", "C_BLK%", "C_TRB%", "C_USG%",  "C_TOV%",
+    "C_OWS", "C_DWS", "C_WS",
+    "C_ORtg", "C_DRtg", #"C_WS/40",
     "C_OBPM", "C_DBPM", "C_BPM",
 
     # ─── College Per-40 Stats ───
@@ -65,7 +63,7 @@ FEATURES = [
     # # Additional advanced stats (often redundant or noisy)
     # "C_3PAr", "C_FTr", "C_PProd",
     # "C_ORB%", "C_DRB%",
-    # "C_OWS", "C_DWS", "C_WS",
+    # 
 
     # # Per-40 stats (less predictive / duplicated elsewhere)
     # "C_FG/40", "C_3P/40", "C_FT/40", "C_ORB/40", "C_DRB/40", "C_PF/40"

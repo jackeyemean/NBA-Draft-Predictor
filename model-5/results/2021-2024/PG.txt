@@ -1,0 +1,22 @@
+=== Predicted NBA Career Scores ===
+
+ 1. Reed Sheppard             | Year: 2024 | POS: PG,SG | Predicted Score: 3.58
+ 2. Stephon Castle            | Year: 2024 | POS: PG    | Predicted Score: 2.90
+ 3. Malaki Branham            | Year: 2022 | POS: SG,PG | Predicted Score: 2.85
+ 4. Ryan Rollins              | Year: 2022 | POS: PG    | Predicted Score: 2.72
+ 5. Keyonte George            | Year: 2023 | POS: PG,SG | Predicted Score: 2.67
+ 6. Rob Dillingham            | Year: 2024 | POS: PG    | Predicted Score: 2.62
+ 7. Jared McCain              | Year: 2024 | POS: SG,PG | Predicted Score: 2.59
+ 8. Amari Bailey              | Year: 2023 | POS: PG    | Predicted Score: 2.57
+ 9. Kennedy Chandler          | Year: 2022 | POS: PG    | Predicted Score: 2.52
+10. JD Davison                | Year: 2022 | POS: SG,PG | Predicted Score: 2.37
+11. Anthony Black             | Year: 2023 | POS: PG    | Predicted Score: 2.31
+12. Isaiah Collier            | Year: 2024 | POS: PG    | Predicted Score: 2.17
+13. Bub Carrington            | Year: 2024 | POS: PG    | Predicted Score: 2.12
+14. Jamal Shead               | Year: 2024 | POS: PG    | Predicted Score: 1.73
+15. TyTy Washington Jr.       | Year: 2022 | POS: PG    | Predicted Score: 1.46
+16. KJ Simpson                | Year: 2024 | POS: PG    | Predicted Score: 1.28
+17. Devin Carter              | Year: 2024 | POS: PG    | Predicted Score: 1.25
+18. Tyler Kolek               | Year: 2024 | POS: PG    | Predicted Score: 1.04
+19. Marcus Sasser             | Year: 2023 | POS: PG    | Predicted Score: 0.92
+20. Andrew Nembhard           | Year: 2022 | POS: SG,PG | Predicted Score: 0.69

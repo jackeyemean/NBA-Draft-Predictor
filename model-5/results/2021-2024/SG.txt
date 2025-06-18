@@ -1,0 +1,53 @@
+=== Predicted NBA Career Scores ===
+
+ 1. Reed Sheppard             | Year: 2024 | POS: PG,SG | Predicted Score: 3.55
+ 2. Gradey Dick               | Year: 2023 | POS: SG    | Predicted Score: 3.22
+ 3. Kobe Bufkin               | Year: 2023 | POS: SG    | Predicted Score: 3.00
+ 4. Dalen Terry               | Year: 2022 | POS: SG    | Predicted Score: 2.83
+ 5. Cason Wallace             | Year: 2023 | POS: SG    | Predicted Score: 2.78
+ 6. Malaki Branham            | Year: 2022 | POS: SG,PG | Predicted Score: 2.78
+ 7. Bennedict Mathurin        | Year: 2022 | POS: SF,SG | Predicted Score: 2.78
+ 8. Keyonte George            | Year: 2023 | POS: PG,SG | Predicted Score: 2.62
+ 9. Bronny James              | Year: 2024 | POS: SG    | Predicted Score: 2.57
+10. Johnny Furphy             | Year: 2024 | POS: SG    | Predicted Score: 2.50
+11. JD Davison                | Year: 2022 | POS: SG,PG | Predicted Score: 2.50
+12. Cam Christie              | Year: 2024 | POS: SG    | Predicted Score: 2.50
+13. Bryce McGowens            | Year: 2022 | POS: SG    | Predicted Score: 2.49
+14. Peyton Watson             | Year: 2022 | POS: SF,SG | Predicted Score: 2.46
+15. Jared McCain              | Year: 2024 | POS: SG,PG | Predicted Score: 2.44
+16. Blake Wesley              | Year: 2022 | POS: SG    | Predicted Score: 2.43
+17. Brandin Podziemski        | Year: 2023 | POS: SG    | Predicted Score: 2.38
+18. Cody Williams             | Year: 2024 | POS: SG    | Predicted Score: 2.33
+19. Jalen Hood-Schifino       | Year: 2023 | POS: SG    | Predicted Score: 2.33
+20. Johnny Davis              | Year: 2022 | POS: SG    | Predicted Score: 2.28
+21. Trevor Keels              | Year: 2022 | POS: SG    | Predicted Score: 2.27
+22. Nick Smith Jr.            | Year: 2023 | POS: SG    | Predicted Score: 2.23
+23. Cam Spencer               | Year: 2024 | POS: SG    | Predicted Score: 2.23
+24. Ja'Kobe Walter            | Year: 2024 | POS: SG    | Predicted Score: 2.23
+25. Christian Braun           | Year: 2022 | POS: SG    | Predicted Score: 2.23
+26. Kendall Brown             | Year: 2022 | POS: SG    | Predicted Score: 2.16
+27. Vince Williams Jr.        | Year: 2022 | POS: SG    | Predicted Score: 2.01
+28. Ochai Agbaji              | Year: 2022 | POS: SG    | Predicted Score: 1.98
+29. Wendell Moore Jr.         | Year: 2022 | POS: SG    | Predicted Score: 1.97
+30. Tristen Newton            | Year: 2024 | POS: SG    | Predicted Score: 1.92
+31. Jalen Pickett             | Year: 2023 | POS: SG    | Predicted Score: 1.91
+32. Max Christie              | Year: 2022 | POS: SG    | Predicted Score: 1.91
+33. Jordan Hawkins            | Year: 2023 | POS: SG    | Predicted Score: 1.90
+34. Jaylen Wells              | Year: 2024 | POS: SG,SF | Predicted Score: 1.86
+35. Jaylen Clark              | Year: 2023 | POS: SG    | Predicted Score: 1.79
+36. Kyshawn George            | Year: 2024 | POS: SG    | Predicted Score: 1.78
+37. Andre Jackson Jr.         | Year: 2023 | POS: SG    | Predicted Score: 1.73
+38. Terrence Shannon Jr.      | Year: 2024 | POS: SG    | Predicted Score: 1.62
+39. Baylor Scheierman         | Year: 2024 | POS: SG    | Predicted Score: 1.57
+40. Jaden Ivey                | Year: 2022 | POS: SG    | Predicted Score: 1.49
+41. Ajay Mitchell             | Year: 2024 | POS: SG    | Predicted Score: 1.49
+42. Julian Strawther          | Year: 2023 | POS: SF,SG | Predicted Score: 1.48
+43. Pelle Larsson             | Year: 2024 | POS: SG    | Predicted Score: 1.47
+44. Jaylon Tyson              | Year: 2024 | POS: SG    | Predicted Score: 1.45
+45. Andrew Nembhard           | Year: 2022 | POS: SG,PG | Predicted Score: 1.43
+46. Colby Jones               | Year: 2023 | POS: SG    | Predicted Score: 1.41
+47. Jalen Williams            | Year: 2022 | POS: SG,PF | Predicted Score: 1.17
+48. Antonio Reeves            | Year: 2024 | POS: SG    | Predicted Score: 1.16
+49. Tyrese Martin             | Year: 2022 | POS: SG    | Predicted Score: 0.90
+50. Isaiah Wong               | Year: 2023 | POS: SG    | Predicted Score: 0.73
+51. Ben Sheppard              | Year: 2023 | POS: SG    | Predicted Score: 0.55

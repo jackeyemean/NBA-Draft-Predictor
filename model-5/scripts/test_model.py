@@ -2,9 +2,9 @@ import pandas as pd
 import joblib
 
 # config
-TEST_POSITIONS = ["SG", "PG"]
-TEST_YEARS = [2024]
-MODEL_PATH = "model-5/guards.pkl"
+TEST_POSITIONS = ["C"]
+TEST_YEARS = [2022, 2023, 2024]
+MODEL_PATH = "model-5/C.pkl"
 RAW_DATA_PATH = "model-5/data/TESTING.csv"
 
 # load data
@@ -36,8 +36,7 @@ except FileNotFoundError:
 
 FEATURES = [
     # ─── Player Info  ───
-    "Age", "Height", "Weight", "BMI",
-    "Relatives",
+    "Age", "Height", "Weight", "BMI", "Relatives",
 
     # ─── Post Draft Context ───
     #"Pick Number",    
@@ -49,8 +48,8 @@ FEATURES = [
     # ─── College Team Context ───
     "College Strength",
     "Seasons Played (College)",
-    "CT_Win%",
-    "CT_SRS",
+    #"CT_Win%",
+    "CT_SRS", "CT_SOS",
     "CT_ORtg", "CT_DRtg",
 
     # ─── College Per Game Stats ───
@@ -62,9 +61,11 @@ FEATURES = [
 
     # ─── College Advanced Stats ───
     "C_PER",
-    "C_AST%", "C_STL%", "C_BLK%", "C_TRB%", "C_USG%",
-    "C_ORtg", "C_DRtg",    
-    "C_OBPM", "C_DBPM", "C_BPM", "C_WS/40",
+    "C_TS%",
+    "C_AST%", "C_STL%", "C_BLK%", "C_TRB%", "C_USG%",  "C_TOV%",
+    "C_OWS", "C_DWS", "C_WS",
+    "C_ORtg", "C_DRtg", #"C_WS/40",
+    "C_OBPM", "C_DBPM", "C_BPM",
 
     # ─── College Per-40 Stats ───
     "C_FGA/40", "C_3PA/40", "C_FTA/40",
@@ -76,7 +77,7 @@ FEATURES = [
     # "Rel PPG", "Rel OPPG", "NBA Net PPG", "NBA NRtg"
 
     # # College team stats (covered by SRS/ORtg/DRtg)
-    # "CT_PTS/G", "CT_PTSA/G", "CT_SOS"
+    # "CT_PTS/G", "CT_PTSA/G",
 
     # # College basic box score stats
     # "C_FG", "C_FGA", "C_3P", "C_3PA",
@@ -84,9 +85,9 @@ FEATURES = [
     # "C_TOV", "C_PF", "C_PTS"
 
     # # Additional advanced stats (often redundant or noisy)
-    # "C_TS%", "C_3PAr", "C_FTr", "C_PProd",
-    # "C_ORB%", "C_DRB%", 
-    # "C_OWS", "C_DWS", "C_WS",  "C_TOV%"
+    # "C_3PAr", "C_FTr", "C_PProd",
+    # "C_ORB%", "C_DRB%",
+    # 
 
     # # Per-40 stats (less predictive / duplicated elsewhere)
     # "C_FG/40", "C_3P/40", "C_FT/40", "C_ORB/40", "C_DRB/40", "C_PF/40"

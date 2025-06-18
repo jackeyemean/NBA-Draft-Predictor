@@ -1,0 +1,73 @@
+
+=== Predicted NBA Career Scores ===
+
+ 1. Cade Cunningham           | Year: 2021 | POS: PG,SG | Predicted Score: 72.49
+ 2. Reed Sheppard             | Year: 2024 | POS: PG,SG | Predicted Score: 68.09
+ 3. Kobe Bufkin               | Year: 2023 | POS: SG    | Predicted Score: 62.00
+ 4. Cason Wallace             | Year: 2023 | POS: SG    | Predicted Score: 60.09
+ 5. Cam Christie              | Year: 2024 | POS: SG    | Predicted Score: 59.75
+ 6. JD Davison                | Year: 2022 | POS: SG,PG | Predicted Score: 56.96
+ 7. Jaden Springer            | Year: 2021 | POS: SG,PG | Predicted Score: 55.77
+ 8. Brandin Podziemski        | Year: 2023 | POS: SG    | Predicted Score: 54.99
+ 9. Gradey Dick               | Year: 2023 | POS: SG    | Predicted Score: 54.92
+10. David Johnson             | Year: 2021 | POS: PG,SG | Predicted Score: 54.68
+11. Jalen Suggs               | Year: 2021 | POS: SG,PG | Predicted Score: 53.70
+12. Dalen Terry               | Year: 2022 | POS: SG    | Predicted Score: 53.25
+13. Jalen Hood-Schifino       | Year: 2023 | POS: SG    | Predicted Score: 52.71
+14. Malaki Branham            | Year: 2022 | POS: SG,PG | Predicted Score: 52.56
+15. Keyonte George            | Year: 2023 | POS: PG,SG | Predicted Score: 52.55
+16. Bronny James              | Year: 2024 | POS: SG    | Predicted Score: 50.92
+17. Max Christie              | Year: 2022 | POS: SG    | Predicted Score: 50.05
+18. Bones Hyland              | Year: 2021 | POS: PG,SG | Predicted Score: 49.73
+19. Joshua Primo              | Year: 2021 | POS: SG,SF | Predicted Score: 49.72
+20. Johnny Davis              | Year: 2022 | POS: SG    | Predicted Score: 49.00
+21. Brandon Boston Jr.        | Year: 2021 | POS: SG,SF | Predicted Score: 48.19
+22. Johnny Furphy             | Year: 2024 | POS: SG    | Predicted Score: 47.59
+23. Cam Thomas                | Year: 2021 | POS: SG    | Predicted Score: 46.95
+24. Jared McCain              | Year: 2024 | POS: SG,PG | Predicted Score: 46.71
+25. Kyshawn George            | Year: 2024 | POS: SG    | Predicted Score: 46.12
+26. Nick Smith Jr.            | Year: 2023 | POS: SG    | Predicted Score: 45.94
+27. Cam Spencer               | Year: 2024 | POS: SG    | Predicted Score: 45.81
+28. Josh Christopher          | Year: 2021 | POS: SG    | Predicted Score: 45.74
+29. Keon Johnson              | Year: 2021 | POS: SG    | Predicted Score: 45.15
+30. Andre Jackson Jr.         | Year: 2023 | POS: SG    | Predicted Score: 45.03
+31. Bennedict Mathurin        | Year: 2022 | POS: SF,SG | Predicted Score: 44.83
+32. Moses Moody               | Year: 2021 | POS: SG    | Predicted Score: 43.73
+33. Bryce McGowens            | Year: 2022 | POS: SG    | Predicted Score: 43.10
+34. Wendell Moore Jr.         | Year: 2022 | POS: SG    | Predicted Score: 42.09
+35. Blake Wesley              | Year: 2022 | POS: SG    | Predicted Score: 41.70
+36. Jared Butler              | Year: 2021 | POS: PG,SG | Predicted Score: 41.67
+37. James Bouknight           | Year: 2021 | POS: SG    | Predicted Score: 41.03
+38. Peyton Watson             | Year: 2022 | POS: SF,SG | Predicted Score: 40.60
+39. Scottie Lewis             | Year: 2021 | POS: SG    | Predicted Score: 40.19
+40. Jalen Williams            | Year: 2022 | POS: SG,PF | Predicted Score: 39.68
+41. Ja'Kobe Walter            | Year: 2024 | POS: SG    | Predicted Score: 38.50
+42. Quentin Grimes            | Year: 2021 | POS: SG    | Predicted Score: 38.21
+43. Trevor Keels              | Year: 2022 | POS: SG    | Predicted Score: 37.95
+44. Vince Williams Jr.        | Year: 2022 | POS: SG    | Predicted Score: 37.67
+45. Cody Williams             | Year: 2024 | POS: SG    | Predicted Score: 36.82
+46. Kendall Brown             | Year: 2022 | POS: SG    | Predicted Score: 36.21
+47. Jaden Ivey                | Year: 2022 | POS: SG    | Predicted Score: 35.23
+48. Jordan Hawkins            | Year: 2023 | POS: SG    | Predicted Score: 33.38
+49. Jalen Pickett             | Year: 2023 | POS: SG    | Predicted Score: 32.90
+50. Andrew Nembhard           | Year: 2022 | POS: SG,PG | Predicted Score: 32.51
+51. Colby Jones               | Year: 2023 | POS: SG    | Predicted Score: 28.99
+52. Jaylon Tyson              | Year: 2024 | POS: SG    | Predicted Score: 28.52
+53. Ayo Dosunmu               | Year: 2021 | POS: SG    | Predicted Score: 27.95
+54. Christian Braun           | Year: 2022 | POS: SG    | Predicted Score: 27.45
+55. Jaylen Wells              | Year: 2024 | POS: SG,SF | Predicted Score: 26.97
+56. Julian Strawther          | Year: 2023 | POS: SF,SG | Predicted Score: 26.84
+57. Ajay Mitchell             | Year: 2024 | POS: SG    | Predicted Score: 26.81
+58. Chris Duarte              | Year: 2021 | POS: SF,SG | Predicted Score: 26.31
+59. Ben Sheppard              | Year: 2023 | POS: SG    | Predicted Score: 25.63
+60. Pelle Larsson             | Year: 2024 | POS: SG    | Predicted Score: 25.19
+61. Ochai Agbaji              | Year: 2022 | POS: SG    | Predicted Score: 25.03
+62. Tristen Newton            | Year: 2024 | POS: SG    | Predicted Score: 23.77
+63. Joe Wieskamp              | Year: 2021 | POS: SF,SG | Predicted Score: 23.71
+64. Jaylen Clark              | Year: 2023 | POS: SG    | Predicted Score: 21.68
+65. Terrence Shannon Jr.      | Year: 2024 | POS: SG    | Predicted Score: 20.06
+66. Tyrese Martin             | Year: 2022 | POS: SG    | Predicted Score: 19.99
+67. Antonio Reeves            | Year: 2024 | POS: SG    | Predicted Score: 17.66
+68. Baylor Scheierman         | Year: 2024 | POS: SG    | Predicted Score: 17.13
+69. Isaiah Wong               | Year: 2023 | POS: SG    | Predicted Score: 14.61
+70. Aaron Wiggins             | Year: 2021 | POS: SG    | Predicted Score: 8.16

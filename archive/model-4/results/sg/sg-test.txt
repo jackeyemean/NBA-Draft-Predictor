@@ -1,0 +1,53 @@
+=== Predicted Player Tiers ===
+
+ 1. Reed Sheppard             | Year: 2024 | POS: PG,SG | Predicted Score: 3.86
+ 2. Cason Wallace             | Year: 2023 | POS: SG    | Predicted Score: 3.51
+ 3. Gradey Dick               | Year: 2023 | POS: SG    | Predicted Score: 3.44
+ 4. Jaden Ivey                | Year: 2022 | POS: SG    | Predicted Score: 3.33
+ 5. Johnny Davis              | Year: 2022 | POS: SG    | Predicted Score: 3.12
+ 6. Bennedict Mathurin        | Year: 2022 | POS: SF,SG | Predicted Score: 3.10
+ 7. Cody Williams             | Year: 2024 | POS: SG    | Predicted Score: 2.86
+ 8. Jalen Williams            | Year: 2022 | POS: SG,PF | Predicted Score: 2.83
+ 9. Dalen Terry               | Year: 2022 | POS: SG    | Predicted Score: 2.49
+10. Baylor Scheierman         | Year: 2024 | POS: SG    | Predicted Score: 2.45
+11. Jared McCain              | Year: 2024 | POS: SG,PG | Predicted Score: 2.36
+12. Andrew Nembhard           | Year: 2022 | POS: SG,PG | Predicted Score: 2.36
+13. Julian Strawther          | Year: 2023 | POS: SF,SG | Predicted Score: 2.29
+14. Kobe Bufkin               | Year: 2023 | POS: SG    | Predicted Score: 2.26
+15. Wendell Moore Jr.         | Year: 2022 | POS: SG    | Predicted Score: 2.18
+16. Christian Braun           | Year: 2022 | POS: SG    | Predicted Score: 2.17
+17. Jalen Hood-Schifino       | Year: 2023 | POS: SG    | Predicted Score: 2.15
+18. Ochai Agbaji              | Year: 2022 | POS: SG    | Predicted Score: 2.12
+19. Keyonte George            | Year: 2023 | POS: PG,SG | Predicted Score: 2.11
+20. Kyshawn George            | Year: 2024 | POS: SG    | Predicted Score: 2.10
+21. Jalen Pickett             | Year: 2023 | POS: SG    | Predicted Score: 2.10
+22. Jordan Hawkins            | Year: 2023 | POS: SG    | Predicted Score: 2.10
+23. Peyton Watson             | Year: 2022 | POS: SF,SG | Predicted Score: 2.09
+24. Johnny Furphy             | Year: 2024 | POS: SG    | Predicted Score: 2.03
+25. Nick Smith Jr.            | Year: 2023 | POS: SG    | Predicted Score: 1.96
+26. Terrence Shannon Jr.      | Year: 2024 | POS: SG    | Predicted Score: 1.96
+27. Malaki Branham            | Year: 2022 | POS: SG,PG | Predicted Score: 1.91
+28. Brandin Podziemski        | Year: 2023 | POS: SG    | Predicted Score: 1.90
+29. Jaylon Tyson              | Year: 2024 | POS: SG    | Predicted Score: 1.89
+30. Bronny James              | Year: 2024 | POS: SG    | Predicted Score: 1.86
+31. Andre Jackson Jr.         | Year: 2023 | POS: SG    | Predicted Score: 1.75
+32. Ja'Kobe Walter            | Year: 2024 | POS: SG    | Predicted Score: 1.75
+33. Blake Wesley              | Year: 2022 | POS: SG    | Predicted Score: 1.74
+34. Colby Jones               | Year: 2023 | POS: SG    | Predicted Score: 1.69
+35. Ajay Mitchell             | Year: 2024 | POS: SG    | Predicted Score: 1.64
+36. Ben Sheppard              | Year: 2023 | POS: SG    | Predicted Score: 1.64
+37. Jaylen Wells              | Year: 2024 | POS: SG,SF | Predicted Score: 1.60
+38. Pelle Larsson             | Year: 2024 | POS: SG    | Predicted Score: 1.58
+39. Cam Spencer               | Year: 2024 | POS: SG    | Predicted Score: 1.51
+40. Antonio Reeves            | Year: 2024 | POS: SG    | Predicted Score: 1.42
+41. Max Christie              | Year: 2022 | POS: SG    | Predicted Score: 1.41
+42. Bryce McGowens            | Year: 2022 | POS: SG    | Predicted Score: 1.41
+43. Cam Christie              | Year: 2024 | POS: SG    | Predicted Score: 1.40
+44. Kendall Brown             | Year: 2022 | POS: SG    | Predicted Score: 1.36
+45. Trevor Keels              | Year: 2022 | POS: SG    | Predicted Score: 1.26
+46. JD Davison                | Year: 2022 | POS: SG,PG | Predicted Score: 1.23
+47. Tristen Newton            | Year: 2024 | POS: SG    | Predicted Score: 1.17
+48. Vince Williams Jr.        | Year: 2022 | POS: SG    | Predicted Score: 0.79
+49. Jaylen Clark              | Year: 2023 | POS: SG    | Predicted Score: 0.77
+50. Tyrese Martin             | Year: 2022 | POS: SG    | Predicted Score: 0.72
+51. Isaiah Wong               | Year: 2023 | POS: SG    | Predicted Score: 0.56

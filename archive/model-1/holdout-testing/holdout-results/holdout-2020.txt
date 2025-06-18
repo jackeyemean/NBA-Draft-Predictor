@@ -1,0 +1,50 @@
+=== Predicted NBA Career Scores for Draft Year 2020 ===
+
+ 1. Zeke Nnaji                     | Predicted Score: 3.35
+ 2. Isaiah Stewart                 | Predicted Score: 3.24
+ 3. Onyeka Okongwu                 | Predicted Score: 3.11
+ 4. CJ Elleby                      | Predicted Score: 3.04
+ 5. James Wiseman                  | Predicted Score: 2.93
+ 6. Tyrell Terry                   | Predicted Score: 2.90
+ 7. Kira Lewis Jr.                 | Predicted Score: 2.81
+ 8. Jalen Smith                    | Predicted Score: 2.76
+ 9. Josh Green                     | Predicted Score: 2.60
+10. Tyrese Haliburton              | Predicted Score: 2.56
+11. Vernon Carey Jr.               | Predicted Score: 2.52
+12. Aaron Nesmith                  | Predicted Score: 2.50
+13. Xavier Tillman Sr.             | Predicted Score: 2.48
+14. Devin Vassell                  | Predicted Score: 2.47
+15. Obi Toppin                     | Predicted Score: 2.45
+16. Jahmi'us Ramsey                | Predicted Score: 2.35
+17. Reggie Perry                   | Predicted Score: 2.26
+18. Daniel Oturu                   | Predicted Score: 2.23
+19. Isaac Okoro                    | Predicted Score: 2.23
+20. Udoka Azubuike                 | Predicted Score: 2.21
+21. Paul Reed                      | Predicted Score: 2.21
+22. Nico Mannion                   | Predicted Score: 2.18
+23. Anthony Edwards                | Predicted Score: 2.04
+24. Desmond Bane                   | Predicted Score: 1.99
+25. Cole Anthony                   | Predicted Score: 1.99
+26. Tyrese Maxey                   | Predicted Score: 1.86
+27. Tyler Bey                      | Predicted Score: 1.78
+28. Patrick Williams               | Predicted Score: 1.77
+29. Jaden McDaniels                | Predicted Score: 1.74
+30. Tre Jones                      | Predicted Score: 1.72
+31. Malachi Flynn                  | Predicted Score: 1.70
+32. Precious Achiuwa               | Predicted Score: 1.70
+33. Robert Woodard II              | Predicted Score: 1.69
+34. Sam Merrill                    | Predicted Score: 1.59
+35. Immanuel Quickley              | Predicted Score: 1.58
+36. Saddiq Bey                     | Predicted Score: 1.57
+37. Cassius Winston                | Predicted Score: 1.57
+38. Saben Lee                      | Predicted Score: 1.55
+39. Justinian Jessup               | Predicted Score: 1.48
+40. Grant Riller                   | Predicted Score: 1.44
+41. Cassius Stanley                | Predicted Score: 1.43
+42. Elijah Hughes                  | Predicted Score: 1.40
+43. Payton Pritchard               | Predicted Score: 1.38
+44. Isaiah Joe                     | Predicted Score: 1.30
+45. Jalen Harris                   | Predicted Score: 1.24
+46. Skylar Mays                    | Predicted Score: 1.21
+47. Jordan Nwora                   | Predicted Score: 0.95
+48. Nick Richards                  | Predicted Score: 0.93

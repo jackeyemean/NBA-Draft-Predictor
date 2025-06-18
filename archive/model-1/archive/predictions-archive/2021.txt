@@ -1,0 +1,53 @@
+=== Predicted NBA Career Scores for Draft Year 2021 ===
+
+ 1. Cade Cunningham                | Predicted Score: 3.40
+ 2. Evan Mobley                    | Predicted Score: 2.87
+ 3. Ziaire Williams                | Predicted Score: 2.85
+ 4. Cam Thomas                     | Predicted Score: 2.83
+ 5. Jalen Johnson                  | Predicted Score: 2.81
+ 6. Sharife Cooper                 | Predicted Score: 2.72
+ 7. Isaiah Jackson                 | Predicted Score: 2.55
+ 8. Moses Moody                    | Predicted Score: 2.53
+ 9. Jalen Suggs                    | Predicted Score: 2.49
+10. Brandon Boston Jr.             | Predicted Score: 2.46
+11. Franz Wagner                   | Predicted Score: 2.44
+12. Josh Christopher               | Predicted Score: 2.42
+13. Scottie Barnes                 | Predicted Score: 2.42
+14. Greg Brown III                 | Predicted Score: 2.40
+15. Jaden Springer                 | Predicted Score: 2.40
+16. Keon Johnson                   | Predicted Score: 2.35
+17. Jared Butler                   | Predicted Score: 2.31
+18. Luka Garza                     | Predicted Score: 2.26
+19. Quentin Grimes                 | Predicted Score: 2.25
+20. Chris Duarte                   | Predicted Score: 2.21
+21. Miles McBride                  | Predicted Score: 2.19
+22. JT Thor                        | Predicted Score: 2.17
+23. Bones Hyland                   | Predicted Score: 2.15
+24. Day'Ron Sharpe                 | Predicted Score: 2.09
+25. Jeremiah Robinson-Earl         | Predicted Score: 2.09
+26. Tre Mann                       | Predicted Score: 2.08
+27. Ayo Dosunmu                    | Predicted Score: 1.98
+28. David Johnson                  | Predicted Score: 1.98
+29. Neemias Queta                  | Predicted Score: 1.94
+30. Joe Wieskamp                   | Predicted Score: 1.94
+31. Jason Preston                  | Predicted Score: 1.85
+32. Joshua Primo                   | Predicted Score: 1.84
+33. Santi Aldama                   | Predicted Score: 1.84
+34. Charles Bassey                 | Predicted Score: 1.81
+35. Trey Murphy III                | Predicted Score: 1.79
+36. James Bouknight                | Predicted Score: 1.75
+37. Kessler Edwards                | Predicted Score: 1.74
+38. Davion Mitchell                | Predicted Score: 1.74
+39. Kai Jones                      | Predicted Score: 1.74
+40. Filip PetruÅ¡ev                | Predicted Score: 1.73
+41. Sandro Mamukelashvili          | Predicted Score: 1.73
+42. RaiQuan Gray                   | Predicted Score: 1.72
+43. Corey Kispert                  | Predicted Score: 1.71
+44. Herbert Jones                  | Predicted Score: 1.67
+45. BalÅ¡a Koprivica               | Predicted Score: 1.57
+46. Isaiah Livers                  | Predicted Score: 1.44
+47. Dalano Banton                  | Predicted Score: 1.42
+48. Marcus Zegarowski              | Predicted Score: 1.31
+49. Jericho Sims                   | Predicted Score: 1.25
+50. Aaron Wiggins                  | Predicted Score: 1.20
+51. Scottie Lewis                  | Predicted Score: 1.11

@@ -1,0 +1,282 @@
+=== Hold-Out Predictions by Draft Year (Grouped & Sorted) ===
+
+
+--- Draft Class 2011, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Kyrie Irving                   | PG,SG |       3.55 |     5.00
+   2 | Charles Jenkins                | PG,SG |       2.67 |     0.00
+   3 | Iman Shumpert                  | PG,SG,SF |       2.49 |     3.00
+   4 | Reggie Jackson                 | PG,SG |       2.46 |     3.00
+   5 | Cory Joseph                    | PG,SG |       2.21 |     2.50
+   6 | Brandon Knight                 | PG,SG |       2.01 |     3.00
+   7 | Kemba Walker                   | PG    |       1.99 |     4.50
+   8 | Jimmer Fredette                | SG,PG |       1.99 |     1.00
+   9 | Josh Selby                     | PG    |       1.71 |     0.00
+  10 | Darius Morris                  | PG    |       1.67 |     0.50
+  11 | E'Twaun Moore                  | SG,PG |       1.67 |     1.00
+  12 | Shelvin Mack                   | PG,SG |       1.49 |     1.00
+  13 | Nolan Smith                    | PG    |       1.19 |     0.00
+  14 | Norris Cole                    | PG    |       1.05 |     1.00
+  15 | Andrew Goudelock               | SG,PG |       0.66 |     0.50
+  16 | Isaiah Thomas                  | PG,SG |       0.47 |     4.50
+
+--- Draft Class 2012, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Tony Wroten                    | PG,SG |       2.29 |     0.50
+   2 | Austin Rivers                  | SG,PG |       2.18 |     2.50
+   3 | Marquis Teague                 | SG,PG |       1.87 |     0.50
+   4 | Damian Lillard                 | PG    |       1.46 |     5.00
+   5 | Tyshawn Taylor                 | PG    |       1.02 |     0.00
+   6 | Kendall Marshall               | PG    |       0.84 |     1.00
+
+--- Draft Class 2013, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Victor Oladipo                 | SG,PG |       2.90 |     4.50
+   2 | Erick Green                    | PG    |       2.58 |     0.00
+   3 | CJ McCollum                    | SG,PG |       2.53 |     4.50
+   4 | Trey Burke                     | PG    |       2.48 |     1.00
+   5 | Archie Goodwin                 | SG,PG |       1.83 |     0.50
+   6 | Michael Carter-Williams        | PG,SG |       1.77 |     2.50
+   7 | Nate Wolters                   | PG    |       1.67 |     0.50
+   8 | Shane Larkin                   | PG    |       1.45 |     0.50
+   9 | Lorenzo Brown                  | PG    |       1.43 |     0.50
+  10 | Pierre Jackson                 | PG    |       1.42 |     0.00
+  11 | Ray McCallum                   | PG    |       1.24 |     0.50
+  12 | Isaiah Canaan                  | PG,SG |       0.59 |     1.00
+
+--- Draft Class 2014, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Marcus Smart                   | PG,SG |       3.14 |     4.00
+   2 | Tyler Ennis                    | PG    |       2.98 |     0.50
+   3 | Elfrid Payton                  | PG    |       2.07 |     3.00
+   4 | Zach LaVine                    | PG,SG,SF |       2.07 |     4.50
+   5 | Spencer Dinwiddie              | PG,SG |       1.70 |     3.00
+   6 | Jordan McRae                   | SG,PG |       1.66 |     0.50
+   7 | Shabazz Napier                 | PG    |       1.55 |     1.00
+   8 | Xavier Thames                  | PG,SG |       1.52 |     0.00
+   9 | Russ Smith                     | PG    |       1.36 |     0.00
+  10 | Semaj Christon                 | PG    |       0.72 |     0.00
+  11 | Jordan Clarkson                | SG,PG |       0.58 |     3.00
+
+--- Draft Class 2015, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | D'Angelo Russell               | PG    |       3.78 |     4.00
+   2 | Devin Booker                   | SG,PG |       2.50 |     5.00
+   3 | Delon Wright                   | PG,SG |       2.33 |     1.00
+   4 | Tyus Jones                     | PG    |       2.24 |     3.00
+   5 | Tyler Harvey                   | PG,SG |       2.13 |     0.00
+   6 | Andrew Harrison                | PG    |       1.93 |     0.50
+   7 | Terry Rozier                   | PG,SG |       1.66 |     3.00
+   8 | Joe Young                      | PG    |       1.39 |     0.50
+   9 | Olivier Hanlan                 | SG,PG |       1.10 |     0.00
+  10 | Jerian Grant                   | PG,SG |       1.09 |     0.50
+  11 | Cameron Payne                  | PG,SG |       1.07 |     2.50
+
+--- Draft Class 2016, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Ben Simmons                    | PG    |       3.42 |     4.50
+   2 | Jamal Murray                   | PG,SG |       3.26 |     4.50
+   3 | Wade Baldwin                   | PG    |       2.04 |     0.50
+   4 | Dejounte Murray                | PG,SG |       1.74 |     4.50
+   5 | Tyler Ulis                     | PG    |       1.59 |     0.50
+   6 | Tyrone Wallace                 | SG,PG |       1.59 |     0.50
+   7 | Kay Felder                     | PG    |       1.49 |     0.00
+   8 | Kris Dunn                      | PG    |       1.41 |     2.50
+   9 | Isaiah Whitehead               | PG    |       1.40 |     0.00
+  10 | Demetrius Jackson              | PG    |       1.34 |     0.50
+  11 | Marcus Paige                   | PG    |       1.16 |     0.00
+  12 | Isaiah Cousins                 | PG,SG |       1.07 |     0.00
+  13 | Malcolm Brogdon                | PG,SG |       0.79 |     4.00
+
+--- Draft Class 2017, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Lonzo Ball                     | PG    |       3.79 |     3.00
+   2 | Frank Jackson                  | PG    |       3.16 |     0.50
+   3 | Markelle Fultz                 | PG,SG |       2.97 |     2.50
+   4 | De'Aaron Fox                   | PG    |       2.36 |     4.50
+   5 | Dennis Smith Jr.               | PG    |       2.29 |     2.50
+   6 | Donovan Mitchell               | SG,PG |       2.22 |     5.00
+   7 | Frank Mason III                | PG    |       2.10 |     0.50
+   8 | Jawun Evans                    | PG    |       2.05 |     0.00
+   9 | Edmond Sumner                  | SG,PG |       1.88 |     0.50
+  10 | Derrick White                  | SG,PG |       1.87 |     4.00
+  11 | Monte Morris                   | PG    |       1.39 |     1.00
+  12 | Kadeem Allen                   | PG    |       1.34 |     0.50
+  13 | Nigel Williams-Goss            | PG    |       1.27 |     0.00
+
+--- Draft Class 2018, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Shai Gilgeous-Alexander        | PG,SG |       2.79 |     5.00
+   2 | Trae Young                     | PG    |       2.61 |     5.00
+   3 | De'Anthony Melton              | PG,SG |       2.49 |     2.50
+   4 | Collin Sexton                  | SG,PG |       2.36 |     3.00
+   5 | Devon Hall                     | PG    |       1.76 |     0.00
+   6 | Tony Carr                      | PG,SG |       1.53 |     0.00
+   7 | Jevon Carter                   | PG    |       1.39 |     1.00
+   8 | Jalen Brunson                  | PG,SG |       0.88 |     5.00
+   9 | Devonte' Graham                | PG    |       0.58 |     3.00
+  10 | Aaron Holiday                  | PG    |       0.46 |     1.00
+
+--- Draft Class 2019, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Coby White                     | PG,SG |       3.11 |     4.00
+   2 | Ja Morant                      | PG    |       2.97 |     5.00
+   3 | Talen Horton-Tucker            | SG,PG |       2.25 |     2.50
+   4 | Justin Wright-Foreman          | PG    |       2.21 |     0.00
+   5 | Kyle Guy                       | SG,PG |       2.14 |     0.50
+   6 | Darius Garland                 | PG,SG |       1.99 |     4.50
+   7 | Jordan Poole                   | SG,PG |       1.88 |     4.00
+   8 | Tremont Waters                 | PG    |       1.22 |     0.50
+   9 | Jaylen Hands                   | PG,SG |       1.08 |     0.00
+  10 | Jordan Bone                    | PG    |       0.69 |     0.00
+
+--- Draft Class 2020, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Tyrell Terry                   | PG    |       3.08 |     0.00
+   2 | Tyrese Haliburton              | PG,SG |       2.58 |     5.00
+   3 | Kira Lewis Jr.                 | PG    |       2.54 |     0.50
+   4 | Nico Mannion                   | PG    |       1.86 |     0.00
+   5 | Cole Anthony                   | PG    |       1.81 |     3.00
+   6 | Tyrese Maxey                   | PG,SG |       1.69 |     4.50
+   7 | Grant Riller                   | PG    |       1.42 |     0.00
+   8 | Saben Lee                      | PG    |       1.33 |     0.50
+   9 | Immanuel Quickley              | PG,SG |       1.24 |     4.00
+  10 | Skylar Mays                    | SG,PG |       1.16 |     1.00
+  11 | Payton Pritchard               | PG,SG |       0.92 |     3.00
+  12 | Tre Jones                      | PG    |       0.90 |     3.00
+  13 | Cassius Winston                | PG    |       0.86 |     0.00
+  14 | Malachi Flynn                  | PG    |       0.77 |     0.50
+
+--- Draft Class 2021, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Cade Cunningham                | PG,SG |       2.89 |     5.00
+   2 | Sharife Cooper                 | PG    |       2.71 |     0.00
+   3 | Jalen Suggs                    | SG,PG |       2.64 |     4.00
+   4 | Jaden Springer                 | SG,PG |       2.45 |     0.50
+   5 | Jared Butler                   | PG,SG |       2.37 |     0.50
+   6 | David Johnson                  | PG,SG |       2.15 |     0.00
+   7 | Bones Hyland                   | PG,SG |       2.09 |     2.50
+   8 | Jason Preston                  | PG    |       1.97 |     0.00
+   9 | Tre Mann                       | PG    |       1.67 |     2.50
+  10 | Miles McBride                  | PG    |       1.64 |     2.50
+  11 | Dalano Banton                  | PG    |       1.59 |     2.50
+  12 | Davion Mitchell                | PG    |       1.08 |     3.00
+  13 | Marcus Zegarowski              | PG    |       0.72 |     0.00
+
+Top 50 features by |Pearson corr| with Player Tier:
+
+Age                      : 0.371
+Seasons Played (College) : 0.325
+C_BPM                    : 0.236
+College Strength         : 0.195
+C_DBPM                   : 0.185
+C_OBPM                   : 0.162
+CT_SOS                   : 0.158
+CT_SRS                   : 0.136
+C_PER                    : 0.132
+C_STL/40                 : 0.119
+C_STL%                   : 0.110
+C_ORtg                   : 0.105
+Relatives                : 0.095
+C_PTS/40                 : 0.095
+C_TS%                    : 0.090
+C_WS                     : 0.084
+C_DRtg                   : 0.076
+C_DWS                    : 0.072
+C_OWS                    : 0.072
+BMI                      : 0.063
+C_FG%                    : 0.061
+C_AST/40                 : 0.059
+C_FTA/40                 : 0.058
+CT_ORtg                  : 0.055
+C_FGA/40                 : 0.055
+C_TOV/40                 : 0.050
+C_AST%                   : 0.050
+C_USG%                   : 0.048
+Height                   : 0.040
+C_GS%                    : 0.038
+C_G                      : 0.034
+C_TRB/40                 : 0.032
+C_TRB%                   : 0.031
+C_3PA/40                 : 0.030
+C_AST_TO                 : 0.030
+CT_DRtg                  : 0.027
+C_BLK/40                 : 0.017
+C_BLK_MPG                : 0.017
+Weight                   : 0.017
+C_BLK%                   : 0.015
+C_TOV%                   : 0.014
+C_3P%                    : 0.012
+C_FT%                    : 0.010
+C_MPG                    : 0.008
+C_ORB_DRB                : 0.005
+
+Top 50 features by RandomForest importance:
+
+Age                      : 0.201
+C_BPM                    : 0.054
+C_TS%                    : 0.052
+C_OBPM                   : 0.047
+C_TRB/40                 : 0.039
+BMI                      : 0.038
+C_FG%                    : 0.033
+C_ORB_DRB                : 0.029
+Height                   : 0.027
+C_AST_TO                 : 0.025
+C_TOV%                   : 0.024
+C_FT%                    : 0.024
+CT_SOS                   : 0.022
+C_MPG                    : 0.020
+C_AST%                   : 0.019
+C_ORtg                   : 0.018
+C_FTA/40                 : 0.017
+C_AST/40                 : 0.017
+C_PER                    : 0.016
+C_G                      : 0.016
+Seasons Played (College) : 0.016
+C_TRB%                   : 0.015
+C_3P%                    : 0.015
+C_DBPM                   : 0.014
+CT_ORtg                  : 0.014
+C_BLK%                   : 0.014
+C_PTS/40                 : 0.014
+Weight                   : 0.013
+C_3PA/40                 : 0.013
+C_DRtg                   : 0.012
+C_BLK_MPG                : 0.011
+C_STL/40                 : 0.011
+C_STL%                   : 0.011
+C_OWS                    : 0.010
+CT_SRS                   : 0.010
+C_FGA/40                 : 0.009
+C_GS%                    : 0.009
+CT_DRtg                  : 0.009
+C_TOV/40                 : 0.009
+C_BLK/40                 : 0.009
+C_USG%                   : 0.008
+C_WS                     : 0.007
+C_DWS                    : 0.006
+College Strength         : 0.003
+Relatives                : 0.002

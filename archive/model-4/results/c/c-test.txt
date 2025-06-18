@@ -1,0 +1,17 @@
+=== Predicted Player Tiers ===
+
+ 1. Donovan Clingan           | Year: 2024 | POS: C     | Predicted Score: 3.08
+ 2. Jalen Duren               | Year: 2022 | POS: C     | Predicted Score: 3.06
+ 3. Chet Holmgren             | Year: 2022 | POS: C,PF  | Predicted Score: 2.79
+ 4. Zach Edey                 | Year: 2024 | POS: C     | Predicted Score: 2.70
+ 5. Dereck Lively II          | Year: 2023 | POS: C     | Predicted Score: 2.60
+ 6. Mark Williams             | Year: 2022 | POS: C     | Predicted Score: 2.38
+ 7. Kel'el Ware               | Year: 2024 | POS: C     | Predicted Score: 2.23
+ 8. Walker Kessler            | Year: 2022 | POS: C     | Predicted Score: 2.04
+ 9. Yves Missi                | Year: 2024 | POS: C     | Predicted Score: 2.01
+10. Kyle Filipowski           | Year: 2024 | POS: C     | Predicted Score: 1.57
+11. Adem Bona                 | Year: 2024 | POS: C,PF  | Predicted Score: 1.45
+12. Jaylin Williams           | Year: 2022 | POS: C,PF  | Predicted Score: 1.34
+13. Trayce Jackson-Davis      | Year: 2023 | POS: PF,C  | Predicted Score: 1.04
+14. Christian Koloko          | Year: 2022 | POS: C     | Predicted Score: 0.95
+15. Moussa DiabatÃ©           | Year: 2022 | POS: C     | Predicted Score: 0.59

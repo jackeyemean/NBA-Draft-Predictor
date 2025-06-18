@@ -1,0 +1,46 @@
+=== Predicted Player Tiers ===
+
+ 1. Reed Sheppard             | Year: 2024 | POS: PG,SG | Predicted Score: 2.91
+ 2. Rob Dillingham            | Year: 2024 | POS: PG    | Predicted Score: 2.86
+ 3. Jared McCain              | Year: 2024 | POS: SG,PG | Predicted Score: 2.53
+ 4. Yves Missi                | Year: 2024 | POS: C     | Predicted Score: 2.47
+ 5. Kel'el Ware               | Year: 2024 | POS: C     | Predicted Score: 2.40
+ 6. Donovan Clingan           | Year: 2024 | POS: C     | Predicted Score: 2.40
+ 7. Ja'Kobe Walter            | Year: 2024 | POS: SG    | Predicted Score: 2.32
+ 8. Cam Spencer               | Year: 2024 | POS: SG    | Predicted Score: 2.25
+ 9. Kyle Filipowski           | Year: 2024 | POS: C     | Predicted Score: 2.19
+10. Isaiah Collier            | Year: 2024 | POS: PG    | Predicted Score: 2.10
+11. Stephon Castle            | Year: 2024 | POS: PG    | Predicted Score: 2.02
+12. Cam Christie              | Year: 2024 | POS: SG    | Predicted Score: 2.01
+13. Bronny James              | Year: 2024 | POS: SG    | Predicted Score: 1.99
+14. KJ Simpson                | Year: 2024 | POS: PG    | Predicted Score: 1.95
+15. Cody Williams             | Year: 2024 | POS: SG    | Predicted Score: 1.88
+16. Johnny Furphy             | Year: 2024 | POS: SG    | Predicted Score: 1.85
+17. Zach Edey                 | Year: 2024 | POS: C     | Predicted Score: 1.85
+18. Jamal Shead               | Year: 2024 | POS: PG    | Predicted Score: 1.85
+19. DaRon Holmes              | Year: 2024 | POS: PF    | Predicted Score: 1.83
+20. Terrence Shannon Jr.      | Year: 2024 | POS: SG    | Predicted Score: 1.70
+21. Ryan Dunn                 | Year: 2024 | POS: SF    | Predicted Score: 1.70
+22. Tyler Kolek               | Year: 2024 | POS: PG    | Predicted Score: 1.67
+23. Bub Carrington            | Year: 2024 | POS: PG    | Predicted Score: 1.66
+24. Devin Carter              | Year: 2024 | POS: PG    | Predicted Score: 1.64
+25. Baylor Scheierman         | Year: 2024 | POS: SG    | Predicted Score: 1.54
+26. Jonathan Mogbo            | Year: 2024 | POS: PF    | Predicted Score: 1.51
+27. Kyshawn George            | Year: 2024 | POS: SG    | Predicted Score: 1.49
+28. Harrison Ingram           | Year: 2024 | POS: SF    | Predicted Score: 1.47
+29. Anton Watson              | Year: 2024 | POS: SF    | Predicted Score: 1.45
+30. Quinten Post              | Year: 2024 | POS: PF    | Predicted Score: 1.38
+31. Oso Ighodaro              | Year: 2024 | POS: PF    | Predicted Score: 1.35
+32. Tristen Newton            | Year: 2024 | POS: SG    | Predicted Score: 1.35
+33. Enrique Freeman           | Year: 2024 | POS: PF    | Predicted Score: 1.26
+34. Dalton Knecht             | Year: 2024 | POS: SF    | Predicted Score: 1.24
+35. Jaylen Wells              | Year: 2024 | POS: SG,SF | Predicted Score: 1.17
+36. Pelle Larsson             | Year: 2024 | POS: SG    | Predicted Score: 1.12
+37. Kevin McCullar Jr.        | Year: 2024 | POS: SF    | Predicted Score: 1.11
+38. Adem Bona                 | Year: 2024 | POS: C,PF  | Predicted Score: 1.10
+39. Dillon Jones              | Year: 2024 | POS: SF    | Predicted Score: 1.08
+40. Ajay Mitchell             | Year: 2024 | POS: SG    | Predicted Score: 1.06
+41. Antonio Reeves            | Year: 2024 | POS: SG    | Predicted Score: 1.00
+42. Jaylon Tyson              | Year: 2024 | POS: SG    | Predicted Score: 0.72
+43. Tristan Da Silva          | Year: 2024 | POS: SF    | Predicted Score: 0.71
+44. Bobi Klintman             | Year: 2024 | POS: SF    | Predicted Score: 0.56

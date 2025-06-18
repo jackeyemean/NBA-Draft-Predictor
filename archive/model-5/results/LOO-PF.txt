@@ -1,0 +1,321 @@
+=== Hold-Out Predictions by Draft Year (Grouped & Sorted) ===
+
+
+--- Draft Class 2011, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Derrick Williams               | PF,SF |       3.02 |     1.00
+   2 | Tobias Harris                  | PF,SF |       2.32 |     4.00
+   3 | Kenneth Faried                 | PF,C  |       2.17 |     3.00
+   4 | Chris Singleton                | SF,PF |       2.02 |     0.50
+   5 | Marcus Morris                  | PF,SF |       1.98 |     3.00
+   6 | JaJuan Johnson                 | PF    |       1.95 |     0.00
+   7 | Tristan Thompson               | C,PF  |       1.88 |     3.00
+   8 | Markieff Morris                | PF    |       1.88 |     3.00
+   9 | Josh Harrellson                | C,PF  |       1.56 |     0.50
+  10 | Jimmy Butler                   | SG,SF,PF |       1.31 |     5.00
+  11 | Chandler Parsons               | SF,PF |       1.26 |     4.00
+  12 | Ater Majok                     | PF,C  |       1.25 |     0.00
+  13 | Lavoy Allen                    | PF,C  |       1.14 |     1.00
+  14 | Justin Harper                  | PF    |       1.10 |     0.50
+  15 | Jon Leuer                      | PF,C  |       0.94 |     1.00
+
+--- Draft Class 2012, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Michael Kidd-Gilchrist         | SF,PF |       3.19 |     3.00
+   2 | Anthony Davis                  | C,PF  |       3.03 |     5.00
+   3 | Thomas Robinson                | PF    |       2.81 |     0.50
+   4 | Harrison Barnes                | PF,SF |       2.29 |     4.00
+   5 | Quincy Miller                  | PF    |       2.15 |     0.50
+   6 | Draymond Green                 | PF,SF |       2.12 |     4.50
+   7 | Jared Sullinger                | PF    |       2.10 |     2.50
+   8 | Terrence Jones                 | PF    |       2.01 |     2.50
+   9 | Maurice Harkless               | SF,PF |       1.84 |     2.50
+  10 | Jae Crowder                    | SF,PF |       1.83 |     3.00
+  11 | Royce White                    | PF    |       1.83 |     0.00
+  12 | Andrew Nicholson               | PF    |       1.56 |     0.50
+  13 | John Henson                    | C,PF  |       1.53 |     1.00
+  14 | Mike Scott                     | PF    |       1.26 |     2.50
+  15 | Meyers Leonard                 | C,PF  |       1.16 |     2.50
+  16 | Perry Jones                    | SF,PF |       0.94 |     0.50
+  17 | Quincy Acy                     | PF,SF |       0.92 |     1.00
+  18 | Kyle O'Quinn                   | C,PF  |       0.89 |     1.00
+  19 | Arnett Moultrie                | PF    |       0.76 |     0.00
+
+--- Draft Class 2013, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Nerlens Noel                   | C,PF  |       3.07 |     2.50
+   2 | Otto Porter Jr.                | SF,PF |       3.06 |     2.50
+   3 | Grant Jerrett                  | PF    |       2.67 |     0.00
+   4 | Solomon Hill                   | SF,PF |       2.40 |     1.00
+   5 | Arsalan Kazemi                 | PF    |       2.21 |     0.00
+   6 | Anthony Bennett                | PF    |       2.08 |     0.50
+   7 | Gorgui Dieng                   | C,PF  |       2.03 |     1.00
+   8 | Kelly Olynyk                   | C,PF  |       2.00 |     2.50
+   9 | Deshaun Thomas                 | SF,PF |       1.84 |     0.00
+  10 | Mike Muscala                   | C,PF  |       1.73 |     2.50
+  11 | Ryan Kelly                     | PF    |       1.22 |     1.00
+  12 | Tony Mitchell                  | PF    |       0.95 |     0.00
+
+--- Draft Class 2014, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Andrew Wiggins                 | SF,PF |       3.39 |     4.00
+   2 | Jabari Parker                  | PF    |       2.64 |     3.00
+   3 | Aaron Gordon                   | PF,SF |       2.55 |     4.00
+   4 | Julius Randle                  | PF,C  |       2.40 |     4.50
+   5 | Kyle Anderson                  | SF,PF |       2.37 |     2.50
+   6 | T.J. Warren                    | SF,PF |       2.10 |     3.00
+   7 | Noah Vonleh                    | PF,C  |       2.08 |     1.00
+   8 | Jarnell Stokes                 | C,PF  |       1.98 |     0.50
+   9 | Rodney Hood                    | SG,SF,PF |       1.47 |     2.50
+  10 | Doug McDermott                 | SF,PF |       1.41 |     2.50
+  11 | Jerami Grant                   | PF,SF |       1.20 |     2.50
+  12 | Alec Brown                     | PF,C  |       1.16 |     0.00
+  13 | Cameron Bairstow               | C,PF  |       1.08 |     0.00
+  14 | Cory Jefferson                 | PF    |       1.08 |     0.00
+  15 | Adreian Payne                  | PF    |       1.00 |     0.50
+  16 | Mitch McGary                   | PF    |       0.93 |     0.00
+  17 | Johnny O'Bryant                | PF    |       0.93 |     0.50
+  18 | Dwight Powell                  | C,PF  |       0.87 |     2.50
+  19 | DeAndre Daniels                | SF,PF |       0.80 |     0.00
+  20 | Josh Huestis                   | PF    |       0.52 |     0.50
+
+--- Draft Class 2015, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Justise Winslow                | SF,PF,SG |       3.44 |     1.00
+   2 | Stanley Johnson                | SF,PF |       3.38 |     1.00
+   3 | Karl-Anthony Towns             | C,PF  |       3.08 |     4.50
+   4 | Trey Lyles                     | PF    |       2.82 |     2.50
+   5 | Kevon Looney                   | C,PF  |       2.72 |     3.00
+   6 | J.P. Tokoto                    | SF,PF |       2.63 |     0.00
+   7 | Frank Kaminsky                 | C,PF  |       2.15 |     1.00
+   8 | Rondae Hollis-Jefferson        | SF,PF |       1.87 |     2.50
+   9 | Aaron White                    | PF    |       1.77 |     0.00
+  10 | Bobby Portis                   | PF,C  |       1.47 |     3.00
+  11 | Larry Nance Jr.                | PF,C  |       1.41 |     3.00
+  12 | Montrezl Harrell               | C,PF  |       1.35 |     4.00
+  13 | Chris McCullough               | PF    |       1.33 |     0.50
+  14 | Sam Dekker                     | PF    |       1.27 |     1.00
+  15 | Rakeem Christmas               | PF    |       1.26 |     0.00
+  16 | Richaun Holmes                 | C,PF  |       1.06 |     2.50
+  17 | Branden Dawson                 | PF    |       0.96 |     0.00
+  18 | Jordan Mickey                  | PF    |       0.90 |     0.50
+  19 | Jarell Martin                  | PF    |       0.69 |     0.50
+
+--- Draft Class 2016, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Brandon Ingram                 | SF,PF |       3.25 |     4.50
+   2 | Henry Ellenson                 | PF,C  |       2.05 |     0.50
+   3 | Cheick Diallo                  | C,PF  |       2.00 |     0.50
+   4 | Brice Johnson                  | PF    |       1.98 |     0.00
+   5 | Georges Niang                  | PF    |       1.72 |     2.50
+   6 | Pascal Siakam                  | PF    |       1.72 |     4.50
+   7 | Marquese Chriss                | PF    |       1.69 |     2.50
+   8 | Domantas Sabonis               | C,PF  |       1.66 |     4.50
+   9 | Joel Bolomboy                  | PF    |       1.27 |     0.00
+  10 | Ben Bentil                     | PF    |       1.10 |     0.00
+  11 | Taurean Prince                 | PF,SF |       1.08 |     3.00
+  12 | Skal LabissiÃ¨re               | PF,C  |       1.01 |     1.00
+
+--- Draft Class 2017, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Jonathan Isaac                 | PF    |       3.46 |     3.00
+   2 | OG Anunoby                     | SF,PF |       3.20 |     4.00
+   3 | Jayson Tatum                   | SF,PF |       3.17 |     5.00
+   4 | T.J. Leaf                      | PF    |       3.04 |     0.50
+   5 | Zach Collins                   | C,PF  |       2.97 |     2.50
+   6 | John Collins                   | PF    |       2.57 |     4.00
+   7 | Bam Adebayo                    | C,PF  |       2.53 |     4.50
+   8 | Justin Jackson                 | SF,PF |       2.37 |     1.00
+   9 | Caleb Swanigan                 | PF,C  |       2.27 |     0.50
+  10 | Alec Peters                    | PF    |       1.85 |     0.00
+  11 | Lauri Markkanen                | PF,SF |       1.71 |     4.50
+  12 | Semi Ojeleye                   | PF    |       1.43 |     0.50
+  13 | Harry Giles                    | C,PF  |       1.38 |     2.50
+  14 | Ivan Rabb                      | PF    |       1.34 |     0.00
+  15 | Tyler Lydon                    | PF    |       1.31 |     0.00
+  16 | Kyle Kuzma                     | PF,SF |       1.00 |     3.00
+  17 | D.J. Wilson                    | PF    |       1.00 |     1.00
+  18 | Jonah Bolden                   | C,PF  |       0.80 |     0.00
+
+--- Draft Class 2018, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Marvin Bagley III              | C,PF  |       3.65 |     1.00
+   2 | Wendell Carter Jr.             | C,PF  |       2.82 |     4.00
+   3 | Jaren Jackson Jr.              | C,PF  |       2.67 |     4.50
+   4 | Jarred Vanderbilt              | PF    |       2.10 |     3.00
+   5 | Kevin Knox                     | SF,PF |       1.87 |     1.00
+   6 | Kevin Hervey                   | PF    |       1.43 |     0.00
+   7 | Miles Bridges                  | SF,PF |       1.41 |     4.00
+   8 | Kostas Antetokounmpo           | PF,SF |       1.35 |     0.50
+   9 | Keita Bates-Diop               | SF,PF |       1.23 |     1.00
+  10 | Ray Spalding                   | PF,C  |       1.11 |     0.00
+  11 | Omari Spellman                 | C,PF  |       0.94 |     0.00
+  12 | Justin Jackson                 | SF,PF |       0.59 |     0.00
+  13 | Chimezie Metu                  | C,PF  |       0.48 |     1.00
+
+--- Draft Class 2019, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Zion Williamson                | PF    |       3.24 |     4.50
+   2 | Bol Bol                        | PF    |       2.62 |     2.50
+   3 | Brandon Clarke                 | PF    |       2.47 |     1.00
+   4 | Chuma Okeke                    | PF,SF |       2.08 |     1.00
+   5 | Grant Williams                 | PF    |       1.99 |     2.50
+   6 | Rui Hachimura                  | PF    |       1.87 |     3.00
+   7 | Nassir Little                  | SF,PF |       1.77 |     0.50
+   8 | Cameron Johnson                | PF    |       1.67 |     3.00
+   9 | Daniel Gafford                 | C,PF  |       1.54 |     3.00
+  10 | KZ Okpala                      | PF    |       1.49 |     0.50
+  11 | P.J. Washington                | PF,C  |       1.36 |     3.00
+  12 | Mfiondu Kabengele              | PF,C  |       1.33 |     0.50
+  13 | Jarrell Brantley               | PF    |       1.27 |     0.50
+  14 | Admiral Schofield              | PF,SF |       1.12 |     0.50
+  15 | Eric Paschall                  | PF    |       0.91 |     1.00
+  16 | Isaiah Roby                    | PF    |       0.61 |     1.00
+
+--- Draft Class 2020, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Zeke Nnaji                     | PF    |       3.29 |     1.00
+   2 | Isaiah Stewart                 | C,PF  |       2.55 |     2.50
+   3 | Obi Toppin                     | PF    |       2.29 |     3.00
+   4 | Xavier Tillman Sr.             | C,PF  |       2.27 |     2.50
+   5 | Jalen Smith                    | C,PF  |       2.11 |     0.50
+   6 | Reggie Perry                   | PF    |       2.01 |     0.00
+   7 | Patrick Williams               | PF    |       1.59 |     3.00
+   8 | Precious Achiuwa               | C,PF  |       1.28 |     2.50
+   9 | Nick Richards                  | C,PF  |       1.09 |     2.50
+  10 | Jaden McDaniels                | PF,SF |       1.08 |     4.00
+  11 | Paul Reed                      | C,PF  |       0.83 |     2.50
+
+--- Draft Class 2021, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Day'Ron Sharpe                 | C,PF  |       3.26 |     2.50
+   2 | Evan Mobley                    | PF    |       3.04 |     4.50
+   3 | Scottie Barnes                 | SG,SF,PF |       2.79 |     4.50
+   4 | Jalen Johnson                  | SF,PF |       2.72 |     4.50
+   5 | JT Thor                        | PF    |       2.03 |     0.50
+   6 | Jeremiah Robinson-Earl         | PF,C  |       1.85 |     1.00
+   7 | Sandro Mamukelashvili          | C,PF  |       1.83 |     0.50
+   8 | Herbert Jones                  | SF,PF |       1.50 |     4.00
+   9 | Isaiah Livers                  | PF,SF |       1.46 |     0.50
+  10 | Santi Aldama                   | PF    |       1.40 |     3.00
+  11 | Greg Brown III                 | PF,SF |       1.32 |     0.50
+  12 | Jericho Sims                   | C,PF  |       1.16 |     1.00
+  13 | RaiQuan Gray                   | PF    |       1.05 |     0.00
+
+Top 50 features by |Pearson corr| with Player Tier:
+
+Age                      : 0.371
+Seasons Played (College) : 0.325
+C_BPM                    : 0.236
+College Strength         : 0.195
+C_DBPM                   : 0.185
+C_OBPM                   : 0.162
+CT_SOS                   : 0.158
+CT_SRS                   : 0.136
+C_PER                    : 0.132
+C_STL/40                 : 0.119
+C_STL%                   : 0.110
+C_ORtg                   : 0.105
+Relatives                : 0.095
+C_PTS/40                 : 0.095
+C_TS%                    : 0.090
+C_WS                     : 0.084
+C_DRtg                   : 0.076
+C_DWS                    : 0.072
+C_OWS                    : 0.072
+BMI                      : 0.063
+C_FG%                    : 0.061
+C_AST/40                 : 0.059
+C_FTA/40                 : 0.058
+CT_ORtg                  : 0.055
+C_FGA/40                 : 0.055
+C_TOV/40                 : 0.050
+C_AST%                   : 0.050
+C_USG%                   : 0.048
+Height                   : 0.040
+C_GS%                    : 0.038
+C_G                      : 0.034
+C_TRB/40                 : 0.032
+C_TRB%                   : 0.031
+C_3PA/40                 : 0.030
+C_AST_TO                 : 0.030
+CT_DRtg                  : 0.027
+C_BLK/40                 : 0.017
+C_BLK_MPG                : 0.017
+Weight                   : 0.017
+C_BLK%                   : 0.015
+C_TOV%                   : 0.014
+C_3P%                    : 0.012
+C_FT%                    : 0.010
+C_MPG                    : 0.008
+C_ORB_DRB                : 0.005
+
+Top 50 features by RandomForest importance:
+
+Age                      : 0.215
+C_BPM                    : 0.065
+C_OBPM                   : 0.054
+CT_DRtg                  : 0.040
+C_AST%                   : 0.037
+C_ORB_DRB                : 0.031
+C_PER                    : 0.027
+C_DRtg                   : 0.026
+CT_ORtg                  : 0.025
+C_AST_TO                 : 0.024
+C_AST/40                 : 0.023
+CT_SOS                   : 0.021
+C_DWS                    : 0.020
+C_STL%                   : 0.018
+C_MPG                    : 0.018
+C_FG%                    : 0.018
+C_3P%                    : 0.018
+C_FTA/40                 : 0.017
+Height                   : 0.016
+Weight                   : 0.015
+C_3PA/40                 : 0.014
+C_PTS/40                 : 0.014
+C_TS%                    : 0.014
+C_FT%                    : 0.013
+BMI                      : 0.013
+C_DBPM                   : 0.013
+CT_SRS                   : 0.013
+C_BLK%                   : 0.012
+C_ORtg                   : 0.012
+C_STL/40                 : 0.012
+C_OWS                    : 0.011
+C_TOV/40                 : 0.011
+C_WS                     : 0.011
+Relatives                : 0.011
+C_USG%                   : 0.010
+C_TRB%                   : 0.010
+C_FGA/40                 : 0.009
+C_TRB/40                 : 0.009
+College Strength         : 0.009
+C_GS%                    : 0.009
+C_BLK_MPG                : 0.009
+C_TOV%                   : 0.009
+C_G                      : 0.008
+Seasons Played (College) : 0.007
+C_BLK/40                 : 0.007

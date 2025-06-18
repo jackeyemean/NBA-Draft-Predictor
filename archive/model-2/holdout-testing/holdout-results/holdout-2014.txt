@@ -1,0 +1,48 @@
+=== Predicted NBA Career Scores ===
+
+ 1. Jordan Adams              | Year: 2014 | POS: SG    | Predicted Score: 70.91
+ 2. Gary Harris               | Year: 2014 | POS: SG    | Predicted Score: 66.12
+ 3. Julius Randle             | Year: 2014 | POS: PF,C  | Predicted Score: 62.76
+ 4. Aaron Gordon              | Year: 2014 | POS: PF,SF | Predicted Score: 60.92
+ 5. Tyler Ennis               | Year: 2014 | POS: PG    | Predicted Score: 60.79
+ 6. Andrew Wiggins            | Year: 2014 | POS: SF,PF | Predicted Score: 58.19
+ 7. Jabari Parker             | Year: 2014 | POS: PF    | Predicted Score: 56.51
+ 8. James Young               | Year: 2014 | POS: SG    | Predicted Score: 48.67
+ 9. Spencer Dinwiddie         | Year: 2014 | POS: PG,SG | Predicted Score: 41.58
+10. Kyle Anderson             | Year: 2014 | POS: SF,PF | Predicted Score: 41.10
+11. Joel Embiid               | Year: 2014 | POS: C     | Predicted Score: 40.26
+12. Nick Johnson              | Year: 2014 | POS: SG    | Predicted Score: 39.72
+13. Marcus Smart              | Year: 2014 | POS: PG,SG | Predicted Score: 37.63
+14. Elfrid Payton             | Year: 2014 | POS: PG    | Predicted Score: 37.24
+15. Zach LaVine               | Year: 2014 | POS: PG    | Predicted Score: 36.75
+16. Xavier Thames             | Year: 2014 | POS: PG,SG | Predicted Score: 35.98
+17. Jarnell Stokes            | Year: 2014 | POS: C,PF  | Predicted Score: 35.45
+18. Rodney Hood               | Year: 2014 | POS: PF    | Predicted Score: 34.66
+19. Noah Vonleh               | Year: 2014 | POS: PF,C  | Predicted Score: 33.20
+20. Nik Stauskas              | Year: 2014 | POS: SG    | Predicted Score: 32.94
+21. K.J. McDaniels            | Year: 2014 | POS: SF,SG | Predicted Score: 32.07
+22. Jerami Grant              | Year: 2014 | POS: PF,SF | Predicted Score: 31.15
+23. Devyn Marble              | Year: 2014 | POS: SG    | Predicted Score: 29.82
+24. T.J. Warren               | Year: 2014 | POS: SF,PF | Predicted Score: 29.22
+25. Russ Smith                | Year: 2014 | POS: PG    | Predicted Score: 28.87
+26. Shabazz Napier            | Year: 2014 | POS: PG    | Predicted Score: 28.68
+27. Cameron Bairstow          | Year: 2014 | POS: C,PF  | Predicted Score: 28.10
+28. P.J. Hairston             | Year: 2014 | POS: SF,SG | Predicted Score: 25.67
+29. Markel Brown              | Year: 2014 | POS: SG    | Predicted Score: 24.92
+30. Doug McDermott            | Year: 2014 | POS: SF,PF | Predicted Score: 24.15
+31. Alec Brown                | Year: 2014 | POS: PF,C  | Predicted Score: 22.04
+32. Cleanthony Early          | Year: 2014 | POS: SF    | Predicted Score: 21.27
+33. Lamar Patterson           | Year: 2014 | POS: SG    | Predicted Score: 21.14
+34. Jordan McRae              | Year: 2014 | POS: SG,PG | Predicted Score: 18.66
+35. DeAndre Daniels           | Year: 2014 | POS: SF    | Predicted Score: 16.22
+36. Mitch McGary              | Year: 2014 | POS: PF    | Predicted Score: 16.00
+37. Joe Harris                | Year: 2014 | POS: SG,SF | Predicted Score: 15.55
+38. Glenn Robinson III        | Year: 2014 | POS: SF,SG | Predicted Score: 14.87
+39. Semaj Christon            | Year: 2014 | POS: PG    | Predicted Score: 12.33
+40. C.J. Wilcox               | Year: 2014 | POS: SG    | Predicted Score: 12.23
+41. Cory Jefferson            | Year: 2014 | POS: PF    | Predicted Score: 12.13
+42. Dwight Powell             | Year: 2014 | POS: C,PF  | Predicted Score: 11.79
+43. Johnny O'Bryant           | Year: 2014 | POS: PF    | Predicted Score: 9.93
+44. Josh Huestis              | Year: 2014 | POS: PF    | Predicted Score: 8.56
+45. Adreian Payne             | Year: 2014 | POS: PF    | Predicted Score: 8.01
+46. Jordan Clarkson           | Year: 2014 | POS: SG,PG | Predicted Score: 7.42

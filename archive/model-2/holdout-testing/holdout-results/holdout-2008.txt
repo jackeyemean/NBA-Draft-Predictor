@@ -1,0 +1,51 @@
+=== Predicted NBA Career Scores (removed 2008 data during training)===
+
+ 1. Eric Gordon               | Year: 2008 | POS: SG,SF | Predicted Score: 70.20
+ 2. Kevin Love                | Year: 2008 | POS: PF,C  | Predicted Score: 66.79
+ 3. Jerryd Bayless            | Year: 2008 | POS: PG,SG | Predicted Score: 58.19
+ 4. Michael Beasley           | Year: 2008 | POS: PF,SF | Predicted Score: 57.12
+ 5. Ryan Anderson             | Year: 2008 | POS: PF,C  | Predicted Score: 55.61
+ 6. Kosta Koufos              | Year: 2008 | POS: C     | Predicted Score: 53.25
+ 7. Brook Lopez               | Year: 2008 | POS: C     | Predicted Score: 49.36
+ 8. Anthony Randolph          | Year: 2008 | POS: PF,C  | Predicted Score: 49.21
+ 9. J.J. Hickson              | Year: 2008 | POS: C,PF  | Predicted Score: 48.46
+10. Darrell Arthur            | Year: 2008 | POS: PF,SF | Predicted Score: 48.07
+11. DeAndre Jordan            | Year: 2008 | POS: C     | Predicted Score: 46.91
+12. Derrick Rose              | Year: 2008 | POS: PG    | Predicted Score: 45.69
+13. Chris Douglas-Roberts     | Year: 2008 | POS: SF,SG | Predicted Score: 45.00
+14. Jason Thompson            | Year: 2008 | POS: PF,C  | Predicted Score: 43.60
+15. Mario Chalmers            | Year: 2008 | POS: PG    | Predicted Score: 41.88
+16. Russell Westbrook         | Year: 2008 | POS: PG    | Predicted Score: 40.68
+17. Roy Hibbert               | Year: 2008 | POS: C     | Predicted Score: 39.84
+18. George Hill               | Year: 2008 | POS: PG,SG | Predicted Score: 38.53
+19. Malik Hairston            | Year: 2008 | POS: SG    | Predicted Score: 36.91
+20. Shan Foster               | Year: 2008 | POS: SG,SF | Predicted Score: 36.20
+21. Joe Alexander             | Year: 2008 | POS: SF    | Predicted Score: 34.62
+22. J.R. Giddens              | Year: 2008 | POS: SF    | Predicted Score: 33.47
+23. Robin Lopez               | Year: 2008 | POS: C     | Predicted Score: 32.66
+24. Richard Hendrix           | Year: 2008 | POS: PF,C  | Predicted Score: 32.06
+25. DontÃ© Greene             | Year: 2008 | POS: SF,PF | Predicted Score: 30.92
+26. Walter Sharpe             | Year: 2008 | POS: PF    | Predicted Score: 30.56
+27. Mike Taylor               | Year: 2008 | POS: PG    | Predicted Score: 29.89
+28. Kyle Weaver               | Year: 2008 | POS: SG    | Predicted Score: 29.76
+29. O.J. Mayo                 | Year: 2008 | POS: SG    | Predicted Score: 29.19
+30. Joe Crawford              | Year: 2008 | POS: SF    | Predicted Score: 29.07
+31. D.J. White                | Year: 2008 | POS: PF,C  | Predicted Score: 29.03
+32. Trent Plaisted            | Year: 2008 | POS: PF,C  | Predicted Score: 28.69
+33. Marreese Speights         | Year: 2008 | POS: C,PF  | Predicted Score: 28.38
+34. Joey Dorsey               | Year: 2008 | POS: PF,C  | Predicted Score: 28.20
+35. Henry Walker              | Year: 2008 | POS: SG,SF | Predicted Score: 27.04
+36. D.J. Augustin             | Year: 2008 | POS: PG    | Predicted Score: 26.86
+37. Maarty Leunen             | Year: 2008 | POS: PF    | Predicted Score: 25.67
+38. Patrick Ewing             | Year: 2008 | POS: SF    | Predicted Score: 25.66
+39. Courtney Lee              | Year: 2008 | POS: SG    | Predicted Score: 24.70
+40. Brandon Rush              | Year: 2008 | POS: SG,SF | Predicted Score: 23.03
+41. James Gist                | Year: 2008 | POS: PF    | Predicted Score: 18.75
+42. Sasha Kaun                | Year: 2008 | POS: C     | Predicted Score: 18.54
+43. JaVale McGee              | Year: 2008 | POS: C     | Predicted Score: 18.05
+44. Darnell Jackson           | Year: 2008 | POS: PF    | Predicted Score: 17.81
+45. Deron Washington          | Year: 2008 | POS: SG,SF | Predicted Score: 17.77
+46. Sean Singletary           | Year: 2008 | POS: PG    | Predicted Score: 16.29
+47. Sonny Weems               | Year: 2008 | POS: SG,SF | Predicted Score: 15.36
+48. Luc Mbah a Moute          | Year: 2008 | POS: PF,SF | Predicted Score: 13.18
+49. DeVon Hardin              | Year: 2008 | POS: C     | Predicted Score: 8.93

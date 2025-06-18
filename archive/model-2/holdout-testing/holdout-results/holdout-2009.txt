@@ -1,0 +1,50 @@
+=== Predicted NBA Career Scores ===
+
+ 1. Tyreke Evans              | Year: 2009 | POS: PG    | Predicted Score: 72.09
+ 2. DeJuan Blair              | Year: 2009 | POS: PF,C  | Predicted Score: 63.42
+ 3. James Harden              | Year: 2009 | POS: PG,SG | Predicted Score: 61.02
+ 4. Blake Griffin             | Year: 2009 | POS: PF,C  | Predicted Score: 46.07
+ 5. Ty Lawson                 | Year: 2009 | POS: PG    | Predicted Score: 44.27
+ 6. Jrue Holiday              | Year: 2009 | POS: PG,SG | Predicted Score: 41.85
+ 7. Jordan Hill               | Year: 2009 | POS: C,PF  | Predicted Score: 39.02
+ 8. Stephen Curry             | Year: 2009 | POS: PG    | Predicted Score: 37.09
+ 9. Nick Calathes             | Year: 2009 | POS: SG    | Predicted Score: 36.86
+10. Jonny Flynn               | Year: 2009 | POS: PG    | Predicted Score: 35.54
+11. DeMar DeRozan             | Year: 2009 | POS: PF    | Predicted Score: 34.35
+12. Chase Budinger            | Year: 2009 | POS: SF    | Predicted Score: 33.03
+13. Lester Hudson             | Year: 2009 | POS: PG,SG | Predicted Score: 33.01
+14. Terrence Williams         | Year: 2009 | POS: SG,SF | Predicted Score: 32.89
+15. Darren Collison           | Year: 2009 | POS: PG    | Predicted Score: 32.64
+16. Wayne Ellington           | Year: 2009 | POS: SG    | Predicted Score: 31.61
+17. Danny Green               | Year: 2009 | POS: SG,SF | Predicted Score: 30.98
+18. Jeff Teague               | Year: 2009 | POS: PG    | Predicted Score: 30.80
+19. Marcus Thornton           | Year: 2009 | POS: SG    | Predicted Score: 30.27
+20. Patty Mills               | Year: 2009 | POS: PG,SG | Predicted Score: 30.25
+21. Ahmad Nivins              | Year: 2009 | POS: PF    | Predicted Score: 28.23
+22. Byron Mullens             | Year: 2009 | POS: C,PF  | Predicted Score: 27.59
+23. Earl Clark                | Year: 2009 | POS: PF,SF | Predicted Score: 26.78
+24. Derrick Brown             | Year: 2009 | POS: SF    | Predicted Score: 25.69
+25. Eric Maynor               | Year: 2009 | POS: PG,SG | Predicted Score: 25.03
+26. Jodie Meeks               | Year: 2009 | POS: SG    | Predicted Score: 24.72
+27. Jack McClinton            | Year: 2009 | POS: PG,SG | Predicted Score: 24.58
+28. Gerald Henderson          | Year: 2009 | POS: SG    | Predicted Score: 23.55
+29. Chinemelu Elonu           | Year: 2009 | POS: C     | Predicted Score: 23.44
+30. Jeff Ayres                | Year: 2009 | POS: PF,C  | Predicted Score: 23.10
+31. Austin Daye               | Year: 2009 | POS: SF    | Predicted Score: 22.41
+32. DeMarre Carroll           | Year: 2009 | POS: C     | Predicted Score: 21.46
+33. Taj Gibson                | Year: 2009 | POS: PF,C  | Predicted Score: 20.51
+34. Dante Cunningham          | Year: 2009 | POS: PF,SF | Predicted Score: 20.46
+35. Patrick Beverley          | Year: 2009 | POS: PG,SG | Predicted Score: 20.44
+36. Goran Suton               | Year: 2009 | POS: C     | Predicted Score: 20.33
+37. Jon Brockman              | Year: 2009 | POS: PF,C  | Predicted Score: 19.96
+38. Jermaine Taylor           | Year: 2009 | POS: SG    | Predicted Score: 19.16
+39. Tyler Hansbrough          | Year: 2009 | POS: PF    | Predicted Score: 17.76
+40. James Johnson             | Year: 2009 | POS: C     | Predicted Score: 16.83
+41. Hasheem Thabeet           | Year: 2009 | POS: C     | Predicted Score: 16.34
+42. Robert Dozier             | Year: 2009 | POS: PF    | Predicted Score: 15.90
+43. Toney Douglas             | Year: 2009 | POS: PG,SG | Predicted Score: 15.86
+44. Taylor Griffin            | Year: 2009 | POS: SF    | Predicted Score: 13.83
+45. DaJuan Summers            | Year: 2009 | POS: SF,PF | Predicted Score: 13.51
+46. Sam Young                 | Year: 2009 | POS: SF,SG | Predicted Score: 12.39
+47. Robert Vaden              | Year: 2009 | POS: SG,SF | Predicted Score: 12.10
+48. A.J. Price                | Year: 2009 | POS: PG,SG | Predicted Score: 11.64

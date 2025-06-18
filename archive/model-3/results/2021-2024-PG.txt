@@ -1,0 +1,35 @@
+=== Predicted NBA Career Scores ===
+
+ 1. Reed Sheppard             | Year: 2024 | POS: PG,SG | Predicted Score: 88.35
+ 2. Jalen Suggs               | Year: 2021 | POS: SG,PG | Predicted Score: 84.41
+ 3. Stephon Castle            | Year: 2024 | POS: PG    | Predicted Score: 82.31
+ 4. Devin Carter              | Year: 2024 | POS: PG    | Predicted Score: 79.72
+ 5. Jared McCain              | Year: 2024 | POS: SG,PG | Predicted Score: 77.55
+ 6. Cade Cunningham           | Year: 2021 | POS: PG,SG | Predicted Score: 76.91
+ 7. Anthony Black             | Year: 2023 | POS: PG    | Predicted Score: 73.60
+ 8. Rob Dillingham            | Year: 2024 | POS: PG    | Predicted Score: 71.36
+ 9. Keyonte George            | Year: 2023 | POS: PG,SG | Predicted Score: 70.26
+10. Bub Carrington            | Year: 2024 | POS: PG    | Predicted Score: 64.07
+11. Malaki Branham            | Year: 2022 | POS: SG,PG | Predicted Score: 55.21
+12. Davion Mitchell           | Year: 2021 | POS: PG    | Predicted Score: 51.53
+13. Tre Mann                  | Year: 2021 | POS: PG    | Predicted Score: 47.59
+14. Bones Hyland              | Year: 2021 | POS: PG,SG | Predicted Score: 41.22
+15. Jason Preston             | Year: 2021 | POS: PG    | Predicted Score: 40.79
+16. TyTy Washington Jr.       | Year: 2022 | POS: PG    | Predicted Score: 40.06
+17. Jaden Springer            | Year: 2021 | POS: SG,PG | Predicted Score: 38.09
+18. Marcus Sasser             | Year: 2023 | POS: PG    | Predicted Score: 36.65
+19. Dalano Banton             | Year: 2021 | POS: PG    | Predicted Score: 30.92
+20. Andrew Nembhard           | Year: 2022 | POS: SG,PG | Predicted Score: 30.31
+21. Isaiah Collier            | Year: 2024 | POS: PG    | Predicted Score: 30.14
+22. David Johnson             | Year: 2021 | POS: PG,SG | Predicted Score: 29.44
+23. Miles McBride             | Year: 2021 | POS: PG    | Predicted Score: 27.44
+24. Tyler Kolek               | Year: 2024 | POS: PG    | Predicted Score: 27.10
+25. JD Davison                | Year: 2022 | POS: SG,PG | Predicted Score: 24.27
+26. Sharife Cooper            | Year: 2021 | POS: PG    | Predicted Score: 23.65
+27. Jamal Shead               | Year: 2024 | POS: PG    | Predicted Score: 21.90
+28. Amari Bailey              | Year: 2023 | POS: PG    | Predicted Score: 21.86
+29. Kennedy Chandler          | Year: 2022 | POS: PG    | Predicted Score: 19.68
+30. Ryan Rollins              | Year: 2022 | POS: PG    | Predicted Score: 18.29
+31. KJ Simpson                | Year: 2024 | POS: PG    | Predicted Score: 15.07
+32. Jared Butler              | Year: 2021 | POS: PG,SG | Predicted Score: 14.22
+33. Marcus Zegarowski         | Year: 2021 | POS: PG    | Predicted Score: 11.88

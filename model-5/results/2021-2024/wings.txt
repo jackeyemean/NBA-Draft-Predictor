@@ -1,0 +1,38 @@
+=== Predicted NBA Career Scores (Wings Only) ===
+
+ 1. Paolo Banchero            | Year: 2022 | POS: SF,PF | Score: 3.33
+ 2. Bennedict Mathurin        | Year: 2022 | POS: SF,SG | Score: 3.16
+ 3. Josh Minott               | Year: 2022 | POS: SF    | Score: 2.82
+ 4. Brice Sensabaugh          | Year: 2023 | POS: SF    | Score: 2.69
+ 5. Jett Howard               | Year: 2023 | POS: SF    | Score: 2.62
+ 6. AJ Griffin                | Year: 2022 | POS: SF    | Score: 2.61
+ 7. Keegan Murray             | Year: 2022 | POS: SF,PF | Score: 2.52
+ 8. Patrick Baldwin Jr.       | Year: 2022 | POS: SF    | Score: 2.43
+ 9. Jaylen Wells              | Year: 2024 | POS: SG,SF | Score: 2.41
+10. Jabari Walker             | Year: 2022 | POS: SF    | Score: 2.41
+11. Emoni Bates               | Year: 2023 | POS: SF    | Score: 2.29
+12. Peyton Watson             | Year: 2022 | POS: SF,SG | Score: 2.28
+13. Julian Phillips           | Year: 2023 | POS: SF    | Score: 2.26
+14. Cam Whitmore              | Year: 2023 | POS: SF    | Score: 2.25
+15. Dariq Whitehead           | Year: 2023 | POS: SF    | Score: 2.17
+16. Jordan Miller             | Year: 2023 | POS: SF    | Score: 2.14
+17. Anton Watson              | Year: 2024 | POS: SF    | Score: 2.00
+18. Caleb Houstan             | Year: 2022 | POS: SF    | Score: 1.90
+19. Harrison Ingram           | Year: 2024 | POS: SF    | Score: 1.86
+20. Jalen Williams            | Year: 2022 | POS: SG,PF | Score: 1.79
+21. Jaime Jaquez Jr.          | Year: 2023 | POS: SF    | Score: 1.79
+22. Jordan Walsh              | Year: 2023 | POS: SF,PF | Score: 1.71
+23. Brandon Miller            | Year: 2023 | POS: SF    | Score: 1.67
+24. Dalton Knecht             | Year: 2024 | POS: SF    | Score: 1.66
+25. Chris Livingston          | Year: 2023 | POS: SF    | Score: 1.61
+26. Dillon Jones              | Year: 2024 | POS: SF    | Score: 1.43
+27. Ryan Dunn                 | Year: 2024 | POS: SF    | Score: 1.41
+28. Kevin McCullar Jr.        | Year: 2024 | POS: SF    | Score: 1.40
+29. Julian Strawther          | Year: 2023 | POS: SF,SG | Score: 1.35
+30. Maxwell Lewis             | Year: 2023 | POS: SF    | Score: 1.31
+31. Jalen Slawson             | Year: 2023 | POS: SF    | Score: 1.28
+32. Keyontae Johnson          | Year: 2023 | POS: SF    | Score: 1.13
+33. Tristan Da Silva          | Year: 2024 | POS: SF    | Score: 1.09
+34. Bobi Klintman             | Year: 2024 | POS: SF    | Score: 1.01
+35. Kris Murray               | Year: 2023 | POS: SF    | Score: 0.83
+36. Seth Lundy                | Year: 2023 | POS: SF    | Score: 0.65

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Predict NBA Career Score (Guards Only)</h2>
+<form method="POST" action="/predict">
+  <label>Age: <input type="number" step="0.01" name="Age" required></label><br>
+  <label>Height (inches): <input type="number" step="0.1" name="Height" required></label><br>
+  <label>Weight (lbs): <input type="number" step="0.1" name="Weight" required></label><br>
+  <label>BMI: <input type="number" step="0.01" name="BMI" required></label><br>
+  <label>College Strength: <input type="number" step="0.01" name="College Strength" required></label><br>
+  <label>Seasons Played (College): <input type="number" name="Seasons Played (College)" required></label><br>
+  <label>CT_Win%: <input type="number" step="0.01" name="CT_Win%" required></label><br>
+  <label>CT_SRS: <input type="number" step="0.01" name="CT_SRS" required></label><br>
+  <label>CT_SOS: <input type="number" step="0.01" name="CT_SOS" required></label><br>
+  <label>CT_ORtg: <input type="number" step="0.1" name="CT_ORtg" required></label><br>
+  <label>CT_DRtg: <input type="number" step="0.1" name="CT_DRtg" required></label><br>
+  <label>C_G: <input type="number" name="C_G" required></label><br>
+  <label>C_GS%: <input type="number" step="0.01" name="C_GS%" required></label><br>
+  <label>C_MPG: <input type="number" step="0.1" name="C_MPG" required></label><br>
+  <label>C_AST_TO: <input type="number" step="0.01" name="C_AST_TO" required></label><br>
+  <label>C_PER: <input type="number" step="0.01" name="C_PER" required></label><br>
+  <label>C_TS%: <input type="number" step="0.01" name="C_TS%" required></label><br>
+  <label>C_AST%: <input type="number" step="0.01" name="C_AST%" required></label><br>
+  <label>C_STL%: <input type="number" step="0.01" name="C_STL%" required></label><br>
+  <label>C_TRB%: <input type="number" step="0.01" name="C_TRB%" required></label><br>
+  <label>C_USG%: <input type="number" step="0.01" name="C_USG%" required></label><br>
+  <label>C_TOV%: <input type="number" step="0.01" name="C_TOV%" required></label><br>
+  <label>C_OWS: <input type="number" step="0.01" name="C_OWS" required></label><br>
+  <label>C_DWS: <input type="number" step="0.01" name="C_DWS" required></label><br>
+  <label>C_ORtg: <input type="number" step="0.1" name="C_ORtg" required></label><br>
+  <label>C_DRtg: <input type="number" step="0.1" name="C_DRtg" required></label><br>
+  <label>C_WS/40: <input type="number" step="0.01" name="C_WS/40" required></label><br>
+  <label>C_OBPM: <input type="number" step="0.01" name="C_OBPM" required></label><br>
+  <label>C_DBPM: <input type="number" step="0.01" name="C_DBPM" required></label><br>
+  <label>C_BPM: <input type="number" step="0.01" name="C_BPM" required></label><br>
+  <label>C_FGA/40: <input type="number" step="0.1" name="C_FGA/40" required></label><br>
+  <label>C_3PA/40: <input type="number" step="0.1" name="C_3PA/40" required></label><br>
+  <label>C_FTA/40: <input type="number" step="0.1" name="C_FTA/40" required></label><br>
+  <label>C_TRB/40: <input type="number" step="0.1" name="C_TRB/40" required></label><br>
+  <label>C_AST/40: <input type="number" step="0.1" name="C_AST/40" required></label><br>
+  <label>C_STL/40: <input type="number" step="0.1" name="C_STL/40" required></label><br>
+  <label>C_TOV/40: <input type="number" step="0.1" name="C_TOV/40" required></label><br>
+  <label>C_PTS/40: <input type="number" step="0.1" name="C_PTS/40" required></label><br>
+
+  <button type="submit">Predict</button>
+</form>
+{% endblock %}

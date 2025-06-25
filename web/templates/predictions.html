@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Predictions</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>Filtered Predictions</h1>
+  <a href="/">← Back to filters</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Draft Year</th>
+        <th>Position</th>
+        <th>Predicted Score</th>
+        <th>Actual Tier</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for player in players %}
+      <tr>
+        <td>{{ player['Name'] }}</td>
+        <td>{{ player['Draft Year'] }}</td>
+        <td>{{ player['Position Group'] }}</td>
+        <td>{{ '%.2f'|format(player['Predicted Score']) }}</td>
+        <td>{{ player['Actual Tier'] if player['Actual Tier'] else 'N/A' }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

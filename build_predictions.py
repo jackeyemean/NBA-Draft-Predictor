@@ -115,7 +115,7 @@ for name, pred_fn, feats in [("Guard", is_guard_only, FEATURES_GUARDS),
     df_grp["Predicted Score"] = preds
     df_grp["Actual Tier"]    = df_grp["Player Tier"]
     df_grp["Position Group"] = name
-    parts.append(df_grp[["Name","Draft Year","POS","Predicted Score","Actual Tier","Position Group"]])
+    parts.append(df_grp[["Name","Draft Year","Pick Number","POS","Predicted Score","Actual Tier","Position Group"]])
 
 # Direct predictions
 df_test = pd.read_csv(TEST_PATH)
@@ -135,7 +135,7 @@ for name, pred_fn, feats, mpath in [("Guard", is_guard_only, FEATURES_GUARDS, GU
     df_grp["Predicted Score"] = preds
     df_grp["Actual Tier"]     = np.nan
     df_grp["Position Group"]  = name
-    parts.append(df_grp[["Name","Draft Year","POS","Predicted Score","Actual Tier","Position Group"]])
+    parts.append(df_grp[["Name","Draft Year","Pick Number","POS","Predicted Score","Actual Tier","Position Group"]])
 
 all_df = pd.concat(parts, ignore_index=True)
 all_df.sort_values(["Draft Year","Predicted Score"], ascending=[True,False], inplace=True)

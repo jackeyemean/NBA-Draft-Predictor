@@ -1,0 +1,294 @@
+=== Hold-Out Predictions by Draft Year (Grouped & Sorted) ===
+
+
+--- Draft Class 2011, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Derrick Williams               | PF,SF |       3.19 |     1.00
+   2 | Alec Burks                     | SG,SF |       2.93 |     3.00
+   3 | Kawhi Leonard                  | SF    |       2.65 |     5.00
+   4 | Tobias Harris                  | PF,SF |       2.58 |     4.00
+   5 | Jimmy Butler                   | SG,SF,PF |       2.33 |     5.00
+   6 | Jordan Hamilton                | SF    |       2.08 |     0.50
+   7 | Tyler Honeycutt                | SF    |       2.06 |     0.00
+   8 | Marcus Morris                  | PF,SF |       2.00 |     3.00
+   9 | Chris Singleton                | SF,PF |       2.00 |     0.50
+  10 | DeAndre Liggins                | SG,SF |       1.87 |     0.50
+  11 | Iman Shumpert                  | PG,SG,SF |       1.83 |     3.00
+  12 | Klay Thompson                  | SG,SF |       1.64 |     4.50
+  13 | Chandler Parsons               | SF,PF |       1.21 |     4.00
+  14 | Kyle Singler                   | SF    |       1.15 |     1.00
+
+--- Draft Class 2012, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Jeremy Lamb                    | SG,SF |       2.61 |     2.50
+   2 | Maurice Harkless               | SF,PF |       2.46 |     2.50
+   3 | Michael Kidd-Gilchrist         | SF,PF |       2.34 |     3.00
+   4 | Darius Miller                  | SF    |       2.13 |     1.00
+   5 | Jae Crowder                    | SF,PF |       2.09 |     3.00
+   6 | Harrison Barnes                | PF,SF |       1.98 |     4.00
+   7 | Will Barton                    | SG,SF |       1.94 |     2.50
+   8 | Draymond Green                 | PF,SF |       1.69 |     4.50
+   9 | Quincy Acy                     | PF,SF |       1.55 |     1.00
+  10 | Kris Joseph                    | SF    |       1.54 |     0.00
+  11 | Perry Jones                    | SF,PF |       1.44 |     0.50
+  12 | Robbie Hummel                  | SF    |       1.30 |     0.00
+  13 | Jeff Taylor                    | SF    |       1.29 |     0.50
+  14 | Khris Middleton                | SF,SG |       1.21 |     4.50
+  15 | Terrence Ross                  | SG,SF |       1.15 |     2.50
+
+--- Draft Class 2013, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Otto Porter Jr.                | SF,PF |       2.98 |     2.50
+   2 | Reggie Bullock                 | SF,SG |       2.24 |     3.00
+   3 | Deshaun Thomas                 | SF,PF |       2.03 |     0.00
+   4 | Romero Osby                    | SF    |       1.99 |     0.00
+   5 | Allen Crabbe                   | SG,SF |       1.88 |     1.00
+   6 | Shabazz Muhammad               | SF,SG |       1.81 |     0.50
+   7 | Tony Snell                     | SG,SF |       1.65 |     3.00
+   8 | Ben McLemore                   | SG,SF |       1.56 |     2.50
+   9 | Solomon Hill                   | SF,PF |       1.55 |     1.00
+  10 | Tim Hardaway Jr.               | SG,SF |       1.41 |     3.00
+  11 | Andre Roberson                 | SG,SF |       1.15 |     3.00
+  12 | James Ennis III                | SF,SG |       1.12 |     1.00
+
+--- Draft Class 2014, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Andrew Wiggins                 | SF,PF |       3.11 |     4.00
+   2 | Aaron Gordon                   | PF,SF |       2.64 |     4.00
+   3 | P.J. Hairston                  | SF,SG |       2.42 |     0.00
+   4 | Jerami Grant                   | PF,SF |       2.31 |     2.50
+   5 | Doug McDermott                 | SF,PF |       2.28 |     2.50
+   6 | Kyle Anderson                  | SF,PF |       2.25 |     2.50
+   7 | Zach LaVine                    | PG,SG,SF |       1.83 |     4.50
+   8 | T.J. Warren                    | SF,PF |       1.81 |     3.00
+   9 | Rodney Hood                    | SG,SF,PF |       1.79 |     2.50
+  10 | Glenn Robinson III             | SF,SG |       1.77 |     1.00
+  11 | K.J. McDaniels                 | SF,SG |       1.76 |     0.50
+  12 | Cleanthony Early               | SF    |       1.54 |     0.00
+  13 | Joe Harris                     | SG,SF |       1.28 |     2.50
+  14 | DeAndre Daniels                | SF,PF |       1.12 |     0.00
+
+--- Draft Class 2015, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Justise Winslow                | SF,PF,SG |       2.93 |     1.00
+   2 | Stanley Johnson                | SF,PF |       2.80 |     1.00
+   3 | Kelly Oubre Jr.                | SF    |       2.61 |     3.00
+   4 | J.P. Tokoto                    | SF,PF |       2.49 |     0.00
+   5 | Josh Richardson                | SG,SF |       2.09 |     2.50
+   6 | Justin Anderson                | SF,SG |       2.07 |     1.00
+   7 | Marcus Thornton                | SG,SF |       1.71 |     0.00
+   8 | Rondae Hollis-Jefferson        | SF,PF |       1.58 |     2.50
+   9 | Sir'Dominic Pointer            | SG,SF |       1.31 |     0.00
+  10 | Anthony Brown                  | SF    |       1.25 |     0.50
+  11 | Pat Connaughton                | SG,SF |       1.09 |     2.50
+  12 | Norman Powell                  | SG,SF |       0.97 |     4.00
+
+--- Draft Class 2016, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Brandon Ingram                 | SF,PF |       3.09 |     4.50
+   2 | Caris LeVert                   | SG,SF |       2.72 |     3.00
+   3 | Denzel Valentine               | SG,SF |       2.53 |     1.00
+   4 | Patrick McCaw                  | SG,SF |       2.28 |     1.00
+   5 | Jaylen Brown                   | SF,SG |       2.19 |     4.50
+   6 | DeAndre' Bembry                | SF,SG |       1.94 |     1.00
+   7 | Jake Layman                    | SF    |       1.62 |     1.00
+   8 | Buddy Hield                    | SG,SF |       1.46 |     4.00
+   9 | Abdel Nader                    | SF    |       1.06 |     0.50
+  10 | Taurean Prince                 | PF,SF |       0.91 |     3.00
+
+--- Draft Class 2017, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Jayson Tatum                   | SF,PF |       3.05 |     5.00
+   2 | OG Anunoby                     | SF,PF |       2.78 |     4.00
+   3 | Josh Jackson                   | SF,SG |       2.78 |     1.00
+   4 | Lauri Markkanen                | PF,SF |       2.41 |     4.50
+   5 | Tyler Dorsey                   | SG,SF |       2.15 |     0.50
+   6 | Josh Hart                      | SF,SG |       2.14 |     4.00
+   7 | Dillon Brooks                  | SF,SG |       2.04 |     4.00
+   8 | Justin Jackson                 | SF,PF |       1.97 |     1.00
+   9 | Sindarius Thornwell            | SG,SF |       1.91 |     0.50
+  10 | Wes Iwundu                     | SF    |       1.63 |     0.50
+  11 | Sterling Brown                 | SG,SF |       1.47 |     1.00
+  12 | Jaron Blossomgame              | SF    |       0.86 |     0.00
+  13 | Kyle Kuzma                     | PF,SF |       0.81 |     3.00
+
+--- Draft Class 2018, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Zhaire Smith                   | SG,SF |       3.29 |     0.00
+   2 | Kevin Huerter                  | SG,SF |       2.92 |     3.00
+   3 | Kevin Knox                     | SF,PF |       2.86 |     1.00
+   4 | Troy Brown Jr.                 | SF    |       2.67 |     1.00
+   5 | Gary Trent Jr.                 | SG,SF |       2.58 |     3.00
+   6 | Mikal Bridges                  | SF,SG |       2.48 |     4.00
+   7 | Michael Porter Jr.             | SF    |       2.47 |     4.00
+   8 | Hamidou Diallo                 | SF,SG |       2.46 |     1.00
+   9 | Chandler Hutchison             | SF    |       2.14 |     0.50
+  10 | Svi Mykhailiuk                 | SF    |       2.07 |     2.50
+  11 | Miles Bridges                  | SF,PF |       2.06 |     4.00
+  12 | Justin Jackson                 | SF,PF |       2.02 |     0.00
+  13 | Vince Edwards                  | SF    |       1.72 |     0.00
+  14 | Kostas Antetokounmpo           | PF,SF |       1.52 |     0.50
+  15 | Keita Bates-Diop               | SF,PF |       0.93 |     1.00
+  16 | George King                    | SF    |       0.77 |     0.00
+
+--- Draft Class 2019, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Jarrett Culver                 | SG,SF |       3.01 |     0.50
+   2 | RJ Barrett                     | SG,SF |       3.01 |     4.00
+   3 | Cam Reddish                    | SF    |       2.89 |     1.00
+   4 | Nassir Little                  | SF,PF |       2.53 |     0.50
+   5 | Dylan Windler                  | SF    |       2.46 |     0.50
+   6 | De'Andre Hunter                | SF    |       2.42 |     3.00
+   7 | Kevin Porter Jr.               | SF    |       2.16 |     2.50
+   8 | Keldon Johnson                 | SF    |       2.09 |     2.50
+   9 | Matisse Thybulle               | SG,SF |       1.97 |     1.00
+  10 | Justin James                   | SF    |       1.80 |     0.00
+  11 | Chuma Okeke                    | PF,SF |       1.73 |     1.00
+  12 | Cody Martin                    | SF    |       1.56 |     2.50
+  13 | Ignas Brazdeikis               | SF    |       1.49 |     0.50
+  14 | Jalen McDaniels                | SF    |       1.46 |     1.00
+  15 | Admiral Schofield              | PF,SF |       1.40 |     0.50
+  16 | Miye Oni                       | SG,SF |       1.36 |     0.50
+  17 | Terance Mann                   | SG,SF |       1.35 |     2.50
+
+--- Draft Class 2020, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | CJ Elleby                      | SF    |       3.12 |     0.00
+   2 | Devin Vassell                  | SG,SF |       2.21 |     4.00
+   3 | Isaac Okoro                    | SF,SG |       2.21 |     2.50
+   4 | Aaron Nesmith                  | SF    |       2.14 |     4.00
+   5 | Jaden McDaniels                | PF,SF |       1.98 |     4.00
+   6 | Tyler Bey                      | SF    |       1.86 |     0.00
+   7 | Saddiq Bey                     | SF    |       1.80 |     3.00
+   8 | Elijah Hughes                  | SG,SF |       1.79 |     0.00
+   9 | Robert Woodard II              | SF    |       1.64 |     0.00
+  10 | Jordan Nwora                   | SF    |       1.21 |     1.00
+
+--- Draft Class 2021, No Draft Context ---
+
+Rank | Name                           |   POS |  Predicted |   Actual
+-----------------------------------------------------------------
+   1 | Jalen Johnson                  | SF,PF |       3.31 |     4.50
+   2 | Scottie Barnes                 | SG,SF,PF |       2.95 |     4.50
+   3 | Greg Brown III                 | PF,SF |       2.83 |     0.50
+   4 | Ziaire Williams                | SF    |       2.75 |     2.50
+   5 | Brandon Boston Jr.             | SG,SF |       2.53 |     2.50
+   6 | Corey Kispert                  | SF    |       2.43 |     2.50
+   7 | Franz Wagner                   | SF    |       2.42 |     4.50
+   8 | Trey Murphy III                | SF    |       2.35 |     4.00
+   9 | Joshua Primo                   | SG,SF |       2.04 |     0.50
+  10 | Isaiah Livers                  | PF,SF |       1.79 |     0.50
+  11 | Chris Duarte                   | SF,SG |       1.78 |     1.00
+  12 | Joe Wieskamp                   | SF,SG |       1.75 |     0.00
+  13 | Herbert Jones                  | SF,PF |       1.31 |     4.00
+  14 | Kessler Edwards                | SF    |       1.19 |     1.00
+
+Top 50 features by |Pearson corr| with Player Tier:
+
+Age                      : 0.371
+Seasons Played (College) : 0.325
+C_BPM                    : 0.236
+College Strength         : 0.195
+C_DBPM                   : 0.185
+C_OBPM                   : 0.162
+CT_SOS                   : 0.158
+C_WS/40                  : 0.140
+CT_SRS                   : 0.136
+C_PER                    : 0.132
+C_STL/40                 : 0.119
+C_STL%                   : 0.110
+C_ORtg                   : 0.105
+C_PTS/40                 : 0.095
+C_TS%                    : 0.090
+C_DRtg                   : 0.076
+C_DWS                    : 0.072
+C_OWS                    : 0.072
+BMI                      : 0.063
+C_AST/40                 : 0.059
+C_FTA/40                 : 0.058
+CT_ORtg                  : 0.055
+C_FGA/40                 : 0.055
+C_TOV/40                 : 0.050
+C_AST%                   : 0.050
+C_USG%                   : 0.048
+CT_Win%                  : 0.042
+Height                   : 0.040
+C_GS%                    : 0.038
+C_G                      : 0.034
+C_TRB/40                 : 0.032
+C_TRB%                   : 0.031
+C_3PA/40                 : 0.030
+C_AST_TO                 : 0.030
+CT_DRtg                  : 0.027
+C_BLK/40                 : 0.017
+C_BLK_MPG                : 0.017
+Weight                   : 0.017
+C_BLK%                   : 0.015
+C_TOV%                   : 0.014
+C_MPG                    : 0.008
+C_ORB_DRB                : 0.005
+
+Top 50 features by RandomForest importance:
+
+Age                      : 0.182
+C_ORtg                   : 0.057
+C_BPM                    : 0.041
+C_AST_TO                 : 0.033
+C_AST%                   : 0.031
+CT_SOS                   : 0.029
+Height                   : 0.027
+C_USG%                   : 0.026
+C_PTS/40                 : 0.025
+C_MPG                    : 0.024
+C_TRB/40                 : 0.023
+C_ORB_DRB                : 0.022
+C_TRB%                   : 0.022
+CT_Win%                  : 0.022
+C_3PA/40                 : 0.021
+BMI                      : 0.021
+CT_ORtg                  : 0.021
+C_TOV%                   : 0.020
+C_G                      : 0.020
+C_FGA/40                 : 0.020
+C_FTA/40                 : 0.020
+C_OWS                    : 0.019
+C_AST/40                 : 0.017
+C_PER                    : 0.017
+C_DBPM                   : 0.017
+C_STL%                   : 0.017
+CT_SRS                   : 0.017
+C_TS%                    : 0.017
+C_BLK%                   : 0.016
+CT_DRtg                  : 0.015
+C_TOV/40                 : 0.015
+C_DWS                    : 0.015
+C_DRtg                   : 0.013
+C_STL/40                 : 0.013
+C_OBPM                   : 0.013
+C_WS/40                  : 0.013
+C_BLK_MPG                : 0.013
+C_GS%                    : 0.012
+Weight                   : 0.012
+College Strength         : 0.009
+C_BLK/40                 : 0.009
+Seasons Played (College) : 0.003

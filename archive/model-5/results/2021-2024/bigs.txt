@@ -1,0 +1,39 @@
+=== Predicted NBA Career Scores (Bigs Only) ===
+
+ 1. Chet Holmgren             | Year: 2022 | POS: C,PF  | Score: 3.39
+ 2. Dereck Lively II          | Year: 2023 | POS: C     | Score: 2.64
+ 3. Jabari Smith Jr.          | Year: 2022 | POS: PF    | Score: 2.64
+ 4. Donovan Clingan           | Year: 2024 | POS: C     | Score: 2.56
+ 5. Jarace Walker             | Year: 2023 | POS: PF    | Score: 2.37
+ 6. Kyle Filipowski           | Year: 2024 | POS: C     | Score: 2.30
+ 7. Mark Williams             | Year: 2022 | POS: C     | Score: 2.27
+ 8. Taylor Hendricks          | Year: 2023 | POS: PF    | Score: 2.14
+ 9. Noah Clowney              | Year: 2023 | POS: PF    | Score: 2.14
+10. Jeremy Sochan             | Year: 2022 | POS: PF    | Score: 2.08
+11. Yves Missi                | Year: 2024 | POS: C     | Score: 2.06
+12. Walker Kessler            | Year: 2022 | POS: C     | Score: 2.04
+13. Jaylin Williams           | Year: 2022 | POS: C,PF  | Score: 1.97
+14. Kel'el Ware               | Year: 2024 | POS: C     | Score: 1.97
+15. Tari Eason                | Year: 2022 | POS: PF    | Score: 1.89
+16. Jalen Duren               | Year: 2022 | POS: C     | Score: 1.87
+17. Enrique Freeman           | Year: 2024 | POS: PF    | Score: 1.78
+18. Jake LaRavia              | Year: 2022 | POS: PF    | Score: 1.77
+19. DaRon Holmes              | Year: 2024 | POS: PF    | Score: 1.72
+20. Jonathan Mogbo            | Year: 2024 | POS: PF    | Score: 1.72
+21. David Roddy               | Year: 2022 | POS: PF    | Score: 1.63
+22. GG Jackson II             | Year: 2023 | POS: PF    | Score: 1.59
+23. Jalen Wilson              | Year: 2023 | POS: PF    | Score: 1.42
+24. Zach Edey                 | Year: 2024 | POS: C     | Score: 1.39
+25. Trayce Jackson-Davis      | Year: 2023 | POS: PF,C  | Score: 1.37
+26. Mouhamed Gueye            | Year: 2023 | POS: PF    | Score: 1.37
+27. Kobe Brown                | Year: 2023 | POS: PF    | Score: 1.32
+28. Christian Koloko          | Year: 2022 | POS: C     | Score: 1.32
+29. Quinten Post              | Year: 2024 | POS: PF    | Score: 1.17
+30. Oso Ighodaro              | Year: 2024 | POS: PF    | Score: 1.14
+31. Hunter Tyson              | Year: 2023 | POS: PF    | Score: 1.13
+32. Moussa DiabatÃ©           | Year: 2022 | POS: C     | Score: 1.06
+33. E.J. Liddell              | Year: 2022 | POS: PF    | Score: 1.05
+34. Toumani Camara            | Year: 2023 | POS: PF    | Score: 0.99
+35. Olivier-Maxence Prosper   | Year: 2023 | POS: PF    | Score: 0.96
+36. Isaiah Mobley             | Year: 2022 | POS: PF    | Score: 0.94
+37. Adem Bona                 | Year: 2024 | POS: C,PF  | Score: 0.89

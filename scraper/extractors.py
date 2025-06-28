@@ -116,26 +116,26 @@ def get_advanced_stats(soup):
         cell = last_row.find('td', {'data-stat': stat})
         return float(cell.text.strip()) if cell and cell.text.strip() else 0.0
     return {
-        'COLLEGE_PER': adv_stat('per'),
-        'COLLEGE_TS%': adv_stat('ts_pct'),
-        'COLLEGE_3PAr': adv_stat('fg3a_per_fga_pct'),
-        'COLLEGE_FTr': adv_stat('fta_per_fga_pct'),
-        'COLLEGE_PProd': adv_stat('pprod'),
-        'COLLEGE_ORB%': adv_stat('orb_pct'),
-        'COLLEGE_DRB%': adv_stat('drb_pct'),
-        'COLLEGE_TRB%': adv_stat('trb_pct'),
-        'COLLEGE_AST%': adv_stat('ast_pct'),
-        'COLLEGE_STL%': adv_stat('stl_pct'),
-        'COLLEGE_BLK%': adv_stat('blk_pct'),
-        'COLLEGE_TOV%': adv_stat('tov_pct'),
-        'COLLEGE_USG%': adv_stat('usg_pct'),
-        'COLLEGE_OWS': adv_stat('ows'),
-        'COLLEGE_DWS': adv_stat('dws'),
-        'COLLEGE_WS': adv_stat('ws'),
-        'COLLEGE_WS/40': adv_stat('ws_per_40'),
-        'COLLEGE_OBPM': adv_stat('obpm'),
-        'COLLEGE_DBPM': adv_stat('dbpm'),
-        'COLLEGE_BPM': adv_stat('bpm')
+        'C_PER': adv_stat('per'),
+        'C_TS%': adv_stat('ts_pct'),
+        'C_3PAr': adv_stat('fg3a_per_fga_pct'),
+        'C_FTr': adv_stat('fta_per_fga_pct'),
+        'C_PProd': adv_stat('pprod'),
+        'C_ORB%': adv_stat('orb_pct'),
+        'C_DRB%': adv_stat('drb_pct'),
+        'C_TRB%': adv_stat('trb_pct'),
+        'C_AST%': adv_stat('ast_pct'),
+        'C_STL%': adv_stat('stl_pct'),
+        'C_BLK%': adv_stat('blk_pct'),
+        'C_TOV%': adv_stat('tov_pct'),
+        'C_USG%': adv_stat('usg_pct'),
+        'C_OWS': adv_stat('ows'),
+        'C_DWS': adv_stat('dws'),
+        'C_WS': adv_stat('ws'),
+        'C_WS/40': adv_stat('ws_per_40'),
+        'C_OBPM': adv_stat('obpm'),
+        'C_DBPM': adv_stat('dbpm'),
+        'C_BPM': adv_stat('bpm')
     }
 
 def get_per40_stats(soup):
@@ -154,21 +154,21 @@ def get_per40_stats(soup):
         cell = last_row.find('td', {'data-stat': stat})
         return float(cell.text.strip()) if cell and cell.text.strip() else 0.0
     return {
-        'COLLEGE_FG/40': per40('fg_per_min'),
-        'COLLEGE_FGA/40': per40('fga_per_min'),
-        'COLLEGE_3P/40': per40('fg3_per_min'),
-        'COLLEGE_3PA/40': per40('fg3a_per_min'),
-        'COLLEGE_FT/40': per40('ft_per_min'),
+        'C_FG/40': per40('fg_per_min'),
+        'C_FGA/40': per40('fga_per_min'),
+        'C_3P/40': per40('fg3_per_min'),
+        'C_3PA/40': per40('fg3a_per_min'),
+        'C_FT/40': per40('ft_per_min'),
         'COLLEGE_FTA/40': per40('fta_per_min'),
         'COLLEGE_ORB/40': per40('orb_per_min'),
         'COLLEGE_DRB/40': per40('drb_per_min'),
-        'COLLEGE_TRB/40': per40('trb_per_min'),
-        'COLLEGE_AST/40': per40('ast_per_min'),
-        'COLLEGE_STL/40': per40('stl_per_min'),
-        'COLLEGE_BLK/40': per40('blk_per_min'),
-        'COLLEGE_TOV/40': per40('tov_per_min'),
-        'COLLEGE_PF/40': per40('pf_per_min'),
-        'COLLEGE_PTS/40': per40('pts_per_min')
+        'C_TRB/40': per40('trb_per_min'),
+        'C_AST/40': per40('ast_per_min'),
+        'C_STL/40': per40('stl_per_min'),
+        'C_BLK/40': per40('blk_per_min'),
+        'C_TOV/40': per40('tov_per_min'),
+        'C_PF/40': per40('pf_per_min'),
+        'C_PTS/40': per40('pts_per_min')
     }
 
 def get_per100_stats(soup):
@@ -187,29 +187,29 @@ def get_per100_stats(soup):
         cell = last_row.find('td', {'data-stat': stat})
         return float(cell.text.strip()) if cell and cell.text.strip() else 0.0
     return {
-        'COLLEGE_FG/100': per100('fg_per_poss'),
-        'COLLEGE_FGA/100': per100('fga_per_poss'),
-        'COLLEGE_3P/100': per100('fg3_per_poss'),
-        'COLLEGE_3PA/100': per100('fg3a_per_poss'),
-        'COLLEGE_FT/100': per100('ft_per_poss'),
-        'COLLEGE_FTA/100': per100('fta_per_poss'),
-        'COLLEGE_ORB/100': per100('orb_per_poss'),
-        'COLLEGE_DRB/100': per100('drb_per_poss'),
-        'COLLEGE_TRB/100': per100('trb_per_poss'),
-        'COLLEGE_AST/100': per100('ast_per_poss'),
-        'COLLEGE_STL/100': per100('stl_per_poss'),
-        'COLLEGE_BLK/100': per100('blk_per_poss'),
-        'COLLEGE_TOV/100': per100('tov_per_poss'),
-        'COLLEGE_PF/100': per100('pf_per_poss'),
-        'COLLEGE_PTS/100': per100('pts_per_poss'),
-        'COLLEGE_ORtg': per100('off_rtg'),
-        'COLLEGE_DRtg': per100('def_rtg')
+        'C_FG/100': per100('fg_per_poss'),
+        'C_FGA/100': per100('fga_per_poss'),
+        'C_3P/100': per100('fg3_per_poss'),
+        'C_3PA/100': per100('fg3a_per_poss'),
+        'C_FT/100': per100('ft_per_poss'),
+        'C_FTA/100': per100('fta_per_poss'),
+        'C_ORB/100': per100('orb_per_poss'),
+        'C_DRB/100': per100('drb_per_poss'),
+        'C_TRB/100': per100('trb_per_poss'),
+        'C_AST/100': per100('ast_per_poss'),
+        'C_STL/100': per100('stl_per_poss'),
+        'C_BLK/100': per100('blk_per_poss'),
+        'C_TOV/100': per100('tov_per_poss'),
+        'C_PF/100': per100('pf_per_poss'),
+        'C_PTS/100': per100('pts_per_poss'),
+        'C_ORtg': per100('off_rtg'),
+        'C_DRtg': per100('def_rtg')
     }
 
 def get_college_season_summary(soup: BeautifulSoup) -> dict:
     """
     Parse the college team page summary and return a dict of season metrics
-    prefixed with 'COLLEGE_'. Returns {} if no summary found.
+    prefixed with 'C_'. Returns {} if no summary found.
     """
     summary = soup.find('div', {'data-template': 'Partials/Teams/Summary'})
     if not summary:
@@ -250,13 +250,13 @@ def get_college_season_summary(soup: BeautifulSoup) -> dict:
         return float(m.group()) if m else 0.0
 
     return {
-        'COLLEGE_TEAM_Win%':    col_stat('Record'),
-        'COLLEGE_TEAM_PTS/G':     col_stat('PS/G'),
-        'COLLEGE_TEAM_PTSA/G':     col_stat('PA/G'),
-        'COLLEGE_TEAM_SRS':      col_stat('SRS'),
-        'COLLEGE_TEAM_SOS':      col_stat('SOS'),
-        'COLLEGE_TEAM_ORtg':  col_stat('ORtg'),
-        'COLLEGE_TEAM_DRtg':  col_stat('DRtg'),
+        'CT_Win%':    col_stat('Record'),
+        'CT_PTS/G':     col_stat('PS/G'),
+        'CT_PTSA/G':     col_stat('PA/G'),
+        'CT_SRS':      col_stat('SRS'),
+        'CT_SOS':      col_stat('SOS'),
+        'CT_ORtg':  col_stat('ORtg'),
+        'CT_DRtg':  col_stat('DRtg'),
     }
 
 def get_nba_career_stats(career_tr, nba_seasons) -> dict:

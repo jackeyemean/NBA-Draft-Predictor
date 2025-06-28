@@ -34,6 +34,7 @@
         <th>Name</th>
         <th>Draft Year</th>
         <th>Position</th>
+        <th>Pick Number</th>
         <th>Predicted Score</th>
         <th>Actual Tier</th>
       </tr>
@@ -44,6 +45,7 @@
         <td>{{ player['Name'] }}</td>
         <td>{{ player['Draft Year'] }}</td>
         <td>{{ player['Position Group'] }}</td>
+        <td>{{ player['Pick Number'] }}</td>
         <td>{{ '%.2f'|format(player['Predicted Score']) }}</td>
         <td>
           {% if player['Actual Tier'] is not none %}

@@ -1,8 +1,8 @@
-Flask
+flask
+flask-cors
 pandas
 requests
 beautifulsoup4
-tqdm
 joblib
 scikit-learn
 python-dotenv

@@ -1,19 +1,17 @@
-// src/App.js
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import React from 'react';
 import ResultsPage from './pages/ResultsPage';
-import CreatePlayerPage from './pages/CreatePlayerPage';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <NavBar />
-      <div className="container mx-auto p-4">
-        <Routes>
-          <Route path="/" element={<ResultsPage />} />
-          <Route path="/create" element={<CreatePlayerPage />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-blue-900 text-white py-4 shadow">
+        <div className="container mx-auto text-center">
+          <h1 className="text-3xl font-bold">NBA Draft Predictor</h1>
+        </div>
+      </header>
+      <main className="container mx-auto p-4">
+        <ResultsPage />
+      </main>
+    </div>
   );
 }

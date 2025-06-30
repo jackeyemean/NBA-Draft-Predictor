@@ -1,69 +1,85 @@
-import { useState } from 'react';
-import { predict } from '../api';
-import { FEATURES_PG, FEATURES_WINGS, FEATURES_BIGS } from '../constants';
+// src/components/PlayerForm.js
+import React, { useState, useEffect } from 'react';
+import { FEATURE_RANGES } from '../constants';
 
-export default function PlayerForm() {
-  const [position, setPosition] = useState('PG');
-  const [inputs, setInputs] = useState({});
-  const [result, setResult] = useState(null);
+export default function PlayerForm({ onSubmit }) {
+  // Use "Guards" as the initial position code
+  const [position, setPosition] = useState('Guards');
+  const specs = FEATURE_RANGES[position];
 
-  const featureSets = { PG: FEATURES_PG, Wings: FEATURES_WINGS, Bigs: FEATURES_BIGS };
+  // Initialize all inputs from the defaultValue for each feature
+  const [inputs, setInputs] = useState(() => {
+    const init = {};
+    Object.entries(specs).forEach(([feature, cfg]) => {
+      init[feature] = cfg.defaultValue;
+    });
+    return init;
+  });
 
-  const handleChange = e => {
-    setInputs({ ...inputs, [e.target.name]: parseFloat(e.target.value) });
+  // Whenever the position changes, reset inputs back to that position’s defaults
+  useEffect(() => {
+    const init = {};
+    Object.entries(FEATURE_RANGES[position]).forEach(([feature, cfg]) => {
+      init[feature] = cfg.defaultValue;
+    });
+    setInputs(init);
+  }, [position]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInputs((prev) => ({
+      ...prev,
+      [name]: parseFloat(value),
+    }));
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const payload = { ...inputs, 'Position Group': position };
-    try {
-      const res = await predict(payload);
-      setResult(res.data['Predicted Score']);
-    } catch {
-      alert('Prediction failed');
-    }
+    onSubmit(position, inputs);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="block font-medium mb-1">Position Group:</label>
+        <label className="block font-medium mb-1">Position Group</label>
         <select
           value={position}
-          onChange={e => setPosition(e.target.value)}
+          onChange={(e) => setPosition(e.target.value)}
           className="border p-2 rounded"
         >
-          <option value="PG">Guards</option>
+          <option value="Guards">Guards</option>
           <option value="Wings">Wings</option>
           <option value="Bigs">Bigs</option>
         </select>
       </div>
 
-      {featureSets[position].map((f, i) => (
-        <div key={i} className="space-y-1">
-          <label className="block font-medium">
-            {f}: {inputs[f] != null ? inputs[f] : '–'}
-          </label>
-          <input
-            name={f}
-            type="range"
-            min="0"
-            max="100"
-            step="0.1"
-            value={inputs[f] || 0}
-            onChange={handleChange}
-            className="w-full"
-          />
-        </div>
-      ))}
+      {Object.entries(specs).map(([feature, cfg]) => {
+        // Use the input value if defined, otherwise defaultValue
+        const value = inputs[feature] !== undefined
+          ? inputs[feature]
+          : cfg.defaultValue;
+        return (
+          <div key={feature} className="space-y-1">
+            <label className="block font-medium">
+              {feature}: {value.toFixed(1)}
+            </label>
+            <input
+              name={feature}
+              type="range"
+              min={cfg.min}
+              max={cfg.max}
+              step={(cfg.max - cfg.min) / 100}
+              value={value}
+              onChange={handleChange}
+              className="w-full"
+            />
+          </div>
+        );
+      })}
 
-      <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+      <button type="submit" className="btn-accent px-4 py-2">
         Predict
       </button>
-
-      {result !== null && (
-        <div className="mt-4 text-xl">Predicted Score: {result.toFixed(2)}</div>
-      )}
     </form>
   );
 }

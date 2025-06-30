@@ -1,23 +1,20 @@
+// src/components/ResultsTable.js
 import { useMemo, useEffect } from 'react';
 import { useTable, useSortBy } from 'react-table';
 
-export default function ResultsTable({ data }) {
-  // 1) Define your columns
+export default function ResultsTable({ data, highlightName }) {
   const columns = useMemo(
     () => [
       { Header: 'Draft Year',    accessor: 'Draft Year' },
-      { Header: 'Pick Number',   accessor: 'Pick Number' },
+      { Header: 'Pick #',        accessor: 'Pick Number' },
       { Header: 'Name',          accessor: 'Name' },
-      { Header: 'Position Group',accessor: 'Position Group' },
-      { Header: 'Predicted Score',accessor: 'Predicted Score' },
+      { Header: 'Position',      accessor: 'Position Group' },
+      { Header: 'Pred Score',    accessor: 'Predicted Score' },
     ],
     []
   );
 
-  // 2) Memoize data so react-table can detect changes
-  const memoizedData = useMemo(() => data, [data]);
-
-  // 3) Build the table instance with sort-by enabled
+  const memoData = useMemo(() => data, [data]);
   const {
     getTableProps,
     getTableBodyProps,
@@ -25,35 +22,32 @@ export default function ResultsTable({ data }) {
     rows,
     prepareRow,
     state: { sortBy },
-  } = useTable(
-    { columns, data: memoizedData },
-    useSortBy
-  );
+  } = useTable({ columns, data: memoData }, useSortBy);
 
-  // 4) Debug: log sort state
-  useEffect(() => {
-    console.log('Current sortBy state:', sortBy);
-  }, [sortBy]);
+  useEffect(() => console.log('sortBy ➔', sortBy), [sortBy]);
 
   return (
-    <table {...getTableProps()} className="min-w-full bg-white">
-      <thead>
+    <table
+      {...getTableProps()}
+      className="w-full table-auto bg-white shadow-sm"
+    >
+      <thead className="bg-blue-100">
         {headerGroups.map((hg, hi) => (
           <tr {...hg.getHeaderGroupProps()} key={hi}>
             {hg.headers.map((col, ci) => {
-              const headerProps = col.getHeaderProps(col.getSortByToggleProps());
+              const hProps = col.getHeaderProps(col.getSortByToggleProps());
               return (
                 <th
-                  {...headerProps}
+                  {...hProps}
                   key={ci}
-                  className="px-4 py-2 text-left font-semibold cursor-pointer"
+                  className="px-3 py-2 text-left text-sm font-bold text-blue-900 cursor-pointer"
                 >
-                  <div className="flex items-center">
-                    {col.render('Header')}
+                  <div className="flex items-center space-x-1">
+                    <span>{col.render('Header')}</span>
                     {col.isSorted
                       ? col.isSortedDesc
-                        ? ' 🔽'
-                        : ' 🔼'
+                        ? '🔽'
+                        : '🔼'
                       : ''}
                   </div>
                 </th>
@@ -62,21 +56,22 @@ export default function ResultsTable({ data }) {
           </tr>
         ))}
       </thead>
-
       <tbody {...getTableBodyProps()}>
         {rows.map(row => {
           prepareRow(row);
-          // rely on row.getRowProps() for a unique key (row.id)
+          const isNew = highlightName === row.original.Name;
           return (
             <tr
               {...row.getRowProps()}
-              className="hover:bg-gray-100"
+              className={`even:bg-gray-50 hover:bg-gray-100 ${
+                isNew ? 'bg-orange-100' : ''
+              }`}
             >
               {row.cells.map((cell, ci) => (
                 <td
                   {...cell.getCellProps()}
                   key={ci}
-                  className="border-t px-4 py-2"
+                  className="px-3 py-2 text-sm"
                 >
                   {cell.render('Cell')}
                 </td>

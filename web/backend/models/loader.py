@@ -7,7 +7,7 @@ def get_models_dir():
 def load_models():
     base = get_models_dir()
     return {
-        'PG': joblib.load(base / 'guards.pkl'),
+        'Guards': joblib.load(base / 'guards.pkl'),
         'Wings': joblib.load(base / 'wings.pkl'),
         'Bigs': joblib.load(base / 'bigs.pkl'),
     }

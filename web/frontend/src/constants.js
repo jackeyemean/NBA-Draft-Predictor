@@ -1,23 +1,78 @@
-export const FEATURES_PG = [
-  "Age","Height","BMI","CT_Win%","CT_SOS",
-  "C_GS%","C_MPG","C_FG%","C_3P%","C_FT%","C_TS%",
-  "C_AST_TO","C_AST%","C_TOV%","C_USG%",
-  "C_OBPM","C_OWS","C_FGA/40","C_3PA/40","C_FTA/40",
-  "C_AST/40","C_STL/40","C_TOV/40","C_PTS/40"
-];
+// src/constants.js
 
-export const FEATURES_WINGS = [
-  "Age","Height","BMI","CT_Win%","CT_SOS",
-  "C_GS%","C_MPG","C_TS%","C_AST_TO","C_ORB_DRB",
-  "C_TRB%","C_USG%","C_BPM","C_WS",
-  "C_FGA/40","C_3PA/40","C_FTA/40","C_TRB/40",
-  "C_AST/40","C_TOV/40","C_PTS/40"
-];
-
-export const FEATURES_BIGS = [
-  "Age","Height","BMI","CT_Win%","CT_SOS",
-  "C_GS%","C_MPG","C_FG%","C_FT%","C_TS%",
-  "C_ORB_DRB","C_BLK%","C_TRB%","C_USG%",
-  "C_DBPM","C_DWS","C_FGA/40","C_FTA/40",
-  "C_TRB/40","C_STL/40","C_BLK/40","C_PTS/40"
-];
+// Slider ranges & defaults for each position code.
+export const FEATURE_RANGES = {
+  Guards: {
+    "Age":     { min: 18, max: 30, defaultValue: 20 },
+    "Height":  { min: 68, max: 84, defaultValue: 76 },
+    "BMI":     { min: 18, max: 32, defaultValue: 24 },
+    "CT_Win%": { min: 0,  max: 100, defaultValue: 50 },
+    "CT_SOS":  { min: 0,  max: 10,  defaultValue: 5 },
+    "C_GS%":   { min: 0,  max: 100, defaultValue: 20 },
+    "C_MPG":   { min: 0,  max: 40,  defaultValue: 20 },
+    "C_FG%":   { min: 0,  max: 100, defaultValue: 45 },
+    "C_3P%":   { min: 0,  max: 100, defaultValue: 35 },
+    "C_FT%":   { min: 0,  max: 100, defaultValue: 75 },
+    "C_TS%":   { min: 0,  max: 100, defaultValue: 55 },
+    "C_AST_TO":{ min: 0,  max: 10,  defaultValue: 1.5 },
+    "C_AST%":  { min: 0,  max: 100, defaultValue: 15 },
+    "C_TOV%":  { min: 0,  max: 100, defaultValue: 12 },
+    "C_USG%":  { min: 0,  max: 100, defaultValue: 20 },
+    "C_OBPM":  { min: -5, max: 5,   defaultValue: 0 },
+    "C_OWS":   { min: -2, max: 6,   defaultValue: 1 },
+    "C_FGA/40":{ min: 0,  max: 30,  defaultValue: 15 },
+    "C_3PA/40":{ min: 0,  max: 10,  defaultValue: 3 },
+    "C_FTA/40":{ min: 0,  max: 10,  defaultValue: 3 },
+    "C_AST/40":{ min: 0,  max: 15,  defaultValue: 5 },
+    "C_STL/40":{ min: 0,  max: 5,   defaultValue: 1 },
+    "C_TOV/40":{ min: 0,  max: 10,  defaultValue: 3 },
+    "C_PTS/40":{ min: 0,  max: 40,  defaultValue: 10 }
+  },
+  Wings: {
+    "Age":     { min: 18, max: 30, defaultValue: 21 },
+    "Height":  { min: 72, max: 88, defaultValue: 80 },
+    "BMI":     { min: 18, max: 32, defaultValue: 24 },
+    "CT_Win%": { min: 0,  max: 100,defaultValue: 50 },
+    "CT_SOS":  { min: 0,  max: 10, defaultValue: 5 },
+    "C_GS%":   { min: 0,  max: 100,defaultValue: 25 },
+    "C_MPG":   { min: 0,  max: 40, defaultValue: 25 },
+    "C_TS%":   { min: 0,  max: 100,defaultValue: 55 },
+    "C_AST_TO":{ min: 0,  max: 10, defaultValue: 1 },
+    "C_ORB_DRB":{min: 0,  max: 100,defaultValue: 10 },
+    "C_TRB%":  { min: 0,  max: 100,defaultValue: 10 },
+    "C_USG%":  { min: 0,  max: 100,defaultValue: 20 },
+    "C_BPM":   { min: -5, max: 5,  defaultValue: 0 },
+    "C_WS":    { min: -1, max: 10, defaultValue: 1 },
+    "C_FGA/40":{ min: 0,  max: 30, defaultValue: 12 },
+    "C_3PA/40":{ min: 0,  max: 10, defaultValue: 4 },
+    "C_FTA/40":{ min: 0,  max: 10, defaultValue: 2 },
+    "C_TRB/40":{ min: 0,  max: 20, defaultValue: 5 },
+    "C_AST/40":{ min: 0,  max: 10, defaultValue: 3 },
+    "C_TOV/40":{ min: 0,  max: 10, defaultValue: 2 },
+    "C_PTS/40":{ min: 0,  max: 40, defaultValue: 12 }
+  },
+  Bigs: {
+    "Age":     { min: 18, max: 32, defaultValue: 22 },
+    "Height":  { min: 78, max: 96, defaultValue: 84 },
+    "BMI":     { min: 18, max: 34, defaultValue: 28 },
+    "CT_Win%": { min: 0,  max: 100,defaultValue: 50 },
+    "CT_SOS":  { min: 0,  max: 10, defaultValue: 5 },
+    "C_GS%":   { min: 0,  max: 100,defaultValue: 30 },
+    "C_MPG":   { min: 0,  max: 40, defaultValue: 22 },
+    "C_FG%":   { min: 0,  max: 100,defaultValue: 50 },
+    "C_FT%":   { min: 0,  max: 100,defaultValue: 65 },
+    "C_TS%":   { min: 0,  max: 100,defaultValue: 55 },
+    "C_ORB_DRB":{min: 0,  max: 100,defaultValue: 20},
+    "C_BLK%":  { min: 0,  max: 100,defaultValue: 3 },
+    "C_TRB%":  { min: 0,  max: 100,defaultValue: 20 },
+    "C_USG%":  { min: 0,  max: 100,defaultValue: 18 },
+    "C_DBPM":  { min: -5, max: 5,  defaultValue: 0 },
+    "C_DWS":   { min: -1, max: 10, defaultValue: 1 },
+    "C_FGA/40":{ min: 0,  max: 30, defaultValue: 10 },
+    "C_FTA/40":{ min: 0,  max: 10, defaultValue: 2 },
+    "C_TRB/40":{ min: 0,  max: 25, defaultValue: 8 },
+    "C_STL/40":{ min: 0,  max: 5,  defaultValue: 0.5 },
+    "C_BLK/40":{ min: 0,  max: 10, defaultValue: 2 },
+    "C_PTS/40":{ min: 0,  max: 40, defaultValue: 10 }
+  }
+};

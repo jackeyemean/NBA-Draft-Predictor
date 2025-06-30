@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* NBA‐themed accent button */
+.btn-accent {
+  @apply bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded;
+}

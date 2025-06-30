@@ -1,3 +1,4 @@
+// src/App.js
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ResultsPage from './pages/ResultsPage';

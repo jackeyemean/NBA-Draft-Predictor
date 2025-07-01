@@ -1,3 +1,4 @@
+// PlayerForm.js
 import React, { useState, useEffect } from 'react';
 import { FEATURE_RANGES } from '../constants';
 
@@ -6,22 +7,16 @@ export default function PlayerForm({ onSubmit }) {
   const [position, setPosition]     = useState('Guards');
   const specs = FEATURE_RANGES[position];
 
-  const [inputs, setInputs] = useState(() => {
-    const init = {};
-    Object.entries(specs).forEach(([f, cfg]) => init[f] = cfg.defaultValue);
-    return init;
-  });
-
+  const [inputs, setInputs] = useState({});
   useEffect(() => {
     const init = {};
-    Object.entries(FEATURE_RANGES[position]).forEach(
-      ([f, cfg]) => init[f] = cfg.defaultValue
-    );
+    Object.entries(specs).forEach(([f, cfg]) => init[f] = cfg.defaultValue);
     setInputs(init);
-  }, [position]);
+  }, [position, specs]);
 
   const handleChange = e => {
-    setInputs(prev => ({ ...prev, [e.target.name]: +e.target.value }));
+    const { name, value } = e.target;
+    setInputs(prev => ({ ...prev, [name]: Number(value) }));
   };
 
   const handleSubmit = e => {
@@ -50,20 +45,24 @@ export default function PlayerForm({ onSubmit }) {
             onChange={e => setPosition(e.target.value)}
             className="border p-2 rounded w-full"
           >
-            <option value="Guards">Guards</option>
-            <option value="Wings">Wings</option>
-            <option value="Bigs">Bigs</option>
+            <option>Guards</option>
+            <option>Wings</option>
+            <option>Bigs</option>
           </select>
         </div>
       </div>
 
       <div className="max-h-64 overflow-y-auto space-y-4">
         {Object.entries(specs).map(([feature, cfg]) => {
-          const value = inputs[feature] ?? cfg.defaultValue;
+          const raw = inputs[feature] ?? cfg.defaultValue;
+          const display = feature === 'Height'
+            ? `${Math.floor(raw/12)}′ ${raw%12}″`
+            : raw.toFixed(1);
+
           return (
             <div key={feature}>
-              <label className="block font-medium">
-                {feature}: {value.toFixed(1)}
+              <label className="block font-medium mb-1">
+                {feature}: {display}
               </label>
               <input
                 name={feature}
@@ -71,7 +70,7 @@ export default function PlayerForm({ onSubmit }) {
                 min={cfg.min}
                 max={cfg.max}
                 step={(cfg.max - cfg.min) / 100}
-                value={value}
+                value={raw}
                 onChange={handleChange}
                 className="w-full"
               />
@@ -80,10 +79,7 @@ export default function PlayerForm({ onSubmit }) {
         })}
       </div>
 
-      <button
-        type="submit"
-        className="btn-accent px-4 py-2"
-      >
+      <button type="submit" className="btn-accent px-4 py-2">
         Create Player
       </button>
     </form>

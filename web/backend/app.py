@@ -32,29 +32,7 @@ def predict():
     model = models.get(code)
     if model is None:
         return jsonify({'error': f"No model for {code}"}), 400
-
-    # Build feature list: for Wings, duplicate C_TS%
-    if code == 'Wings':
-        try:
-            features = [
-                payload['Age'], payload['Height'], payload['BMI'],
-                payload['CT_Win%'], payload['CT_SOS'],
-                payload['C_GS%'], payload['C_MPG'],
-                # duplicate C_TS% here:
-                payload['C_TS%'], payload['C_TS%'],
-                payload['C_AST_TO'], payload['C_ORB_DRB'],
-                payload['C_TRB%'], payload['C_USG%'],
-                payload['C_BPM'], payload['C_WS'],
-                payload['C_FGA/40'], payload['C_3PA/40'], payload['C_FTA/40'],
-                payload['C_TRB/40'], payload['C_AST/40'], payload['C_TOV/40'],
-                payload['C_PTS/40']
-            ]
-        except KeyError as e:
-            return jsonify({'error': f"Missing feature {e.args[0]}"}), 400
-    else:
-        # Guards & Bigs use a single value per feature
-        # Assuming payload only contains exactly the right keys in order:
-        features = list(payload.values())
+    features = list(payload.values())
 
     # Now predict
     score = model.predict([features])[0]

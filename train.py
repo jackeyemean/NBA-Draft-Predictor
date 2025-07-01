@@ -8,8 +8,8 @@ from sklearn.model_selection import LeaveOneOut, cross_val_predict
 # ─── Config ─────────────────────────────────────────────────────────────────
 MIN_YEAR    = 2011
 MAX_YEAR    = 2021
-TRAIN_PATH  = "web/TRAINING.csv"
-OUT_DIR     = "web"   # where to save the .pkl models
+TRAIN_PATH  = "data/cleaned/TRAINING.csv"
+OUT_DIR     = "zzz"   # where to save the .pkl models
 RANDOM_SEED = 100
 N_EST       = 500
 
@@ -36,7 +36,7 @@ FEATURES = {
 
         "C_GS%", "C_MPG", "C_FG%", "C_3P%", "C_FT%", "C_TS%",
         
-        "C_AST_TO",
+        "C_AST_TO", "C_ORB_DRB",
 
         "C_AST%", "C_TOV%", "C_USG%",
 
@@ -49,7 +49,7 @@ FEATURES = {
         "Age", "Height", "BMI",
         "CT_Win%", "CT_SOS",
 
-        "C_GS%", "C_MPG", "C_TS%", "C_TS%",
+        "C_GS%", "C_MPG", "C_TS%",
         
         "C_AST_TO", "C_ORB_DRB",
 
@@ -66,7 +66,7 @@ FEATURES = {
 
         "C_GS%", "C_MPG", "C_FG%", "C_FT%", "C_TS%",
         
-        "C_ORB_DRB",
+        "C_AST_TO", "C_ORB_DRB",
 
         "C_BLK%", "C_TRB%", "C_USG%",
 

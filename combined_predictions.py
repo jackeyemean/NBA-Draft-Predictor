@@ -14,12 +14,12 @@ from sklearn.model_selection import LeaveOneOut, cross_val_predict
 MIN_YEAR_LOO      = 2011
 MAX_YEAR_LOO      = 2021
 TEST_YEARS        = [2022, 2023, 2024]
-TRAIN_PATH        = "web/TRAINING.csv"
-TEST_PATH         = "web/TESTING.csv"
-GUARD_MODEL_PATH  = "web/models/guards.pkl"
-WING_MODEL_PATH   = "web/models/wings.pkl"
-BIG_MODEL_PATH    = "web/models/bigs.pkl"
-OUTPUT_CSV        = "all_predictions.csv"
+TRAIN_PATH        = "data/cleaned/TRAINING.csv"
+TEST_PATH         = "data/cleaned/TESTING.csv"
+GUARD_MODEL_PATH  = "web/backend/models/guards.pkl"
+WING_MODEL_PATH   = "web/backend/models/wings.pkl"
+BIG_MODEL_PATH    = "web/backend/models/bigs.pkl"
+OUTPUT_CSV        = "results.csv"
 
 # ─── Position Predicates ────────────────────────────────────────────────
 def is_guard_only(pos_str: str) -> bool:
@@ -51,7 +51,7 @@ FEATURES_GUARDS = [
 
         "C_GS%", "C_MPG", "C_FG%", "C_3P%", "C_FT%", "C_TS%",
         
-        "C_AST_TO",
+        "C_AST_TO", "C_ORB_DRB",
 
         "C_AST%", "C_TOV%", "C_USG%",
 
@@ -64,7 +64,7 @@ FEATURES_WINGS = [
         "Age", "Height", "BMI",
         "CT_Win%", "CT_SOS",
 
-        "C_GS%", "C_MPG", "C_TS%", "C_TS%",
+        "C_GS%", "C_MPG", "C_TS%",
         
         "C_AST_TO", "C_ORB_DRB",
 
@@ -81,7 +81,7 @@ FEATURES_BIGS = [
 
         "C_GS%", "C_MPG", "C_FG%", "C_FT%", "C_TS%",
         
-        "C_ORB_DRB",
+        "C_AST_TO", "C_ORB_DRB",
 
         "C_BLK%", "C_TRB%", "C_USG%",
 

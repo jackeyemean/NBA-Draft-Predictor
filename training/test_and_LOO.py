@@ -1,8 +1,3 @@
-# build_predictions.py
-# -------------------
-# Combines LOO-predicted scores for 2011–2021 with direct model predictions for 2022–2024
-# into a single CSV for use in the web backend.
-
 import pandas as pd
 import numpy as np
 import joblib
@@ -48,45 +43,30 @@ def is_big(pos_str: str) -> bool:
 FEATURES_GUARDS = [
         "Age", "Height", "BMI",
         "CT_Win%", "CT_SOS",
-
         "C_GS%", "C_MPG", "C_FG%", "C_3P%", "C_FT%", "C_TS%",
-        
         "C_AST_TO", "C_ORB_DRB",
-
         "C_AST%", "C_TOV%", "C_USG%",
-
         "C_OBPM", "C_OWS",
-
         "C_FGA/40", "C_3PA/40", "C_FTA/40",
         "C_AST/40", "C_STL/40", "C_TOV/40", "C_PTS/40"
 ]
 FEATURES_WINGS = [
         "Age", "Height", "BMI",
         "CT_Win%", "CT_SOS",
-
         "C_GS%", "C_MPG", "C_TS%",
-        
         "C_AST_TO", "C_ORB_DRB",
-
         "C_TRB%", "C_USG%",
-
         "C_BPM", "C_WS",
-
         "C_FGA/40", "C_3PA/40", "C_FTA/40", "C_TRB/40",
         "C_AST/40", "C_TOV/40", "C_PTS/40"
 ]
 FEATURES_BIGS = [
         "Age", "Height", "BMI",
         "CT_Win%", "CT_SOS",
-
         "C_GS%", "C_MPG", "C_FG%", "C_FT%", "C_TS%",
-        
         "C_AST_TO", "C_ORB_DRB",
-
         "C_BLK%", "C_TRB%", "C_USG%",
-
         "C_DBPM", "C_DWS",
-
         "C_FGA/40", "C_FTA/40", "C_TRB/40",
         "C_STL/40", "C_BLK/40", "C_PTS/40"
 ]
@@ -99,7 +79,6 @@ def run_loo(df, features):
     return cross_val_predict(model, X, y, cv=loo, n_jobs=-1, verbose=1)
 
 parts = []
-# LOO predictions
 
 df_train = pd.read_csv(TRAIN_PATH)
 df_train = df_train[df_train["Draft Year"].between(MIN_YEAR_LOO, MAX_YEAR_LOO)]

@@ -1,4 +1,3 @@
-// src/constants.js
 export const FEATURE_RANGES = {
   'Guards': {
     'Age':            { min: 18,  max: 30,  defaultValue: 20 },

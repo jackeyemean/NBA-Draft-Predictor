@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import pandas as pd
 import re
 import joblib
@@ -9,7 +8,7 @@ from sklearn.model_selection import LeaveOneOut, cross_val_predict
 MIN_YEAR    = 2011
 MAX_YEAR    = 2021
 TRAIN_PATH  = "data/cleaned/TRAINING.csv"
-OUT_DIR     = "zzz"   # where to save the .pkl models
+OUT_DIR     = "web/backend/models"   # where to save the .pkl models
 RANDOM_SEED = 100
 N_EST       = 500
 
@@ -102,7 +101,7 @@ def train_group(name, predicate):
         random_state=RANDOM_SEED,
         n_jobs=-1
     )
-    print(f"Running LOO for {name.capitalize()}…")
+    print(f"Running leave one out testing for {name.capitalize()}…")
     preds = cross_val_predict(
         model, X, y,
         cv=loo, n_jobs=-1, verbose=1
@@ -139,5 +138,5 @@ if __name__=="__main__":
 
     # concatenate all LOO results and save
     all_lootests = pd.concat(results, ignore_index=True)
-    all_lootests.to_csv("training_loo_results.csv", index=False)
-    print("Combined LOO results written to training_loo_results.csv")
+    all_lootests.to_csv("results.csv", index=False)
+    print("All leave-one-out results in results.csv")

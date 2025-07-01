@@ -51,7 +51,7 @@ def get_soup(url):
         else:
             raise
     soup = BeautifulSoup(resp.text, 'html.parser')
-    # Some tables are wrapped in HTML comments; extract them
+    # Some tables wrapped in HTML comments
     for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
         if 'table' in comment:
             soup.append(BeautifulSoup(comment, 'html.parser'))

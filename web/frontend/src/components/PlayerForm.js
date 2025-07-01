@@ -1,73 +1,58 @@
-// src/components/PlayerForm.js
 import React, { useState, useEffect } from 'react';
 import { FEATURE_RANGES } from '../constants';
 
 const LABELS = {
   'Age':            'Age',
-  'Height':         'Height (ft/in)',
+  'Height':         'Height (ft & in)',
   'Weight':         'Weight (lbs)',
   'CT_Win%':        'College Win %',
   'CT_SOS':         'Strength of Schedule',
   'C_GS%':          'Games Started %',
-  'C_MPG':          'Minutes/Game',
+  'C_MPG':          'MP',
   'C_USG%':         'Usage %',
-  'C_FG%':          'Field Goal %',
-  'FGA_per_game':   'FGA/Game',
-  'C_3P%':          '3-Point %',
-  '3PA_per_game':   '3PA/Game',
-  'C_FT%':          'Free Throw %',
-  'FTA_per_game':   'FTA/Game',
-  'AST_per_game':   'Assists/Game',
-  'STL_per_game':   'Steals/Game',
-  'TOV_per_game':   'Turnovers/Game',
-  'PPG':            'Points/Game',
-  'OffReb':         'Offensive Reb/Game',
-  'DefReb':         'Defensive Reb/Game',
-  'BLK_per_game':   'Blocks/Game',
-  'C_AST%':         'Assist %',
-  'C_TOV%':         'Turnover %',
-  'C_TS%':          'True Shooting %',
-  'C_AST_TO':       'AST/TO Ratio',
-  'C_ORB_DRB':      'ORB/DRB Ratio',
-  'C_TRB%':         'Rebound %',
-  'C_OBPM':         'Offensive BPM',
-  'C_DBPM':         'Defensive BPM',
-  'C_BPM':          'Box Plus/Minus',
-  'C_OWS':          'Offensive WS',
-  'C_DWS':          'Defensive WS',
-  'C_WS':           'Win Shares'
+  'C_FG%':          'FG%',
+  'FGA_per_game':   'FGA',
+  'C_3P%':          '3P%',
+  '3PA_per_game':   '3PA',
+  'C_FT%':          'FT %',
+  'FTA_per_game':   'FTA',
+  'AST_per_game':   'AST',
+  'STL_per_game':   'STL',
+  'TOV_per_game':   'TOV',
+  'PPG':            'PTS',
+  'OffReb':         'OFF REB',
+  'DefReb':         'DEF REB',
+  'BLK_per_game':   'BLK',
+  'C_AST%':         'AST %',
+  'C_BLK%':         'BLK %',
+  'C_TOV%':         'TOV %',
+  'C_TRB%':         'REB %',
+  'C_OBPM':         'OBPM',
+  'C_DBPM':         'DBPM',
+  'C_BPM':          'BPM',
+  'C_OWS':          'OWS',
+  'C_DWS':          'DWS',
+  'C_WS':           'WS'
 };
 
 const GROUPS = {
   'Guards': [
-    ['Profile',     ['Age','Height','Weight']],
-    ['College',     ['CT_Win%','CT_SOS']],
-    ['Usage',       ['C_GS%','C_MPG','C_USG%']],
+    ['Info',     ['Age','Height','Weight','CT_Win%','C_GS%','CT_SOS']],
+    ['Advanced',    ['C_AST%','C_TOV%','C_USG%','C_OBPM','C_OWS']],
     ['Shooting',    ['C_FG%','FGA_per_game','C_3P%','3PA_per_game','C_FT%','FTA_per_game']],
-    ['Counting',    ['AST_per_game','STL_per_game','TOV_per_game','PPG']],
-    ['Rebounds',    ['OffReb','DefReb']],
-    ['Percentages', ['C_AST%','C_TOV%']],
-    ['Box',         ['C_OBPM','C_OWS']]
+    ['Per Game',    ['C_MPG','PPG','AST_per_game','TOV_per_game','STL_per_game','OffReb','DefReb']]
   ],
   'Wings': [
-    ['Profile',     ['Age','Height','Weight']],
-    ['College',     ['CT_Win%','CT_SOS']],
-    ['Usage',       ['C_GS%','C_MPG','C_USG%']],
+    ['Info',     ['Age','Height','Weight','CT_Win%','C_GS%','CT_SOS']],
+    ['Advanced',    ['C_AST%','C_TOV%','C_TRB%','C_USG%','C_BPM','C_WS']],
     ['Shooting',    ['C_FG%','FGA_per_game','C_3P%','3PA_per_game','C_FT%','FTA_per_game']],
-    ['Counting',    ['AST_per_game','STL_per_game','TOV_per_game','PPG']],
-    ['Rebounds',    ['OffReb','DefReb']],
-    ['Percentages', ['C_AST%','C_TOV%']],
-    ['Box',         ['C_OBPM','C_DBPM','C_BPM','C_OWS','C_DWS','C_WS']]
+    ['Per Game',    ['C_MPG','PPG','AST_per_game','TOV_per_game','STL_per_game','OffReb','DefReb']]
   ],
   'Bigs': [
-    ['Profile',     ['Age','Height','Weight']],
-    ['College',     ['CT_Win%','CT_SOS']],
-    ['Usage',       ['C_GS%','C_MPG','C_USG%']],
-    ['Shooting',    ['C_FG%','FGA_per_game','C_3P%','3PA_per_game','C_FT%','FTA_per_game']],
-    ['Counting',    ['AST_per_game','STL_per_game','TOV_per_game','PPG','BLK_per_game']],
-    ['Rebounds',    ['OffReb','DefReb']],
-    ['Percentages', ['C_AST%','C_TOV%','C_BLK%','C_TRB%']],
-    ['Box',         ['C_OBPM','C_DBPM','C_BPM','C_OWS','C_DWS','C_WS']]
+    ['Info',     ['Age','Height','Weight','CT_Win%','C_GS%','CT_SOS']],
+    ['Advanced',    ['C_AST%','C_TOV%','C_BLK%','C_TRB%','C_USG%','C_DBPM','C_DWS']],
+    ['Shooting',    ['C_FG%','FGA_per_game','C_FT%','FTA_per_game']],
+    ['Per Game',    ['C_MPG','PPG','AST_per_game','TOV_per_game','STL_per_game','BLK_per_game','OffReb','DefReb']]
   ]
 };
 
@@ -76,7 +61,6 @@ export default function PlayerForm({ onSubmit }) {
   const [position, setPosition] = useState('Guards');
   const specs                   = FEATURE_RANGES[position];
 
-  // initialize/reset inputs on position change
   const [inputs, setInputs] = useState({});
   useEffect(() => {
     const init = {};
@@ -103,7 +87,7 @@ export default function PlayerForm({ onSubmit }) {
       : raw.toFixed(1);
 
     return (
-      <div key={feature} className="flex flex-col">
+      <div key={feature} className="flex flex-col mb-4">
         <label htmlFor={feature} className="font-medium mb-1" title={LABELS[feature]}>
           {LABELS[feature]}: {display}
         </label>
@@ -121,6 +105,12 @@ export default function PlayerForm({ onSubmit }) {
       </div>
     );
   };
+
+  // split into left/right
+  const allSections = GROUPS[position];
+  const LEFT_KEYS = ['Info','Advanced'];
+  const left  = allSections.filter(([sec]) => LEFT_KEYS.includes(sec));
+  const right = allSections.filter(([sec]) => !LEFT_KEYS.includes(sec));
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -150,15 +140,36 @@ export default function PlayerForm({ onSubmit }) {
         </div>
       </div>
 
-      {/* Slider Sections */}
-      {GROUPS[position].map(([section, fields]) => (
-        <section key={section}>
-          <h3 className="font-semibold mb-2">{section}</h3>
-          <div className="grid grid-cols-2 gap-4">
-            {fields.map(renderSlider)}
-          </div>
-        </section>
-      ))}
+      {/* Two-column vertical stacks */}
+      <div className="grid grid-cols-2 gap-8">
+        <div>
+          {left.map(([section, fields]) => (
+            <section key={section} className="space-y-2 mb-6">
+              <h3 className="font-semibold">{section}</h3>
+              <div className="flex flex-col">
+                {fields
+                  .filter(f => f in specs)
+                  .map(renderSlider)
+                }
+              </div>
+            </section>
+          ))}
+        </div>
+
+        <div>
+          {right.map(([section, fields]) => (
+            <section key={section} className="space-y-2 mb-6">
+              <h3 className="font-semibold">{section}</h3>
+              <div className="flex flex-col">
+                {fields
+                  .filter(f => f in specs)
+                  .map(renderSlider)
+                }
+              </div>
+            </section>
+          ))}
+        </div>
+      </div>
 
       <button type="submit" className="btn-accent px-4 py-2">
         Create Player

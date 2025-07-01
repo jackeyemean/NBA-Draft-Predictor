@@ -12,7 +12,13 @@ export default function ResultsTable({
       { Header: 'Pick Number',     accessor: 'Pick Number' },
       { Header: 'Name',            accessor: 'Name' },
       { Header: 'Position',        accessor: 'Position Group' },
-      { Header: 'Predicted Score', accessor: 'Predicted Score' },
+      {
+        Header: 'Predicted Score',
+        accessor: 'Predicted Score',
+        // numeric sort so 4.962 > 4.99, etc.
+        sortType: (rowA, rowB, columnId) =>
+          rowA.values[columnId] - rowB.values[columnId]
+      },
     ],
     []
   );
@@ -41,7 +47,7 @@ export default function ResultsTable({
                   className="sticky top-0 bg-white px-3 py-2 text-left font-bold border-b"
                 >
                   <div className="flex items-center space-x-1">
-                    <span>{col.render('Header')}</span>
+                    {col.render('Header')}
                     <span className="text-xs">
                       {col.isSorted
                         ? col.isSortedDesc

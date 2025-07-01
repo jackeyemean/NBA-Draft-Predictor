@@ -48,11 +48,14 @@ export default function ResultsPage() {
     [customPlayers, histData]
   );
 
-  // filters
-  const [yearFilter, setYearFilter]   = useState('All');
+  // filters — default year to 2025
+  const [yearFilter, setYearFilter]   = useState('2025');
   const [groupFilter, setGroupFilter] = useState('All');
+
   const years  = useMemo(
-    () => [...new Set(histData.map(d => d['Draft Year']))].sort((a, b) => b - a),
+    () => [...new Set(histData.map(d => d['Draft Year']))]
+          .sort((a, b) => b - a)
+          .map(String),
     [histData]
   );
   const groups = useMemo(
@@ -64,8 +67,11 @@ export default function ResultsPage() {
   const filtered = useMemo(
     () => combined.filter(d => {
       const isCustom = customPlayers.some(p => p.Name === d.Name);
-      const yearOK   = isCustom || yearFilter === 'All' || d['Draft Year'] === +yearFilter;
-      const groupOK  = groupFilter === 'All' || d['Position Group'] === groupFilter;
+      const yearOK   = isCustom
+        || yearFilter === 'All'
+        || String(d['Draft Year']) === yearFilter;
+      const groupOK  = groupFilter === 'All'
+        || d['Position Group'] === groupFilter;
       return yearOK && groupOK;
     }),
     [combined, customPlayers, yearFilter, groupFilter]
@@ -110,7 +116,9 @@ export default function ResultsPage() {
               className="border p-1 rounded"
             >
               <option>All</option>
-              {years.map(y => <option key={y}>{y}</option>)}
+              {years.map(y => (
+                <option key={y}>{y}</option>
+              ))}
             </select>
           </div>
           <div>
@@ -121,7 +129,9 @@ export default function ResultsPage() {
               className="border p-1 rounded"
             >
               <option>All</option>
-              {groups.map(g => <option key={g}>{g}</option>)}
+              {groups.map(g => (
+                <option key={g}>{g}</option>
+              ))}
             </select>
           </div>
         </div>

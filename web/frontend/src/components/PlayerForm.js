@@ -34,7 +34,7 @@ export default function PlayerForm({ onSubmit }) {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block font-medium mb-1">Player Name</label>
+          <label className="block font-medium mb-1">Prospect Name</label>
           <input
             type="text"
             value={playerName}

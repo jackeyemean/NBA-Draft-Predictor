@@ -39,14 +39,10 @@ def predict():
     weight_lbs = float(data['Weight'])       # lbs
     ct_win     = float(data['CT_Win%'])
     ct_sos     = float(data['CT_SOS'])
-    gs_pct     = float(data['C_GS%'])
     mpg        = float(data['C_MPG'])
     usg_pct    = float(data['C_USG%'])
-    fg_pct     = float(data['C_FG%'])
     fga        = float(data['FGA_per_game'])
-    threep_pct = float(data['C_3P%'])
     threepa    = float(data['3PA_per_game'])
-    ft_pct     = float(data['C_FT%'])
     fta        = float(data['FTA_per_game'])
     ast_raw    = float(data['AST_per_game'])
     stl_raw    = float(data['STL_per_game'])
@@ -59,17 +55,11 @@ def predict():
     obpm   = float(data.get('C_OBPM', 0))
     dbpm   = float(data.get('C_DBPM', 0))
     bpm    = float(data.get('C_BPM', 0))
-    ows    = float(data.get('C_OWS', 0))
-    dws    = float(data.get('C_DWS', 0))
-    ws     = float(data.get('C_WS', 0))
-    ast_pct= float(data.get('C_AST%', 0))
-    tov_pct= float(data.get('C_TOV%', 0))
-    blk_pct= float(data.get('C_BLK%', 0))
-    trb_pct= float(data.get('C_TRB%', 0))
+    per    = float(data.get('C_PER', 0))
 
     # ─── Derivations ────────────────────────────────────────────
     height_cm = height_in * 2.54
-    bmi       = (weight_lbs * 0.45359237) / ((height_cm/100)**2)
+    weight_kg = weight_lbs * 0.45359237
 
     ts_denom = fga + 0.44 * fta
     ts_pct   = (ppg / (2 * ts_denom) * 100) if ts_denom else 0
@@ -92,36 +82,36 @@ def predict():
     # ─── Feature vectors ────────────────────────────────────────
     if pos == 'Guards':
         features = [
-            age, height_cm, bmi,
+            age, height_cm, weight_kg,
             ct_win, ct_sos,
-            gs_pct, mpg, fg_pct, threep_pct, ft_pct, ts_pct,
+            mpg, ts_pct, per,
             ast_to, orb_drb,
-            ast_pct, tov_pct, usg_pct,
-            obpm, ows,
-            fga_40, threepa_40, fta_40,
-            ast_40, stl_40, tov_40, pts_40
+            usg_pct,
+            obpm,
+            fga_40, threepa_40, fta_40, trb_40,
+            ast_40, blk_40, stl_40, tov_40, pts_40
         ]
     elif pos == 'Wings':
         features = [
-            age, height_cm, bmi,
+            age, height_cm, weight_kg,
             ct_win, ct_sos,
-            gs_pct, mpg, ts_pct,
+            mpg, ts_pct, per,
             ast_to, orb_drb,
-            trb_pct, usg_pct,
-            bpm, ws,
+            usg_pct,
+            bpm,
             fga_40, threepa_40, fta_40, trb_40,
-            ast_40, tov_40, pts_40
+            ast_40, blk_40, stl_40, tov_40, pts_40
         ]
     else:  # Bigs
         features = [
-            age, height_cm, bmi,
+            age, height_cm, weight_kg,
             ct_win, ct_sos,
-            gs_pct, mpg, fg_pct, ft_pct, ts_pct,
+            mpg, ts_pct, per,
             ast_to, orb_drb,
-            blk_pct, trb_pct, usg_pct,
-            dbpm, dws,
-            fga_40, fta_40, trb_40,
-            stl_40, blk_40, pts_40
+            usg_pct,
+            dbpm,
+            fga_40, threepa_40, fta_40, trb_40,
+            ast_40, blk_40, stl_40, tov_40, pts_40
         ]
 
     score = model.predict([features])[0]

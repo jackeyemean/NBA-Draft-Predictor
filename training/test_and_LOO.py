@@ -7,14 +7,14 @@ from sklearn.model_selection import LeaveOneOut, cross_val_predict
 
 # ─── Configuration ─────────────────────────────────────────────────────
 MIN_YEAR_LOO      = 2011
-MAX_YEAR_LOO      = 2021
-TEST_YEARS        = [2022, 2023, 2024]
+MAX_YEAR_LOO      = 2011
+TEST_YEARS        = [2025]
 TRAIN_PATH        = "data/cleaned/TRAINING.csv"
-TEST_PATH         = "data/cleaned/TESTING.csv"
-GUARD_MODEL_PATH  = "web/backend/models/guards.pkl"
-WING_MODEL_PATH   = "web/backend/models/wings.pkl"
-BIG_MODEL_PATH    = "web/backend/models/bigs.pkl"
-OUTPUT_CSV        = "results.csv"
+TEST_PATH         = "data/cleaned/drafts-2025-to-2025.csv"
+GUARD_MODEL_PATH  = "training/guards.pkl"
+WING_MODEL_PATH   = "training/wings.pkl"
+BIG_MODEL_PATH    = "training/bigs.pkl"
+OUTPUT_CSV        = "training/2025.csv"
 
 # ─── Position Predicates ────────────────────────────────────────────────
 def is_guard_only(pos_str: str) -> bool:
@@ -41,39 +41,30 @@ def is_big(pos_str: str) -> bool:
 
 # ─── Feature Lists ───────────────────────────────────────────────────────
 FEATURES_GUARDS = [
-        "Age", "Height", "BMI",
-        "CT_Win%", "CT_SOS",
-        "C_GS%", "C_MPG", "C_FG%", "C_3P%", "C_FT%", "C_TS%",
-        "C_AST_TO", "C_ORB_DRB",
-        "C_AST%", "C_TOV%", "C_USG%",
-        "C_OBPM", "C_OWS",
-        "C_FGA/40", "C_3PA/40", "C_FTA/40",
-        "C_AST/40", "C_STL/40", "C_TOV/40", "C_PTS/40"
+        "Age", "Height", "Height/Weight",
+        "CT_SOS",
+        "C_TS%", "C_ORB_DRB", "C_AST_TO",
+        "C_OBPM", "C_USG%",
+        "C_FGA/40", "C_PTS/40", "C_AST/40", "C_TRB/40", "C_TOV/40"
 ]
 FEATURES_WINGS = [
-        "Age", "Height", "BMI",
-        "CT_Win%", "CT_SOS",
-        "C_GS%", "C_MPG", "C_TS%",
-        "C_AST_TO", "C_ORB_DRB",
-        "C_TRB%", "C_USG%",
-        "C_BPM", "C_WS",
-        "C_FGA/40", "C_3PA/40", "C_FTA/40", "C_TRB/40",
-        "C_AST/40", "C_TOV/40", "C_PTS/40"
+        "Age", "Height", "Height/Weight",
+        "CT_SOS",
+        "C_TS%", "C_ORB_DRB", "C_AST_TO",
+        "C_BPM", "C_USG%",
+        "C_FGA/40", "C_PTS/40", "C_AST/40", "C_TRB/40", "C_STOCKS/40"
 ]
 FEATURES_BIGS = [
-        "Age", "Height", "BMI",
-        "CT_Win%", "CT_SOS",
-        "C_GS%", "C_MPG", "C_FG%", "C_FT%", "C_TS%",
-        "C_AST_TO", "C_ORB_DRB",
-        "C_BLK%", "C_TRB%", "C_USG%",
-        "C_DBPM", "C_DWS",
-        "C_FGA/40", "C_FTA/40", "C_TRB/40",
-        "C_STL/40", "C_BLK/40", "C_PTS/40"
+        "Age", "Height", "Height/Weight",
+        "CT_SOS",
+        "C_TS%",
+        "C_DBPM", "C_BLK%", "C_ORB%",
+        "C_FGA/40", "C_FTA/40", "C_3PA/40", "C_3P%", "C_PTS/40", "C_AST/40", "C_TRB/40", "C_BLK/40"
 ]
 
 def run_loo(df, features):
     loo = LeaveOneOut()
-    model = RandomForestRegressor(n_estimators=500, random_state=100, n_jobs=-1)
+    model = RandomForestRegressor(n_estimators=500, random_state=123456789, n_jobs=-1)
     X = df[features]
     y = df["Player Tier"]
     return cross_val_predict(model, X, y, cv=loo, n_jobs=-1, verbose=1)

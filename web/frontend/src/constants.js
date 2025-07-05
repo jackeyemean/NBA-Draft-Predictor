@@ -5,7 +5,6 @@ export const FEATURE_RANGES = {
     'Weight':         { min: 140, max: 260, defaultValue: 190 },  // lbs
     'CT_Win%':        { min: 0,   max: 100,defaultValue: 50 },
     'CT_SOS':         { min: 0,   max: 10, defaultValue: 5   },
-    'C_GS%':          { min: 0,   max: 100,defaultValue: 20  },
     'C_MPG':          { min: 0,   max: 40, defaultValue: 20  },
     'C_USG%':         { min: 0,   max: 100,defaultValue: 20  },
     'C_FG%':          { min: 0,   max: 100,defaultValue: 45  },
@@ -20,10 +19,8 @@ export const FEATURE_RANGES = {
     'PPG':            { min: 0,   max: 40, defaultValue: 15  },
     'OffReb':         { min: 0,   max: 15, defaultValue: 5   },
     'DefReb':         { min: 0,   max: 20, defaultValue: 8   },
-    'C_AST%':         { min: 0,   max: 100,defaultValue: 15  },
-    'C_TOV%':         { min: 0,   max: 100,defaultValue: 12  },
     'C_OBPM':         { min: -5,  max: 5,  defaultValue: 0   },
-    'C_OWS':          { min: -2,  max: 6,  defaultValue: 1   }
+    'C_PER':          { min: 0,  max: 30,  defaultValue: 15   }
   },
 
   'Wings': {
@@ -32,7 +29,6 @@ export const FEATURE_RANGES = {
     'Weight':         { min: 150, max: 280,defaultValue: 215 },
     'CT_Win%':        { min: 0,   max: 100,defaultValue: 50 },
     'CT_SOS':         { min: 0,   max: 10, defaultValue: 5   },
-    'C_GS%':          { min: 0,   max: 100,defaultValue: 25  },
     'C_MPG':          { min: 0,   max: 40, defaultValue: 25  },
     'C_USG%':         { min: 0,   max: 100,defaultValue: 20  },
     'C_FG%':          { min: 0,   max: 100,defaultValue: 45  },
@@ -47,14 +43,8 @@ export const FEATURE_RANGES = {
     'PPG':            { min: 0,   max: 40, defaultValue: 14  },
     'OffReb':         { min: 0,   max: 15, defaultValue: 6   },
     'DefReb':         { min: 0,   max: 20, defaultValue: 8   },
-    'C_AST%':         { min: 0,   max: 100,defaultValue: 12  },
-    'C_TOV%':         { min: 0,   max: 100,defaultValue: 14  },
-    'C_OBPM':         { min: -5,  max: 5,  defaultValue: 0   },
-    'C_DBPM':         { min: -5,  max: 5,  defaultValue: -1  },
     'C_BPM':          { min: -5,  max: 5,  defaultValue: 0   },
-    'C_OWS':          { min: -2,  max: 6,  defaultValue: 1   },
-    'C_DWS':          { min: -1,  max: 10, defaultValue: 1   },
-    'C_WS':           { min: -1,  max: 10, defaultValue: 2   }
+    'C_PER':          { min: 0,  max: 30,  defaultValue: 15   }
   },
 
   'Bigs': {
@@ -63,7 +53,6 @@ export const FEATURE_RANGES = {
     'Weight':         { min: 180, max: 320,defaultValue: 250 },
     'CT_Win%':        { min: 0,   max: 100,defaultValue: 50 },
     'CT_SOS':         { min: 0,   max: 10, defaultValue: 5   },
-    'C_GS%':          { min: 0,   max: 100,defaultValue: 30  },
     'C_MPG':          { min: 0,   max: 40, defaultValue: 22  },
     'C_USG%':         { min: 0,   max: 100,defaultValue: 18  },
     'C_FG%':          { min: 0,   max: 100,defaultValue: 50  },
@@ -79,15 +68,7 @@ export const FEATURE_RANGES = {
     'OffReb':         { min: 0,   max: 15, defaultValue: 8   },
     'DefReb':         { min: 0,   max: 20, defaultValue: 12  },
     'BLK_per_game':   { min: 0,   max: 10, defaultValue: 2   },
-    'C_AST%':         { min: 0,   max: 100,defaultValue: 10  },
-    'C_TOV%':         { min: 0,   max: 100,defaultValue: 10  },
-    'C_OBPM':         { min: -5,  max: 5,  defaultValue: 0   },
     'C_DBPM':         { min: -5,  max: 5,  defaultValue: 0   },
-    'C_BPM':          { min: -5,  max: 5,  defaultValue: 0   },
-    'C_OWS':          { min: -2,  max: 6,  defaultValue: 1   },
-    'C_DWS':          { min: -1,  max: 10, defaultValue: 1   },
-    'C_WS':           { min: -1,  max: 10, defaultValue: 1   },
-    'C_BLK%':         { min: 0,   max: 100,defaultValue: 3   },
-    'C_TRB%':         { min: 0,   max: 100,defaultValue: 20  }
+    'C_PER':          { min: 0,  max: 30,  defaultValue: 15   }
   }
 };

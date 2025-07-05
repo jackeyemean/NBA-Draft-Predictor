@@ -8,7 +8,7 @@ from sklearn.model_selection import LeaveOneOut, cross_val_predict
 MIN_YEAR    = 2011
 MAX_YEAR    = 2021
 TRAIN_PATH  = "data/cleaned/TRAINING.csv"
-OUT_DIR     = "web/backend/models"   # where to save the .pkl models
+OUT_DIR     = "training"   # where to save the .pkl models
 RANDOM_SEED = 100
 N_EST       = 500
 
@@ -30,49 +30,26 @@ def is_big(pos_str: str) -> bool:
 # ─── Feature Lists ───────────────────────────────────────────────────────────
 FEATURES = {
     "guards": [
-        "Age", "Height", "BMI",
-        "CT_Win%", "CT_SOS",
-
-        "C_GS%", "C_MPG", "C_FG%", "C_3P%", "C_FT%", "C_TS%",
-        
-        "C_AST_TO", "C_ORB_DRB",
-
-        "C_AST%", "C_TOV%", "C_USG%",
-
-        "C_OBPM", "C_OWS",
-
-        "C_FGA/40", "C_3PA/40", "C_FTA/40",
-        "C_AST/40", "C_STL/40", "C_TOV/40", "C_PTS/40"
+        # GOOD RESULTS FOR GUARD (consider adding 3pt% and blocks?)
+        "Age", "Height", "Height/Weight",
+        "CT_SOS",
+        "C_TS%", "C_ORB_DRB", "C_AST_TO",
+        "C_BPM", "C_USG%", "C_PER",
+        "C_FGA/40", "C_PTS/40", "C_AST/40", "C_TRB/40", "C_TOV/40", "C_STL/40"
     ],
     "wings": [
-        "Age", "Height", "BMI",
-        "CT_Win%", "CT_SOS",
-
-        "C_GS%", "C_MPG", "C_TS%",
-        
-        "C_AST_TO", "C_ORB_DRB",
-
-        "C_TRB%", "C_USG%",
-
-        "C_BPM", "C_WS",
-
-        "C_FGA/40", "C_3PA/40", "C_FTA/40", "C_TRB/40",
-        "C_AST/40", "C_TOV/40", "C_PTS/40"
+        "Age", "Height",
+        "CT_SOS",
+        "C_TS%", "C_ORB_DRB", "C_AST_TO",
+        "C_BPM", "C_AST%", "C_TRB%", "C_3PA/40", "C_3P%",
+        "C_FGA/40", "C_PTS/40", "C_AST/40", "C_TOV/40", "C_STL/40"
     ],
     "bigs": [
-        "Age", "Height", "BMI",
-        "CT_Win%", "CT_SOS",
-
-        "C_GS%", "C_MPG", "C_FG%", "C_FT%", "C_TS%",
-        
-        "C_AST_TO", "C_ORB_DRB",
-
-        "C_BLK%", "C_TRB%", "C_USG%",
-
-        "C_DBPM", "C_DWS",
-
-        "C_FGA/40", "C_FTA/40", "C_TRB/40",
-        "C_STL/40", "C_BLK/40", "C_PTS/40"
+        "Age", "Height",
+        "CT_SOS",
+        "C_TS%", "C_ORB_DRB", "C_AST_TO",
+        "C_DBPM", "C_BLK%", "C_TRB%",
+        "C_FGA/40", "C_FTA/40", "C_3PA/40", "C_3P%", "C_PTS/40", "C_AST/40", "C_STL/40", "C_BLK/40"
     ]
 }
 
@@ -138,5 +115,5 @@ if __name__=="__main__":
 
     # concatenate all LOO results and save
     all_lootests = pd.concat(results, ignore_index=True)
-    all_lootests.to_csv("results.csv", index=False)
-    print("All leave-one-out results in results.csv")
+    all_lootests.to_csv("demo.csv", index=False)
+    print("All leave-one-out results in refined.csv")

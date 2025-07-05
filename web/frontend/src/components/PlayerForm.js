@@ -30,27 +30,25 @@ const LABELS = {
   'C_OBPM':         'OBPM',
   'C_DBPM':         'DBPM',
   'C_BPM':          'BPM',
-  'C_OWS':          'OWS',
-  'C_DWS':          'DWS',
-  'C_WS':           'WS'
+  "C_PER":          'PER'
 };
 
 const GROUPS = {
   'Guards': [
-    ['Info',     ['Age','Height','Weight','CT_Win%','C_GS%','CT_SOS']],
-    ['Advanced',    ['C_AST%','C_TOV%','C_USG%','C_OBPM','C_OWS']],
+    ['Info',     ['Age','Height','Weight','CT_Win%','CT_SOS']],
+    ['Advanced',    ['C_USG%','C_OBPM','C_PER']],
     ['Shooting',    ['C_FG%','FGA_per_game','C_3P%','3PA_per_game','C_FT%','FTA_per_game']],
     ['Per Game',    ['C_MPG','PPG','AST_per_game','TOV_per_game','STL_per_game','OffReb','DefReb']]
   ],
   'Wings': [
-    ['Info',     ['Age','Height','Weight','CT_Win%','C_GS%','CT_SOS']],
-    ['Advanced',    ['C_AST%','C_TOV%','C_TRB%','C_USG%','C_BPM','C_WS']],
+    ['Info',     ['Age','Height','Weight','CT_Win%','CT_SOS']],
+    ['Advanced',    ['C_USG%','C_OBPM','C_PER']],
     ['Shooting',    ['C_FG%','FGA_per_game','C_3P%','3PA_per_game','C_FT%','FTA_per_game']],
     ['Per Game',    ['C_MPG','PPG','AST_per_game','TOV_per_game','STL_per_game','OffReb','DefReb']]
   ],
   'Bigs': [
-    ['Info',     ['Age','Height','Weight','CT_Win%','C_GS%','CT_SOS']],
-    ['Advanced',    ['C_AST%','C_TOV%','C_BLK%','C_TRB%','C_USG%','C_DBPM','C_DWS']],
+    ['Info',     ['Age','Height','Weight','CT_Win%','CT_SOS']],
+    ['Advanced',    ['C_USG%','C_OBPM','C_PER']],
     ['Shooting',    ['C_FG%','FGA_per_game','C_FT%','FTA_per_game']],
     ['Per Game',    ['C_MPG','PPG','AST_per_game','TOV_per_game','STL_per_game','BLK_per_game','OffReb','DefReb']]
   ]
